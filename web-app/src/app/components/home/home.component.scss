@@ -1,12 +1,29 @@
-// .categoriesCard {
-//     max-width: 300px;
-//     max-height: 300px; 
-//   }
+.categoriesCard {
+    // max-width: 90% !important;
+    // max-height: 90% !important; 
+    // padding: 10%;
+    // margin: 20% !important;
+  }
 
-//   mat-grid-list {
-//     height: calc(100% - 150px);
-//   }
+  .categoriePic {
+    width: 80%;
+    height: 80%;
+  }
 
-//   mat-grid-tile {
-//       padding: 50px;
-//   }
+
+mat-grid-list{
+    max-width: 90% !important;
+    max-height: 80% !important; 
+}
+mat-progress-bar{
+    position: absolute;
+    bottom: 0;
+}
+
+mat-card{
+    width: 80% !important;
+    height: 80% !important;
+    text-align: center;
+    cursor: pointer;
+}
+

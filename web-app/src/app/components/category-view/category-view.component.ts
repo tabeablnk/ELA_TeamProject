@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from 'src/app/services/state.service';
+import { Category } from '../../models/state-enum.model'
 
 @Component({
   selector: 'app-category-view',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryViewComponent implements OnInit {
 
-  constructor() { }
+public category: Category;
+
+  constructor(public state: StateService) { 
+    this.category = state.getCategory();
+  }
 
   ngOnInit(): void {
+  }
+
+  getCategoryName() {
+    switch(this.category) {
+      case Category.Demografie:
+        return "Demografie";
+      case Category.Geographie:
+        return "Geographie";
+      case Category.Geschichte:
+        return "Geschichte";
+      case Category.Kultur:
+        return "Kultur";
+    }
   }
 
 }
