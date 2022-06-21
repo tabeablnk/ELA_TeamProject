@@ -1,0 +1,59 @@
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+    width: 100%;
+  }
+  
+  .map-frame {
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }
+
+#map.active {
+    cursor: pointer !important;
+  }
+
+
+#map.disabled {
+    background: red;
+    cursor: default !important;
+}
+
+#map-question-wrapper {
+    display: flex;
+}
+
+
+#cursor.disabled {
+    display: none;
+}
+
+#cursor.active {
+  display: block;
+}
+
+
+  .cursor {
+    position: fixed;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    left: -100px;
+    top: 50%;
+    mix-blend-mode: difference;
+    background-color: 
+  white;
+    z-index: 10000;
+    border: 2px solid 
+  white;
+    height: 15px;
+    width: 15px;
+    transition: all 300ms ease-out;
+  }
