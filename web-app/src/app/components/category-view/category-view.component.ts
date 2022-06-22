@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestiontemplatesService } from 'src/app/services/questiontemplates.service';
 import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model'
 
@@ -10,12 +11,16 @@ import { Category } from '../../models/state-enum.model'
 export class CategoryViewComponent implements OnInit {
 
 public category: Category;
+public questionTemplates : Array<Object> | undefined;  
 
-  constructor(public state: StateService) { 
+  constructor(public state: StateService, public templates: QuestiontemplatesService) { 
     this.category = state.getCategory();
+    this.questionTemplates = templates.getAllTemplates(); 
+    console.log(this.questionTemplates)
   }
 
   ngOnInit(): void {
+
   }
 
   getCategoryName() {
