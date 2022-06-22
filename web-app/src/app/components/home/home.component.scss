@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .categoriesCard {
     // max-width: 90% !important;
     // max-height: 90% !important; 
@@ -67,4 +68,22 @@ mat-card-header{
     .mat-progress-bar-buffer {
       background: #2296F3;
     }
+=======
+// .categoriesCard {
+//     max-width: 300px;
+//     max-height: 300px; 
+//   }
+
+//   mat-grid-list {
+//     height: calc(100% - 150px);
+//   }
+
+//   mat-grid-tile {
+//       padding: 50px;
+//   }
+
+//delete later
+mat-grid-list {
+    display:none
+>>>>>>> f4ddc0e430ed768f0abd73ac2db309d1eef786bd
 }
