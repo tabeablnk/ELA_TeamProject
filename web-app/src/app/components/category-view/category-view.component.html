@@ -1,4 +1,25 @@
-<p>category-view works!</p>
-<p>Sind hier in der Kategorie:</p>
+<div>
+    <nav id="header">
+        <div style="padding-top: 20px; padding-left: 3%;">
+            <h1 >{{getCategoryName()}}</h1>
+            <h3 style="padding: 0%;">Hier kommt dann die Beschreibung der Hauptaufgabe</h3>
+        </div>
+    </nav>
+    <section>
+        <div style="padding-top: 2%; padding-left: 3%;">
+            <h3>Sind hier in der Kategorie: {{getCategoryName()}}</h3>
+        </div>
+    </section>
+    <footer id="footer">
+        <button mat-raised-button #confirmButton id="confirmButton" color="success" class="center-general">Eingabe überprüfen</button>
+        <button mat-raised-button #confirmButton id="confirmButton" color="success" class="vertical-center">
+            <mat-icon></mat-icon>
+            Nächste Frage
+        </button>
+        <span class="progressQuestions">Frage: 1/10</span>
+        <mat-progress-bar class="barCategory1"></mat-progress-bar>
+    </footer>    
+</div>
 
-<h3>Sind hier in der Kategorie: {{getCategoryName()}}</h3>
+
+

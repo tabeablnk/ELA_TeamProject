@@ -1,0 +1,56 @@
+nav{
+height:100px;
+/*Or fixed pixel unit*/
+}
+footer{
+height:160px;
+/*Or fixed pixel unit*/
+// background-color: black;
+position: relative;
+}
+section {
+    height: calc(100vh - 260px);
+    overflow-y: auto;
+    transition: all 0.5s;
+    // background-color: yellow;
+}
+
+mat-progress-bar{
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+}
+
+.barCategory1{
+    ::ng-deep 
+      .mat-progress-bar-buffer {
+        background: rgba(91, 12, 38, 0.9);
+      }
+}
+
+.colorKultur{
+    color: rgba(91, 12, 38, 0.9);
+}  
+
+.confirmButton{
+    color:#4CAF51; 
+}
+
+
+.vertical-center {
+    top: 40%;
+    float: right;
+    margin-right: 5%
+}
+
+.center-general{
+  top: 40%;
+  left: 45%;
+}
+
+.progressQuestions{
+
+    position: fixed;
+    bottom: 20px;
+    left:20px;
+}

@@ -6,8 +6,10 @@
   }
 
   .categoriePic {
+    object-fit: cover;
+    background-size: cover;
     width: 80%;
-    height: 80%;
+    height: 80% !important;
   }
 
 
@@ -15,6 +17,7 @@ mat-grid-list{
     max-width: 90% !important;
     max-height: 80% !important; 
 }
+
 mat-progress-bar{
     position: absolute;
     bottom: 0;
@@ -27,3 +30,41 @@ mat-card{
     cursor: pointer;
 }
 
+mat-card-content {
+  justify-content: center;
+  display: flex;
+}
+mat-card-header{
+  padding: 10px; 
+  padding-bottom:20px; 
+  justify-content: center;
+  display: flex;
+}
+
+/**
+* COLORS OF THE BOTTOM ON EACH CARD
+**/
+.barCategory1{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #e91e62;
+    }
+}
+.barCategory2{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #FEB546;
+    }
+}
+.barCategory3{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #7BC57E;
+    }
+}
+.barCategory4{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #2296F3;
+    }
+}
