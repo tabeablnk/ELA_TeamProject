@@ -1,1 +1,8 @@
-<p>drag-drop works!</p>
+<p>- Aufgabenbeschreibung Hier -</p>
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+  </div>
+
+
+  

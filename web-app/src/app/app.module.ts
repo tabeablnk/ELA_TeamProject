@@ -15,6 +15,7 @@ import { MapSelectionComponent } from './components/items/map-selection/map-sele
 import { ShortAnswerComponent } from './components/items/short-answer/short-answer.component';
 import { DragDropComponent } from './components/items/drag-drop/drag-drop.component';
 import { ClozeComponent } from './components/items/cloze/cloze.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ClozeComponent } from './components/items/cloze/cloze.component';
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
