@@ -1,1 +1,24 @@
-<p>sort-order works!</p>
+<p>- Aufgabenbeschreibung Hier -</p>
+
+
+
+<mat-grid-list cols="10" rowHeight="500" >
+  <mat-grid-tile colspan="1" >
+    <mat-list role="list">
+      <mat-list-item style="height: 60px;" role="listitem" *ngFor="let item of currentAnswer;let indexOfelement=index;">{{indexOfelement+1}}.
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" class="TEST">
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of currentAnswer" cdkDrag>
+        <div>{{item.name}}</div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="6">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<button mat-raised-button #confirmButton id="confirmButton" color="success" class="center-general"
+  (click)="checkAnswer()">Check</button>
