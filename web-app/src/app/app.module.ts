@@ -16,6 +16,7 @@ import { ShortAnswerComponent } from './components/items/short-answer/short-answ
 import { DragDropComponent } from './components/items/drag-drop/drag-drop.component';
 import { ClozeComponent } from './components/items/cloze/cloze.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MapSelectionComponent,
     ShortAnswerComponent,
     DragDropComponent,
-    ClozeComponent
+    ClozeComponent,
+    QuizResultsComponent
   ],
   imports: [
     MaterialModule,

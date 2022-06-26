@@ -11,7 +11,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "options": ["", ""],
             "correctAnswer": ""
         }
@@ -27,7 +27,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "correctAnswer": ""
         }
     },
@@ -42,7 +42,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "gapText": ["",""],
             "options": ["", ""],
             "correctAnswer": "???? noch offen"
@@ -59,7 +59,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "gapText": ["",""],
             "correctAnswer": "???? noch offen"
         }
@@ -75,7 +75,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "correctAnswer": ["",""],
             "options": ["",""]
         }
@@ -91,7 +91,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "options": ["", ""],
             "correctAnswer": [
                 {
@@ -116,7 +116,7 @@
         "answeredCorrect":false,
         "givenAnswers":["answer1","answer2"],
         
-        "additonalInfos":{
+        "additionalInfos":{
             "correctAnswer":""
         }
     }

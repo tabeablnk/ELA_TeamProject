@@ -1,6 +1,6 @@
 export enum Category {
-  Demografie = 0,
-  Kultur = 1,
+  Demografie = 1,
   Geographie = 2,
   Geschichte = 3,
+  Kultur = 4,
 }

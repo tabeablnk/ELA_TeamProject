@@ -1,5 +1,8 @@
 <div>
     <nav id="header">
+        <!-- <div>
+            <mat-icon>home</mat-icon>
+        </div> -->
         <div style="padding-top: 20px; padding-left: 3%;">
             <h1 >{{getCategoryName()}}</h1>
             <h3 style="padding: 0%;">Hier kommt dann die Beschreibung der Hauptaufgabe</h3>
@@ -7,19 +10,47 @@
     </nav>
     <section>
         <div style="padding-top: 2%; padding-left: 3%;">
-            <app-map-selection></app-map-selection>
+            <!-- <app-map-selection></app-map-selection> -->
+            <!-- <app-cloze></app-cloze> -->
+            <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
+                <div *ngIf="currentIndex === currentQuestionNum">
+                    {{question.questionText}}
+                    <div *ngIf="question.questionType === 1">
+                        <app-single-choice></app-single-choice>
+                    </div>
+                    <div *ngIf="question.questionType === 2">
+                        <app-map-selection></app-map-selection>
+                    </div>
+                    <div *ngIf="question.questionType === 3">
+                        <app-drag-drop></app-drag-drop>
+                    </div>
+                    <div *ngIf="question.questionType === 4">
+                        <app-cloze></app-cloze>
+                    </div>
+                    <div *ngIf="question.questionType === 5">
+                        <app-multiple-choice></app-multiple-choice>
+                    </div>
+                    <div *ngIf="question.questionType === 6">
+                        <app-sort-order></app-sort-order>
+                    </div>
+                    <div *ngIf="question.questionType === 7">
+                        <app-short-answer></app-short-answer>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <footer id="footer">
-        <button mat-raised-button #confirmButton id="confirmButton" color="success" class="center-general">Eingabe überprüfen</button>
-        <button mat-raised-button #confirmButton id="confirmButton" color="success" class="vertical-center">
-            <mat-icon></mat-icon>
+        <button mat-raised-button #confirmButton id="confirmButton" style="background-color: #56B45B; color: white;" class="center-general">Eingabe überprüfen</button>
+        <button mat-raised-button #nextButton id="nextButton" class="vertical-center" *ngIf="!arrivedLastQuestion" (click)="onNextButtonPressed()">
             Nächste Frage
+            <mat-icon>arrow_forward</mat-icon>
         </button>
-        <span class="progressQuestions">Frage: 1/10</span>
+        <button mat-raised-button #finishButton id="finishButton" class="vertical-center" *ngIf="arrivedLastQuestion" (click)="onFinishQuizPressed()">
+            Quiz beenden
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+        <span class="progressQuestions">Frage: {{currentQuestionNum}}/{{currentQuizSet?.length}}</span>
         <mat-progress-bar class="barCategory1"></mat-progress-bar>
     </footer>    
 </div>
-
-
-

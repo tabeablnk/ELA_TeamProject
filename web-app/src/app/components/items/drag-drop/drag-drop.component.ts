@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
   selector: 'app-drag-drop',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DragDropComponent implements OnInit {
 
-  constructor() { }
+  public currentQuestion: any; 
+  
+  constructor(public quizService: CurrentQuizService) {
+    this.currentQuestion = this.quizService.getCurrentQuestion(); 
+  }
 
   ngOnInit(): void {
   }
