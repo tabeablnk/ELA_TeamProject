@@ -7,7 +7,7 @@ import { CategoryQuestionsService } from './category-questions.service';
 export class CurrentQuizService {
 
   private currentQuestions : Array<any> = []; 
-  private currentQuestion : object = {};
+  private currentQuestion : any = {};
 
   constructor(public catQuestions: CategoryQuestionsService) { }
 

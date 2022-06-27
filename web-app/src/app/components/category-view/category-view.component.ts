@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 import { QuestiontemplatesService } from 'src/app/services/questiontemplates.service';
 import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
+import { ClozeComponent } from '../items/cloze/cloze.component';
 
 @Component({
   selector: 'app-category-view',
@@ -11,6 +12,13 @@ import { Category } from '../../models/state-enum.model';
   styleUrls: ['./category-view.component.scss']
 })
 export class CategoryViewComponent implements OnInit {
+
+  /**
+   * VIEW CHILDS FOR THE ITEM TYPES
+   * => needed to call the functions of the child-component when pressing the "Eingabe Überprüfen"-Button
+   */
+  @ViewChild(ClozeComponent) cloze: ClozeComponent | undefined; 
+
 
   public currentQuestion : any; 
   public currentQuestionNum : number = 1; 
@@ -79,6 +87,32 @@ export class CategoryViewComponent implements OnInit {
         return "Kultur";
       default:   
         return "select category!";
+    }
+  }
+
+  onValidateButtonPressed():void{
+    let question = this.currQuiz.getCurrentQuestion();
+    console.log(question)
+    
+    switch(question.questionType){
+      case 1:
+        //hier Funktion für Questiontyp 1 - Single Choice, die aufgerufen werden soll zum validieren
+      case 2: 
+        //hier Funktion für Questiontyp 2 - Map Question, die aufgerufen werden soll zum validieren
+      case 3:
+        //hier Funktion für Questiontyp 3 - Drag & Drop, die aufgerufen werden soll zum validieren
+      case 4:
+        //hier Funktion für Questiontyp 4 - Cloze, die aufgerufen werden soll zum validieren
+        this.cloze?.validateButtonPressed(); 
+        return;
+      case 5:
+        //hier Funktion für Questiontyp 5 - Multiple Choice, die aufgerufen werden soll zum validieren
+      case 6: 
+        //hier Funktion für Questiontyp 6 - Sort & Order, die aufgerufen werden soll zum validieren
+      case 7:
+        //hier Funktion für Questiontyp 7 - Short Answer, die aufgerufen werden soll zum validieren
+      default:
+        return;
     }
   }
 

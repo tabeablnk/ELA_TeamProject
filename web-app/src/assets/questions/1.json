@@ -60,7 +60,7 @@
 
       "additionalInfos": {
         "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
-        "correctAnswer": "???? noch offen"
+        "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
       }
     },
     {
@@ -109,7 +109,7 @@
       "questionType": 7,
       "questionTypeName": "ShortAnswer",
       "category": 1,
-      "questionText": "Wie cool ist Tim?",
+      "questionText": "Wie alt ist das und das?",
       "imageUrl": "",
       "tip": "Hier ein Tipp",
       "answeredCorrect": false,

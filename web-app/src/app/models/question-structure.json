@@ -61,7 +61,7 @@
         
         "additionalInfos":{
             "gapText": ["",""],
-            "correctAnswer": "???? noch offen"
+            "correctAnswer": ["", ""]
         }
     },
     {
