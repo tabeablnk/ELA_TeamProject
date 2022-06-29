@@ -15,8 +15,12 @@ import { MapSelectionComponent } from './components/items/map-selection/map-sele
 import { ShortAnswerComponent } from './components/items/short-answer/short-answer.component';
 import { DragDropComponent } from './components/items/drag-drop/drag-drop.component';
 import { ClozeComponent } from './components/items/cloze/cloze.component';
+<<<<<<< HEAD
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
+=======
+import {DragDropModule} from '@angular/cdk/drag-drop';
+>>>>>>> ced0d475a59c201f34e8b5cee0447055ecb5a479
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { QuizResultsComponent } from './components/quiz-results/quiz-results.com
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     LeafletModule
+=======
+    DragDropModule
+>>>>>>> ced0d475a59c201f34e8b5cee0447055ecb5a479
   ],
   providers: [],
   bootstrap: [AppComponent]
