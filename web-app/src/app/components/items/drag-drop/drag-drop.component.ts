@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
+
+
 @Component({
   selector: 'app-drag-drop',
   templateUrl: './drag-drop.component.html',
   styleUrls: ['./drag-drop.component.scss']
 })
 export class DragDropComponent implements OnInit {
+  answers = []
 
   public currentQuestion: any; 
   
@@ -16,5 +19,6 @@ export class DragDropComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

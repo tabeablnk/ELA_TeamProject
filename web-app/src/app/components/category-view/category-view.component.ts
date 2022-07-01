@@ -6,6 +6,7 @@ import { QuestiontemplatesService } from 'src/app/services/questiontemplates.ser
 import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
+import { SortOrderComponent } from '../items/sort-order/sort-order.component';
 
 @Component({
   selector: 'app-category-view',
@@ -19,6 +20,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
    * => needed to call the functions of the child-component when pressing the "Eingabe Überprüfen"-Button
    */
   @ViewChild(ClozeComponent) cloze: ClozeComponent | undefined; 
+  @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
 
 
   public currentQuestion : any; 
@@ -133,6 +135,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
       case 5:
         //hier Funktion für Questiontyp 5 - Multiple Choice, die aufgerufen werden soll zum validieren
       case 6: 
+        this.sortOrder?.checkAnswer();
+        return; 
         //hier Funktion für Questiontyp 6 - Sort & Order, die aufgerufen werden soll zum validieren
       case 7:
         //hier Funktion für Questiontyp 7 - Short Answer, die aufgerufen werden soll zum validieren
