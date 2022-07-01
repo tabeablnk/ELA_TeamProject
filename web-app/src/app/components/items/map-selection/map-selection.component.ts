@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as Leaflet from 'leaflet';
 import * as geolib from 'geolib';
+import { StateService } from 'src/app/services/state.service';
+import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
   selector: 'app-map-selection',
@@ -13,18 +15,16 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
   private clicked_coordinates  : Leaflet.LatLng = new Leaflet.LatLng(0,0);
   private marker: any;
   public answerGiven: boolean = false;
-  public tryLeft: boolean = true;
+  public tries: number = 2;
   private correct_coordinates : Leaflet.LatLng = new Leaflet.LatLng(0,0);
   private distance: number = 0;
-  private threshold_corect = 20000;
+  private threshold_correct = 20000;
   public infoMessage = "";
-  public questionText = "Wo ist der Marienplatz?"
   markerIconBlack = {
     icon: Leaflet.icon({
       iconSize: [25, 41],
       iconAnchor: [10, 41],
       popupAnchor: [2, -40],
-      // specify the path here
       iconUrl: "../../../assets/images/marker_black.svg",
     })
   };
@@ -47,7 +47,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     })
   };
 
-  constructor() { }
+  constructor(public currentQuiz: CurrentQuizService) { }
 
 
   ngOnInit(): void {
@@ -59,20 +59,16 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     });
 
     //specify correct coordinates here
-    this.correct_coordinates.lat = 48.1372264;
-    this.correct_coordinates.lng = 11.5755203;
+    this.correct_coordinates.lat = this.currentQuiz.getCurrentQuestion().additionalInfos.correctAnswer[0];
+    this.correct_coordinates.lng = this.currentQuiz.getCurrentQuestion().additionalInfos.correctAnswer[1];
   }
-
-
-
 
   ngAfterViewInit(): void {
     this.initMap();
 
     //listen to onclick no map and get coordinates
     this.map.on("click", (e: any) => {
-      console.log(this.tryLeft);
-      if(!this.tryLeft) {
+      if(this.tries < 2) {
         this.marker.remove();
       }
       if (!this.answerGiven) {
@@ -80,7 +76,6 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
         this.clicked_coordinates.lng = e.latlng.lng;
         this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconBlack).addTo(this.map); // add the marker onclick
         console.log(e.latlng); // get the coordinates
-        this.verifyAnswer();
       }
       // this.cursor.
     });
@@ -117,22 +112,22 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     this.map.fitBounds(polyline.getBounds());
   }
 
-  private verifyAnswer(): void {
+  public validateAnswer(): void {
     this.distance = geolib.getPreciseDistance(this.clicked_coordinates, this.correct_coordinates);
     console.log(this.distance);
-    if (this.distance < this.threshold_corect) {
+    if (this.distance < this.threshold_correct) {
       this.infoMessage = "Correct! You are less than 20 km away!"
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconGreen).addTo(this.map); // add the marker onclick
       this.answerGiven = true;
       this.showSolution();
-    } else if (this.tryLeft) {
+    } else if (this.tries > 0) {
       this.answerGiven = false;
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconRed).addTo(this.map); // add the marker onclick
       console.log(this.answerGiven);
       this.infoMessage = "Not correct! You are " + (this.distance / 1000) + " km away from the target! Try it again!";
-      this.tryLeft = false;
+      this.tries = this.tries - 1
     } else {
       this.showSolution();
       this.marker.remove();

@@ -20,14 +20,14 @@
     "questionType": 2,
     "questionTypeName": "MapQuestion",
     "category": 1,
-    "questionText": "Wo liegt das und das",
+    "questionText": "Wo liegt der Marienplatz",
     "imageUrl": "",
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": ["", ""],
 
     "additionalInfos": {
-      "correctAnswer": ""
+      "correctAnswer": ["48.1372264", "48.1372264"]
     }
   },
   {

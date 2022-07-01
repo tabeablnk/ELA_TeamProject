@@ -6,16 +6,16 @@
   }
 
   .categoriePic {
-    object-fit: cover;
-    background-size: cover;
-    width: 80%;
-    height: 80% !important;
+    width: 25vh;
+    height: auto;
   }
 
 
 mat-grid-list{
     max-width: 90% !important;
-    max-height: 80% !important; 
+    max-height: 80% !important;
+    margin: auto; 
+    margin-top: 9vh;
 }
 
 mat-progress-bar{

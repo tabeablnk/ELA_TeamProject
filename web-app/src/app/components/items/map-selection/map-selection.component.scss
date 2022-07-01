@@ -1,38 +1,47 @@
 .map-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 30px;
-    width: 100%;
-  }
-  
-  .map-frame {
-    height: 100%;
-  }
-  
-  #map {
-    height: 100%;
-  }
+  position: absolute;
+  top: 12vh;
+  left: 5vh;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+  width: 90%;
+  height: 55%;
+}
+
+.map-frame {
+  height: 100%;
+  width: 100%
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.infoMessage {
+  position: absolute;
+  bottom: 16vh
+
+}
 
 #map.active {
-    cursor: pointer !important;
-  }
+  cursor: pointer !important;
+}
 
 
 #map.disabled {
-    background: red;
-    cursor: default !important;
+  background: red;
+  cursor: default !important;
 }
 
 #map-question-wrapper {
-    display: flex;
+  display: flex;
 }
 
 
 #cursor.disabled {
-    display: none;
+  display: none;
 }
 
 #cursor.active {
@@ -40,20 +49,19 @@
 }
 
 
-  .cursor {
-    position: fixed;
-    border-radius: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    pointer-events: none;
-    left: -100px;
-    top: 50%;
-    mix-blend-mode: difference;
-    background-color: 
-  white;
-    z-index: 10000;
-    border: 2px solid 
-  white;
-    height: 15px;
-    width: 15px;
-    transition: all 300ms ease-out;
-  }
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  mix-blend-mode: difference;
+  background-color:
+    white;
+  z-index: 10000;
+  border: 2px solid white;
+  height: 15px;
+  width: 15px;
+  transition: all 300ms ease-out;
+}

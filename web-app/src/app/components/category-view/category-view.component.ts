@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 import { QuestiontemplatesService } from 'src/app/services/questiontemplates.service';
 import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
+import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
 import { SortOrderComponent } from '../items/sort-order/sort-order.component';
 
 @Component({
@@ -12,7 +14,7 @@ import { SortOrderComponent } from '../items/sort-order/sort-order.component';
   templateUrl: './category-view.component.html',
   styleUrls: ['./category-view.component.scss']
 })
-export class CategoryViewComponent implements OnInit {
+export class CategoryViewComponent implements OnInit, OnDestroy {
 
   /**
    * VIEW CHILDS FOR THE ITEM TYPES
@@ -20,6 +22,7 @@ export class CategoryViewComponent implements OnInit {
    */
   @ViewChild(ClozeComponent) cloze: ClozeComponent | undefined; 
   @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
+  @ViewChild(MapSelectionComponent) mapSelection: MapSelectionComponent | undefined;
 
 
   public currentQuestion : any; 
@@ -30,6 +33,8 @@ export class CategoryViewComponent implements OnInit {
   public allCategoryQuestions : any; 
 
   public currentQuizSet : Array<any>  = []; 
+
+  public color:ThemePalette
 
 
   /*
@@ -51,6 +56,24 @@ export class CategoryViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    switch(this.category) {
+      case 1:
+        this.color = 'accent';
+        break;
+      case 2:
+        this.color = 'accent';
+        break;
+      case 3:
+        this.color = 'primary';
+        break;
+      case 4:
+        this.color = 'primary';
+        break;
+    }
+  }
+
+  ngOnDestroy(): void {
+    document.body.setAttribute("style", "background-color: transparent");
   }
 
 
@@ -73,8 +96,9 @@ export class CategoryViewComponent implements OnInit {
     let footer = document.getElementById("footer"); 
     switch(this.category) {
       case 1:
-        header?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
+        // header?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
+        // footer?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
         return "Demografie";
       case 2:
           header?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
@@ -101,7 +125,8 @@ export class CategoryViewComponent implements OnInit {
       case 1:
         //hier Funktion für Questiontyp 1 - Single Choice, die aufgerufen werden soll zum validieren
       case 2: 
-        //hier Funktion für Questiontyp 2 - Map Question, die aufgerufen werden soll zum validieren
+        this.mapSelection?.validateAnswer();
+        return;
       case 3:
         //hier Funktion für Questiontyp 3 - Drag & Drop, die aufgerufen werden soll zum validieren
       case 4:
@@ -119,6 +144,10 @@ export class CategoryViewComponent implements OnInit {
       default:
         return;
     }
+  }
+
+  getProgress() {
+    return (this.currentQuestionNum / this.currentQuizSet?.length) * 100
   }
 
 }

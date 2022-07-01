@@ -28,7 +28,7 @@
         "givenAnswers":["answer1","answer2"],
         
         "additionalInfos":{
-            "correctAnswer": ""
+            "correctAnswer": ["answer1","answer2"]
         }
     },
     {
