@@ -1,0 +1,70 @@
+<div class="mat-typography">
+
+    <nav id="header">
+        <!-- <div>
+            <mat-icon>home</mat-icon>
+        </div> -->
+        <div style="padding-top: 20px; padding-left: 3%;">
+            <!-- <h1 >{{getCategoryName()}}</h1>
+            <h2 style="padding: 0%;">Hier kommt dann die Beschreibung der Hauptaufgabe</h2> -->
+        </div>
+    </nav>
+    <mat-card>
+        <mat-card-title>{{getCategoryName()}}</mat-card-title>
+        <mat-card-subtitle style="padding: 0%;">Hier kommt dann die Beschreibung der Hauptaufgabe</mat-card-subtitle>
+    <section>
+    <mat-card-content>
+        <div style="padding-top: 2%; padding-left: 3%;">
+            <!-- <app-map-selection></app-map-selection> -->
+            <app-cloze></app-cloze>
+            <!-- <app-sort-order></app-sort-order> -->
+            <!-- <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
+                <div *ngIf="currentIndex === currentQuestionNum">
+                    <h3>{{question.questionText}}</h3>
+                    <div *ngIf="question.questionType === 1">
+                        <app-single-choice></app-single-choice>
+                    </div>
+                    <div *ngIf="question.questionType === 2">
+                        <app-map-selection></app-map-selection>
+                    </div>
+                    <div *ngIf="question.questionType === 3">
+                        <app-drag-drop></app-drag-drop>
+                    </div>
+                    <div *ngIf="question.questionType === 4">
+                        <app-cloze></app-cloze>
+                    </div>
+                    <div *ngIf="question.questionType === 5">
+                        <app-multiple-choice></app-multiple-choice>
+                    </div>
+                    <div *ngIf="question.questionType === 6">
+                        <app-sort-order></app-sort-order>
+                    </div>
+                    <div *ngIf="question.questionType === 7">
+                        <app-short-answer></app-short-answer>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </mat-card-content>
+    </section>
+    <!-- <footer id="footer"> -->
+    <mat-card-footer>
+        <div class="buttons">
+        <button mat-raised-button #confirmButton id="confirmButton" style="background-color: #56B45B; color: white;" class="center-general" (click)="onValidateButtonPressed()">Eingabe überprüfen</button>
+        <button mat-raised-button #nextButton id="nextButton" class="vertical-center" *ngIf="!arrivedLastQuestion" (click)="onNextButtonPressed()">
+            Nächste Frage
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+        <button mat-raised-button #finishButton id="finishButton" class="vertical-center" *ngIf="arrivedLastQuestion" (click)="onFinishQuizPressed()">
+            Quiz beenden
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+        <p class="progressQuestion mat-subhead">Frage: {{currentQuestionNum}}/{{currentQuizSet?.length}}</p>  
+        <mat-progress-bar [value]="getProgress()" [color]="color" class="barCategory1"></mat-progress-bar>
+        
+    </div>
+    <!-- </footer>   -->
+    </mat-card-footer>
+    </mat-card>
+    
+</div>

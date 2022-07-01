@@ -1,0 +1,69 @@
+nav{
+height:7vh;
+/*Or fixed pixel unit*/
+}
+footer{
+height:160px;
+/*Or fixed pixel unit*/
+// background-color: black;
+position: relative;
+}
+section {
+    // height: calc(100vh - 4000px);
+    overflow-y: auto;
+    transition: all 0.5s;
+    // background-color: yellow;
+}
+
+mat-progress-bar{
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+    margin-top: 16px;
+}
+
+.barCategory1{
+    ::ng-deep 
+      .mat-progress-bar-buffer {
+        background: rgba(91, 12, 38, 0.9);
+      }
+}
+
+.colorKultur{
+    color: rgba(91, 12, 38, 0.9);
+}  
+
+// .confirmButton{
+//     background-color: #56B45B; 
+//     color: white;
+// }
+
+
+.vertical-center {
+    top: 40%;
+    float: right;
+    margin-right: 5%
+}
+
+.center-general{
+  top: 40%;
+  left: 45%;
+}
+
+mat-card {
+    width: 80%;
+    margin:auto;
+}
+
+.buttons {
+    margin-bottom: 32px;
+}
+
+mat-card-content {
+    height: 60vh;
+}
+
+.progressQuestion {
+    text-align: center;
+    margin-top: 32px;
+}

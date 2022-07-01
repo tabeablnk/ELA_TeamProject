@@ -1,0 +1,122 @@
+[
+  {
+    "questionId": 0,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "Hier ist dann die Frage",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Option 1", "Option 2"],
+      "correctAnswer": "Option 1"
+    }
+  },
+  {
+    "questionId": 1,
+    "questionType": 2,
+    "questionTypeName": "MapQuestion",
+    "category": 1,
+    "questionText": "Wo liegt der Marienplatz",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["", ""],
+
+    "additionalInfos": {
+      "correctAnswer": ["48.1372264", "48.1372264"]
+    }
+  },
+  {
+    "questionId": 2,
+    "questionType": 3,
+    "questionTypeName": "DragDrop",
+    "category": 1,
+    "questionText": "Sortiere das und das richtig ein",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "gapText": ["", ""],
+      "options": ["", ""],
+      "correctAnswer": "???? noch offen"
+    }
+  },
+  {
+    "questionId": 3,
+    "questionType": 4,
+    "questionTypeName": "Cloze",
+    "category": 1,
+    "questionText": "Fülle die Lücken!",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "gapText": "Hier ist der Lückentext",
+      "correctAnswer": "???? noch offen"
+    }
+  },
+  {
+    "questionId": 4,
+    "questionType": 5,
+    "questionTypeName": "MultipleChoice",
+    "category": 1,
+    "questionText": "Wähle hier die richtigen Antworten!",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "correctAnswer": ["", ""],
+      "options": ["", ""]
+    }
+  },
+  {
+    "questionId": 5,
+    "questionType": 6,
+    "questionTypeName": "SortOrder",
+    "category": 1,
+    "questionText": "Bringe das und das in die richtige Reihenfolge",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["", ""],
+      "correctAnswer": [
+        {
+          "name": "",
+          "value": ""
+        },
+        {
+          "name": "",
+          "value": ""
+        }
+      ]
+    }
+  },
+  {
+    "questionId": 6,
+    "questionType": 7,
+    "questionTypeName": "ShortAnswer",
+    "category": 1,
+    "questionText": "Wie alt ist das und das?",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "correctAnswer": "sehr cool"
+    }
+  }
+]

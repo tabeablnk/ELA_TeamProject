@@ -1,0 +1,70 @@
+.categoriesCard {
+    // max-width: 90% !important;
+    // max-height: 90% !important; 
+    // padding: 10%;
+    // margin: 20% !important;
+  }
+
+  .categoriePic {
+    width: 25vh;
+    height: auto;
+  }
+
+
+mat-grid-list{
+    max-width: 90% !important;
+    max-height: 80% !important;
+    margin: auto; 
+    margin-top: 9vh;
+}
+
+mat-progress-bar{
+    position: absolute;
+    bottom: 0;
+}
+
+mat-card{
+    width: 80% !important;
+    height: 80% !important;
+    text-align: center;
+    cursor: pointer;
+}
+
+mat-card-content {
+  justify-content: center;
+  display: flex;
+}
+mat-card-header{
+  padding: 10px; 
+  padding-bottom:20px; 
+  justify-content: center;
+  display: flex;
+}
+
+/**
+* COLORS OF THE BOTTOM ON EACH CARD
+**/
+.barCategory1{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #e91e62;
+    }
+}
+.barCategory2{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #FEB546;
+    }
+}
+.barCategory3{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #7BC57E;
+    }
+}
+.barCategory4{
+  ::ng-deep 
+    .mat-progress-bar-buffer {
+      background: #2296F3;
+    }
+}

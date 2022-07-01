@@ -1,0 +1,9 @@
+
+<div class="map-container">
+    <div class="map-frame">
+        <div [class]="answerGiven? 'disabled' : 'active'" id="map"></div>
+    </div>
+</div>
+
+<p class="infoMessage">{{infoMessage}}</p>
+<div #cursor [class]="answerGiven? 'disabled' : 'active'" class='cursor' id="cursor"></div>

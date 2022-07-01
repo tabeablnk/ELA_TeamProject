@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginGuardService } from './services/login-guard.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web-app';
+
+  loggedIn:any; 
+
+  constructor(private loginGuard: LoginGuardService, ){
+    this.loggedIn = loginGuard.canActivate(); 
+  }
 }
