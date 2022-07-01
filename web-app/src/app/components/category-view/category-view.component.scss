@@ -1,5 +1,5 @@
 nav{
-height:100px;
+height:7vh;
 /*Or fixed pixel unit*/
 }
 footer{
@@ -9,7 +9,7 @@ height:160px;
 position: relative;
 }
 section {
-    height: calc(100vh - 260px);
+    // height: calc(100vh - 4000px);
     overflow-y: auto;
     transition: all 0.5s;
     // background-color: yellow;
@@ -19,6 +19,7 @@ mat-progress-bar{
     position: absolute;
     bottom: 0;
     height: 10px;
+    margin-top: 16px;
 }
 
 .barCategory1{
@@ -49,9 +50,20 @@ mat-progress-bar{
   left: 45%;
 }
 
-.progressQuestions{
+mat-card {
+    width: 80%;
+    margin:auto;
+}
 
-    position: fixed;
-    bottom: 20px;
-    left:20px;
+.buttons {
+    margin-bottom: 32px;
+}
+
+mat-card-content {
+    height: 60vh;
+}
+
+.progressQuestion {
+    text-align: center;
+    margin-top: 32px;
 }

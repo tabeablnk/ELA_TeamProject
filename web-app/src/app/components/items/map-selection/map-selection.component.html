@@ -1,16 +1,9 @@
-<mat-grid-list cols="2">
-    <mat-grid-tile>
-        <div>
-            <h3>{{questionText}}?</h3>
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="map-container">
-            <div class="map-frame">
-                <div [class]="answerGiven? 'disabled' : 'active'" id="map"></div>
-            </div>
-        </div>
-    </mat-grid-tile>
-</mat-grid-list>
-<p>{{infoMessage}}</p>
+
+<div class="map-container">
+    <div class="map-frame">
+        <div [class]="answerGiven? 'disabled' : 'active'" id="map"></div>
+    </div>
+</div>
+
+<p class="infoMessage">{{infoMessage}}</p>
 <div #cursor [class]="answerGiven? 'disabled' : 'active'" class='cursor' id="cursor"></div>

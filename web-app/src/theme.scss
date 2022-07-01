@@ -1,0 +1,148 @@
+@import '~@angular/material/theming';
+
+// Be sure that you only ever include 'mat-core' mixin once!
+// it should not be included for each theme.
+@include mat-core(); 
+
+// define a real custom palette (using http://mcg.mbitson.com)
+$demografie: (
+    50 : #fce4ec,
+    100 : #f8bcd0,
+    200 : #f48fb1,
+    300 : #f06291,
+    400 : #ec407a,
+    500 : #e91e62,
+    600 : #e61a5a,
+    700 : #e31650,
+    800 : #df1246,
+    900 : #d90a34,
+    A100 : #ffffff,
+    A200 : #ffd0d8,
+    A400 : #ff9dad,
+    A700 : #ff8498,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$kultur: (
+    50 : #fff6e9,
+    100 : #ffe9c8,
+    200 : #ffdaa3,
+    300 : #fecb7e,
+    400 : #fec062,
+    500 : #feb546,
+    600 : #feae3f,
+    700 : #fea537,
+    800 : #fe9d2f,
+    900 : #fd8d20,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffe5ce,
+    A700 : #ffd7b4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$geographie: (
+    50 : #e4f2fe,
+    100 : #bde0fb,
+    200 : #91cbf9,
+    300 : #64b6f7,
+    400 : #43a6f5,
+    500 : #2296f3,
+    600 : #1e8ef1,
+    700 : #1983ef,
+    800 : #1479ed,
+    900 : #0c68ea,
+    A100 : #ffffff,
+    A200 : #e1ecff,
+    A400 : #aeccff,
+    A700 : #95bcff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$geschichte: (
+    50 : #eff8f0,
+    100 : #d7eed8,
+    200 : #bde2bf,
+    300 : #a3d6a5,
+    400 : #8fce91,
+    500 : #7bc57e,
+    600 : #73bf76,
+    700 : #68b86b,
+    800 : #5eb061,
+    900 : #4ba34e,
+    A100 : #ffffff,
+    A200 : #cdffce,
+    A400 : #9aff9d,
+    A700 : #80ff84,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// mandatory stuff for theming
+$bv-palette-primary: mat-palette($kultur);
+$bv-palette-accent:  mat-palette($demografie);
+
+// include the custom theme components into a theme object
+$bv-theme: mat-light-theme($bv-palette-primary, $bv-palette-accent);
+
+// include the custom theme object into the angular material theme
+@include angular-material-theme($bv-theme);

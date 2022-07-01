@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 import { QuestiontemplatesService } from 'src/app/services/questiontemplates.service';
@@ -11,7 +12,7 @@ import { ClozeComponent } from '../items/cloze/cloze.component';
   templateUrl: './category-view.component.html',
   styleUrls: ['./category-view.component.scss']
 })
-export class CategoryViewComponent implements OnInit {
+export class CategoryViewComponent implements OnInit, OnDestroy {
 
   /**
    * VIEW CHILDS FOR THE ITEM TYPES
@@ -28,6 +29,8 @@ export class CategoryViewComponent implements OnInit {
   public allCategoryQuestions : any; 
 
   public currentQuizSet : Array<any>  = []; 
+
+  public color:ThemePalette
 
 
   /*
@@ -48,6 +51,24 @@ export class CategoryViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    switch(this.category) {
+      case 1:
+        this.color = 'accent';
+        break;
+      case 2:
+        this.color = 'accent';
+        break;
+      case 3:
+        this.color = 'primary';
+        break;
+      case 4:
+        this.color = 'primary';
+        break;
+    }
+  }
+
+  ngOnDestroy(): void {
+    document.body.setAttribute("style", "background-color: transparent");
   }
 
 
@@ -66,24 +87,28 @@ export class CategoryViewComponent implements OnInit {
   }
 
   getCategoryName() {
-    let header = document.getElementById("header"); 
-    let footer = document.getElementById("footer"); 
+    // let header = document.getElementById("header"); 
+    // let footer = document.getElementById("footer"); 
     switch(this.category) {
       case 1:
-        header?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
+        // header?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
+        // footer?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
         return "Demografie";
       case 2:
-        header?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
+        // header?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
+        // footer?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
         return "Geographie";
       case 3:
-        header?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
+        // header?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
+        // footer?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
         return "Geschichte";
       case 4:
-        header?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
+        // header?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
+        // footer?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
         return "Kultur";
       default:   
         return "select category!";
@@ -114,6 +139,10 @@ export class CategoryViewComponent implements OnInit {
       default:
         return;
     }
+  }
+
+  getProgress() {
+    return (this.currentQuestionNum / this.currentQuizSet?.length) * 100
   }
 
 }
