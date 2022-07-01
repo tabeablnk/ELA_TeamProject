@@ -41,6 +41,7 @@ export class CategoryViewComponent implements OnInit {
     this.category = state.getCategory();
     this.questionTemplates = templates.getAllTemplates(); 
     localStorage.setItem("allQuestionTemplates", JSON.stringify(this.questionTemplates))
+    console.log(this.category)
     this.currQuiz.setCurrentQuiz(this.category)
     this.currQuiz.setCurrentQuestion(0);
     
@@ -76,17 +77,17 @@ export class CategoryViewComponent implements OnInit {
         footer?.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
         return "Demografie";
       case 2:
+          header?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
+          footer?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
+          return "Kultur";
+      case 3:
         header?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
         footer?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
-        return "Geographie";
-      case 3:
+        return "Geographie";  
+      case 4:
         header?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
         footer?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
         return "Geschichte";
-      case 4:
-        header?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
-        return "Kultur";
       default:   
         return "select category!";
     }

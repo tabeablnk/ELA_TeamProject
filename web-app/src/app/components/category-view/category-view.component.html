@@ -11,8 +11,9 @@
     <section>
         <div style="padding-top: 2%; padding-left: 3%;">
             <!-- <app-map-selection></app-map-selection> -->
-            <!-- <app-cloze></app-cloze> -->
-            <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
+            <app-cloze></app-cloze>
+            <!-- <app-sort-order></app-sort-order> -->
+            <!-- <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
                 <div *ngIf="currentIndex === currentQuestionNum">
                     {{question.questionText}}
                     <div *ngIf="question.questionType === 1">
@@ -37,8 +38,7 @@
                         <app-short-answer></app-short-answer>
                     </div>
                 </div>
-            </div>
-            <!-- <app-sort-order></app-sort-order> -->
+            </div> -->
         </div>
     </section>
     <footer id="footer">

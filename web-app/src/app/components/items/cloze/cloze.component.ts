@@ -10,7 +10,7 @@ import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 })
 export class ClozeComponent implements OnInit {
   private cloze :any;
-  private currentTry = 0; 
+  private currentTry = 1; 
   private jsPsych = initJsPsych({
     display_element: 'display_gaze'
   });     
@@ -94,9 +94,14 @@ export class ClozeComponent implements OnInit {
   }
   
   onValidateAnswer(input:any, currentNumber: number){
+    console.log("Hi")
     let inputValue = input.value;
     if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
      input.style = "border-color: red"
+     if(this.currentTry == 2){
+      console.log("Hier drin")
+     }
+     this.currentTry += 1; 
     } else{
       input.style = "border-color: none"
     }
