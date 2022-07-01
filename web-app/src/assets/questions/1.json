@@ -20,11 +20,11 @@
       "questionType": 2,
       "questionTypeName": "MapQuestion",
       "category": 1,
-      "questionText": "Wo liegt das und das",
+      "questionText": "Wo liegt die größte Stadt Bayerns?",
       "imageUrl": "",
       "tip": "Hier ein Tipp",
       "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": ["48.1372264", "48.1372264"],
 
       "additionalInfos": {
         "correctAnswer": ""

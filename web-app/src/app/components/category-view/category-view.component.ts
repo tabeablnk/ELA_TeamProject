@@ -6,6 +6,7 @@ import { QuestiontemplatesService } from 'src/app/services/questiontemplates.ser
 import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
+import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
 import { SortOrderComponent } from '../items/sort-order/sort-order.component';
 
 @Component({
@@ -21,6 +22,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
    */
   @ViewChild(ClozeComponent) cloze: ClozeComponent | undefined; 
   @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
+  @ViewChild(MapSelectionComponent) mapSelection: MapSelectionComponent | undefined;
 
 
   public currentQuestion : any; 
@@ -125,7 +127,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
       case 1:
         //hier Funktion für Questiontyp 1 - Single Choice, die aufgerufen werden soll zum validieren
       case 2: 
-        //hier Funktion für Questiontyp 2 - Map Question, die aufgerufen werden soll zum validieren
+        this.mapSelection?.validateAnswer();
+        return;
       case 3:
         //hier Funktion für Questiontyp 3 - Drag & Drop, die aufgerufen werden soll zum validieren
       case 4:
