@@ -1,13 +1,15 @@
-nav{
-height:7vh;
-/*Or fixed pixel unit*/
+nav {
+    height: 7vh;
+    /*Or fixed pixel unit*/
 }
-footer{
-height:160px;
-/*Or fixed pixel unit*/
-// background-color: black;
-position: relative;
+
+footer {
+    height: 160px;
+    /*Or fixed pixel unit*/
+    // background-color: black;
+    position: relative;
 }
+
 section {
     // height: calc(100vh - 4000px);
     overflow-y: auto;
@@ -15,23 +17,22 @@ section {
     // background-color: yellow;
 }
 
-mat-progress-bar{
+mat-progress-bar {
     position: absolute;
     bottom: 0;
     height: 10px;
     margin-top: 16px;
 }
 
-.barCategory1{
-    ::ng-deep 
-      .mat-progress-bar-buffer {
-        background: rgba(91, 12, 38, 0.9);
-      }
+.barCategory1 {
+    ::ng-deep .mat-progress-bar-buffer {
+        background: lightgrey
+    }
 }
 
-.colorKultur{
+.colorKultur {
     color: rgba(91, 12, 38, 0.9);
-}  
+}
 
 // .confirmButton{
 //     background-color: #56B45B; 
@@ -45,14 +46,14 @@ mat-progress-bar{
     margin-right: 5%
 }
 
-.center-general{
-  top: 40%;
-  left: 45%;
+.center-general {
+    top: 40%;
+    left: 45%;
 }
 
 mat-card {
     width: 80%;
-    margin:auto;
+    margin: auto;
 }
 
 .buttons {
@@ -67,3 +68,15 @@ mat-card-content {
     text-align: center;
     margin-top: 32px;
 }
+
+    ::ng-deep .mat-progress-bar-fill::after {
+        background-color: grey;
+    }
+
+    ::ng-deep.mat-progress-bar-buffer {
+        background: grey;
+    }
+
+    ::ng-deep .mat-progress-bar {
+        border-radius: grey;
+    }

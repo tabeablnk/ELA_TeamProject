@@ -56,20 +56,20 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    switch(this.category) {
-      case 1:
-        this.color = 'accent';
-        break;
-      case 2:
-        this.color = 'accent';
-        break;
-      case 3:
-        this.color = 'primary';
-        break;
-      case 4:
-        this.color = 'primary';
-        break;
-    }
+    // switch(this.category) {
+    //   case 1:
+    //     this.color = 'warn';
+    //     break;
+    //   case 2:
+    //     this.color = 'warn';
+    //     break;
+    //   case 3:
+    //     this.color = 'primary';
+    //     break;
+    //   case 4:
+    //     this.color = 'accent';
+    //     break;
+    // }
   }
 
   ngOnDestroy(): void {
@@ -114,16 +114,14 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         document.body.setAttribute("style", "background-color: rgba(91, 12, 38, 0.2)");
         return "Demografie";
       case 2:
-          header?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
-          footer?.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(254, 181, 70, 0.2)");
           return "Kultur";
       case 3:
-        header?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(123, 197, 126, 0.2)");
         return "Geographie";  
       case 4:
-        header?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
-        footer?.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
+        document.body.setAttribute("style", "background-color: rgba(34, 150, 243, 0.2)");
+
         return "Geschichte";
       default:   
         return "select category!";
@@ -160,7 +158,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   }
 
   getProgress() {
-    return (this.currentQuestionNum / this.currentQuizSet?.length) * 100
+    return ((this.currentQuestionNum - 1) / this.currentQuizSet?.length) * 100
   }
 
 }

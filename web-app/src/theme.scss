@@ -138,8 +138,10 @@ $geschichte: (
 );
 
 // mandatory stuff for theming
-$bv-palette-primary: mat-palette($kultur);
-$bv-palette-accent:  mat-palette($demografie);
+$bv-palette-primary: mat-palette($geschichte);
+$bv-palette-accent:  mat-palette($geographie);
+$bv-palette-error:  mat-palette($demografie);
+$bv-palette-warn:  mat-palette($demografie);
 
 // include the custom theme components into a theme object
 $bv-theme: mat-light-theme($bv-palette-primary, $bv-palette-accent);
