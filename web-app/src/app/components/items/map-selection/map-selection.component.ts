@@ -65,7 +65,6 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.initMap();
-
     //listen to onclick no map and get coordinates
     this.map.on("click", (e: any) => {
       if(this.tries < 2) {
@@ -77,6 +76,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
         this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconBlack).addTo(this.map); // add the marker onclick
         console.log(e.latlng); // get the coordinates
       }
+      this.answerGiven = true;
       // this.cursor.
     });
   }
@@ -119,7 +119,6 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       this.infoMessage = "Correct! You are less than 20 km away!"
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconGreen).addTo(this.map); // add the marker onclick
-      this.answerGiven = true;
       this.showSolution();
     } else if (this.tries > 0) {
       this.answerGiven = false;

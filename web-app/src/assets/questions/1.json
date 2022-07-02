@@ -24,10 +24,10 @@
       "imageUrl": "",
       "tip": "Hier ein Tipp",
       "answeredCorrect": false,
-      "givenAnswers": ["48.1372264", "48.1372264"],
+      "givenAnswers": [""],
 
       "additionalInfos": {
-        "correctAnswer": ""
+        "correctAnswer": ["48.1372264", "11.5755203"]
       }
     },
     {

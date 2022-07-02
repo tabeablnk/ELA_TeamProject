@@ -16,9 +16,9 @@
     <mat-card-content>
         <div style="padding-top: 2%; padding-left: 3%;">
             <!-- <app-map-selection></app-map-selection> -->
-            <app-cloze></app-cloze>
+            <!-- <app-cloze></app-cloze> -->
             <!-- <app-sort-order></app-sort-order> -->
-            <!-- <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
+            <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
                 <div *ngIf="currentIndex === currentQuestionNum">
                     <h3>{{question.questionText}}</h3>
                     <div *ngIf="question.questionType === 1">
@@ -43,7 +43,7 @@
                         <app-short-answer></app-short-answer>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </mat-card-content>
     </section>
@@ -59,8 +59,8 @@
             Quiz beenden
             <mat-icon>arrow_forward</mat-icon>
         </button>
-        <p class="progressQuestion mat-subhead">Frage: {{currentQuestionNum}}/{{currentQuizSet?.length}}</p>  
-        <mat-progress-bar [value]="getProgress()" [color]="color" class="barCategory1"></mat-progress-bar>
+        <p clas s="progressQuestion mat-subhead">Frage: {{currentQuestionNum}}/{{currentQuizSet?.length}}</p>  
+        <mat-progress-bar class="demografie" [value]="getProgress()" class="barCategory1"></mat-progress-bar>
         
     </div>
     <!-- </footer>   -->
