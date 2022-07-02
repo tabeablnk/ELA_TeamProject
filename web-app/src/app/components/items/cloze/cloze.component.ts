@@ -61,14 +61,12 @@ export class ClozeComponent implements OnInit {
       on_finish: function(){console.log("war richtig")}
     }
     this.jsPsych.run([this.cloze])
-    console.log(this.jsPsych.data)
   }
 
 
   validateButtonPressed(): void{
 
     let button = document.getElementById("finish_cloze_button") as any;
-    console.log(button)
     button.style.display = 'none';
 
     let numberInputFields = (this.currentQuestion.additionalInfos.gapText.split("%").length -1)/2;
