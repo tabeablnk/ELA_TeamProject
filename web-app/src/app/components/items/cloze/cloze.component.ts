@@ -10,31 +10,31 @@ import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 })
 export class ClozeComponent implements OnInit {
   private cloze :any;
-  private currentTry = 1; 
+  private currentTry = 0; 
   private jsPsych = initJsPsych({
     display_element: 'display_gaze'
   });     
 
-  // public currentQuestion: any; 
-  public currentQuestion = {
-    "questionId": 3,
-    "questionType": 4,
-    "questionTypeName": "Cloze",
-    "category": 1,
-    "questionText": "Fülle die Lücken du Loser!",
-    "imageUrl": "",
-    "tip": "Hier ein Tipp",
-    "tries": 3,
-    "answeredCorrect": false,
-    "givenAnswers": [{}],
-    "additionalInfos": {
-      "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
-      "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
-    }
-  }
+  public currentQuestion: any; 
+  // public currentQuestion = {
+  //   "questionId": 3,
+  //   "questionType": 4,
+  //   "questionTypeName": "Cloze",
+  //   "category": 1,
+  //   "questionText": "Fülle die Lücken du Loser!",
+  //   "imageUrl": "",
+  //   "tip": "Hier ein Tipp",
+  //   "tries": 3,
+  //   "answeredCorrect": false,
+  //   "givenAnswers": [{}],
+  //   "additionalInfos": {
+  //     "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
+  //     "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
+  //   }
+  // }
   
   constructor(public quizService: CurrentQuizService) {
-    // this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion = this.quizService.getCurrentQuestion(); 
     // console.log(this.currentQuestion)
   }
 
@@ -57,8 +57,8 @@ export class ClozeComponent implements OnInit {
       type: jsPsychCloze,
       text: this.currentQuestion.additionalInfos.gapText,
       check_answers: true,
-      mistake_fn: function(){alert("Wrong answer. Please check again."); console.log(that.cloze); console.log(that.jsPsych.data)},
-      on_finish: function(){console.log("war richtig")}
+      mistake_fn: function(){},
+      on_finish: function(){}
     }
     this.jsPsych.run([this.cloze])
   }
@@ -77,32 +77,49 @@ export class ClozeComponent implements OnInit {
       allInputs.push(input.value)
       this.onValidateAnswer(input, i)
     }
-    console.log(allInputs)
 
-    this.currentQuestion.givenAnswers[this.currentTry] = allInputs
+
+
+    if(this.currentTry < 3){
+      this.currentQuestion.givenAnswers[this.currentTry] = allInputs
+      this.quizService.saveGivenAnswer(this.currentQuestion)
+    }
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
-      console.log("Alles richtig amigo");
+      console.log(this.currentQuestion)
       this.cloze.on_finish(); 
     } else{
       this.cloze.mistake_fn(); 
-      console.log("Leider nochmal probieren brrt")
-      this.currentTry += 1; 
+      console.log(this.currentQuestion)
     }
 
+    this.currentTry += 1;
   }
   
   onValidateAnswer(input:any, currentNumber: number){
-    console.log("Hi")
     let inputValue = input.value;
-    if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
-     input.style = "border-color: red"
-     if(this.currentTry == 2){
-      console.log("Hier drin")
-     }
-     this.currentTry += 1; 
-    } else{
-      input.style = "border-color: none"
+    let tipp = document.getElementById("tipps") as any;
+    if(this.currentTry < 3){
+      if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+       input.style = "border-color: red"
+       if(this.currentTry === 0){
+        tipp.innerHTML = "Leider nicht richtig. Die falschen Antworten sind mit rot hinterlegt. Du hast noch 2 Versuche."
+       }
+       if(this.currentTry === 1){
+        input.value = Array.from(this.currentQuestion.additionalInfos.correctAnswers[currentNumber])[0];
+        tipp.innerHTML = "Leider immer noch nicht ganz richtig. Als Tipp stehen die Anfangsbuchstaben in den Feldern! \n Du hast noch 1 Versuch. "
+       } 
+       if(this.currentTry === 2){
+        input.disabled = true; 
+        input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        tipp.innerHTML = "Schade, leider hast du es nicht ganz richtig. Du hast leider keine Versuche mehr."
+       }
+      } else{
+        input.style = "border-color: green"
+      }
+    }else{
+      return;
     }
+
   }
 
   arrayEquals(a: Array<any>, b: Array<any>) {

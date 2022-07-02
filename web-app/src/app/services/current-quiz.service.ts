@@ -14,6 +14,7 @@ export class CurrentQuizService {
   setCurrentQuiz(categoryId : any){
     let allCategoryQuestions = this.catQuestions.getCategoryQuestions(categoryId)
     this.currentQuestions = this.getRandom(allCategoryQuestions, 4);
+    localStorage.setItem("currentQuizSet", JSON.stringify(this.currentQuestions))
   }
 
   getCurrentQuiz(){
@@ -30,6 +31,8 @@ export class CurrentQuizService {
   
   saveGivenAnswer(question : object){
     console.log(question)
+    this.currentQuestion = question
+    localStorage.setItem("currentQuizSet", JSON.stringify(this.currentQuestions))
   }
 
 

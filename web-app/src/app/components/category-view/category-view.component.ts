@@ -45,7 +45,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   constructor(public state: StateService, public templates: QuestiontemplatesService, public currQuiz : CurrentQuizService, private router: Router) { 
     this.category = state.getCategory();
     this.questionTemplates = templates.getAllTemplates(); 
-    localStorage.setItem("allQuestionTemplates", JSON.stringify(this.questionTemplates))
+    // localStorage.setItem("allQuestionTemplates", JSON.stringify(this.questionTemplates))
     console.log(this.category)
     this.currQuiz.setCurrentQuiz(this.category)
     this.currQuiz.setCurrentQuestion(0);
@@ -89,6 +89,19 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
 
   onFinishQuizPressed(): void{
     this.router.navigate(["/results"])
+    
+    let history = [];
+    let currentHistory = localStorage.getItem("quizHistory")
+
+    if(currentHistory){
+      history = JSON.parse(currentHistory)
+      history.push(this.currentQuizSet)
+      console.log(history)
+      localStorage.setItem("quizHistory", JSON.stringify(history))
+    } else{
+      history.push(this.currentQuizSet)
+      localStorage.setItem("quizHistory", JSON.stringify(history))
+    }
   }
 
   getCategoryName() {
