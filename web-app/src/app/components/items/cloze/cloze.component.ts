@@ -116,7 +116,6 @@ export class ClozeComponent implements OnInit {
       } else{
         input.style = "border-color: green"
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
-      
       }
     }else{
       return;
