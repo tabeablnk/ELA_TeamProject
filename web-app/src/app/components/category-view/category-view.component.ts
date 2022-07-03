@@ -7,6 +7,7 @@ import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
 import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
+import { SingleChoiceComponent } from '../items/single-choice/single-choice.component';
 import { SortOrderComponent } from '../items/sort-order/sort-order.component';
 
 @Component({
@@ -23,6 +24,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   @ViewChild(ClozeComponent) cloze: ClozeComponent | undefined; 
   @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
   @ViewChild(MapSelectionComponent) mapSelection: MapSelectionComponent | undefined;
+  @ViewChild(SingleChoiceComponent) singleChoice: SingleChoiceComponent | undefined;
 
 
   public currentQuestion : any; 
@@ -130,10 +132,11 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
 
   onValidateButtonPressed():void{
     let question = this.currQuiz.getCurrentQuestion();
-    console.log(question)
     
     switch(question.questionType){
       case 1:
+        this.singleChoice?.validateButtonPressed();
+        return;
         //hier Funktion für Questiontyp 1 - Single Choice, die aufgerufen werden soll zum validieren
       case 2: 
         // this.mapSelection?.validateAnswer();

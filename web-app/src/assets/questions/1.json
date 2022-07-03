@@ -1,122 +1,127 @@
 [
-    {
-      "questionId": 0,
-      "questionType": 1,
-      "questionTypeName": "SingleChoice",
-      "category": 1,
-      "questionText": "Hier ist dann die Frage",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
+  {
+    "questionId": 0,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "Wer ist der/die Coolste?",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
 
-      "additionalInfos": {
-        "options": ["Option 1", "Option 2"],
-        "correctAnswer": "Option 1"
-      }
-    },
-    {
-      "questionId": 1,
-      "questionType": 2,
-      "questionTypeName": "MapQuestion",
-      "category": 1,
-      "questionText": "Wo liegt die größte Stadt Bayerns?",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": [""],
-
-      "additionalInfos": {
-        "correctAnswer": ["48.1372264", "11.5755203"]
-      }
-    },
-    {
-      "questionId": 2,
-      "questionType": 3,
-      "questionTypeName": "DragDrop",
-      "category": 1,
-      "questionText": "Sortiere das und das richtig ein",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
-
-      "additionalInfos": {
-        "gapText": ["", ""],
-        "options": ["", ""],
-        "correctAnswer": "???? noch offen"
-      }
-    },
-    {
-      "questionId": 3,
-      "questionType": 4,
-      "questionTypeName": "Cloze",
-      "category": 1,
-      "questionText": "Fülle die Lücken du Loser!",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
-
-      "additionalInfos": {
-        "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
-        "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
-      }
-    },
-    {
-      "questionId": 4,
-      "questionType": 5,
-      "questionTypeName": "MultipleChoice",
-      "category": 1,
-      "questionText": "Wähle hier die richtigen Antworten!",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
-
-      "additionalInfos": {
-        "correctAnswer": ["", ""],
-        "options": ["", ""]
-      }
-    },
-    {
-      "questionId": 5,
-      "questionType": 6,
-      "questionTypeName": "SortOrder",
-      "category": 1,
-      "questionText": "Bringe das und das in die richtige Reihenfolge",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
-
-      "additionalInfos": {
-        "options": ["", ""],
-        "correctAnswer": [
-          {
-            "name": "",
-            "value": ""
-          },
-          {
-            "name": "",
-            "value": ""
-          }
-        ]
-      }
-    },
-    {
-      "questionId": 6,
-      "questionType": 7,
-      "questionTypeName": "ShortAnswer",
-      "category": 1,
-      "questionText": "Wie alt ist das und das?",
-      "imageUrl": "",
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "givenAnswers": ["answer1", "answer2"],
-
-      "additionalInfos": {
-        "correctAnswer": "sehr cool"
-      }
+    "additionalInfos": {
+      "options": ["Tim", "Jonas", "Tabea", "Narjes", "Franzi"],
+      "correctAnswer": "Tim"
     }
-  ]
+  },
+  {
+    "questionId": 1,
+    "questionType": 2,
+    "questionTypeName": "MapQuestion",
+    "category": 1,
+    "questionText": "Wo liegt die größte Stadt Bayerns?",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": [""],
+
+    "additionalInfos": {
+      "correctAnswer": ["48.1372264", "11.5755203"]
+    }
+  },
+  {
+    "questionId": 2,
+    "questionType": 3,
+    "questionTypeName": "DragDrop",
+    "category": 1,
+    "questionText": "Sortiere das und das richtig ein",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "gapText": ["", ""],
+      "options": ["", ""],
+      "correctAnswer": "???? noch offen"
+    }
+  },
+  {
+    "questionId": 3,
+    "questionType": 4,
+    "questionTypeName": "Cloze",
+    "category": 1,
+    "questionText": "Fülle die Lücken du Loser!",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
+      "correctAnswers": [
+        "Oberfranken",
+        "Nürnberg",
+        "Richard-Wagner-Festspiele",
+        "Markgräfliche Opernhaus"
+      ]
+    }
+  },
+  {
+    "questionId": 4,
+    "questionType": 5,
+    "questionTypeName": "MultipleChoice",
+    "category": 1,
+    "questionText": "Wähle hier die richtigen Antworten!",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "correctAnswer": ["", ""],
+      "options": ["", ""]
+    }
+  },
+  {
+    "questionId": 5,
+    "questionType": 6,
+    "questionTypeName": "SortOrder",
+    "category": 1,
+    "questionText": "Bringe das und das in die richtige Reihenfolge",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["", ""],
+      "correctAnswer": [
+        {
+          "name": "",
+          "value": ""
+        },
+        {
+          "name": "",
+          "value": ""
+        }
+      ]
+    }
+  },
+  {
+    "questionId": 6,
+    "questionType": 7,
+    "questionTypeName": "ShortAnswer",
+    "category": 1,
+    "questionText": "Wie alt ist das und das?",
+    "imageUrl": "",
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "correctAnswer": "sehr cool"
+    }
+  }
+]
