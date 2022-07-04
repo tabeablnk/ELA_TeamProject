@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
   selector: 'app-sort-order',
@@ -10,47 +11,93 @@ export class SortOrderComponent implements OnInit {
   answerList: any
   currentAnswer: any
   rightAnswer: any
-  constructor() {
+  private leftTrys = 3;
 
+  currentQuestion :any; 
+
+  constructor(public quizService: CurrentQuizService) {
+    this.currentQuestion = this.quizService.getCurrentQuestion()
+    this.answerList=this.currentQuestion.additionalInfos.correctAnswer
   }
 
   ngOnInit(): void {
-    this.answerList = this.questiondata.additonalInfos.correctAnswer
     this.randomizeList()
     this.calculateRightAnswer()
     
 
   }
-  checkAnswer() {
-    let flag: boolean = true
-    this.currentAnswer.forEach((element: any, currentIndex: any) => {
-      
-      if(element.name !== this.rightAnswer[currentIndex].name)
-      {
-        flag = false
-      }
-      
-    });
-    console.log(flag)
-    return flag;
-  }
+
+  validateButtonPressed()
+  {
+    let domItemTipps = document.getElementById('tipps') as any;
+    this.leftTrys--
+
+    if(this.leftTrys > 0){
+      this.currentQuestion.givenAnswers[2-this.leftTrys] = this.currentAnswer
+      console.log(this.currentQuestion)
+      this.quizService.saveGivenAnswer(this.currentQuestion)
+    }
 
 
-  checkAnswer2() {
-    this.currentAnswer.forEach((element: any, currentIndex: any) => {
-      if(element.name !== this.rightAnswer[currentIndex].name)
-      {
-        return false
-      }
-      return true
-    });
-    return true;
+    switch(this.leftTrys){
+      case 2:
+        console.log("first Try")
+        if(!this.checkAnswer()){
+          domItemTipps.innerHTML="Leider nicht richtig. Probier es nochmal! Du hast noch 2 Versuche."
+        } else{
+          domItemTipps.innerHTML="Super, richtige Antwort!"
+          this.currentQuestion.answeredCorrect = true;
+
+        }
+        break;
+      case 1:
+        console.log("Second Try")
+        if(!this.checkAnswer()){
+          domItemTipps.innerHTML="Leider immer noch nicht richtig. Du hast noch 1 Versuch."
+        } else{
+          domItemTipps.innerHTML="Super, richtige Antwort!"
+          this.currentQuestion.answeredCorrect = true;
+        }
+        break;
+      case 0:
+        console.log("Third Try")
+        if(!this.checkAnswer()){
+          domItemTipps.innerHTML="Leider falsch, die richtige Antwort wird jetzt angezeigt."
+          
+          //Show right Answer
+          this.currentAnswer = this.rightAnswer
+          this.currentAnswer.forEach((element: any, currentIndex: any) => {
+            let domItem = document.getElementById(element.name) as any;
+            domItem.style = 'color : black';
+          })
+        } else{
+          domItemTipps.innerHTML="Super, richtige Antwort!"
+          this.currentQuestion.answeredCorrect = true;
+        }
+        break;
+    }
   }
   
+
+
+  checkAnswer() {
+    let stillTrue: boolean = true
+
+    this.currentAnswer.forEach((element: any, currentIndex: any) => {
+      let domItem = document.getElementById(element.name) as any;
+      domItem.style = 'color : green';
+      if(element.name !== this.rightAnswer[currentIndex].name)
+      {
+        stillTrue = false
+        domItem.style = 'color : red';
+      }    
+    });
+    return stillTrue;
+  }
+
   calculateRightAnswer() {
     this.rightAnswer = this.answerList.slice();
     this.rightAnswer.sort(function(a: any, b: any){return b.value-a.value});
-    console.log(this.rightAnswer)
   }
   randomizeList() {
     this.currentAnswer = this.answerList.slice();
@@ -70,7 +117,7 @@ export class SortOrderComponent implements OnInit {
     }
   }
 
-  questiondata = {
+  /* questiondata = {
     "questionId": 0,
     "questionType": 1,
     "category": 0,
@@ -105,7 +152,7 @@ export class SortOrderComponent implements OnInit {
         }
       ]
     }
-  }
+  } */
 
 
   drop(event: CdkDragDrop<string[]>) {

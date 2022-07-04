@@ -150,7 +150,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
       case 5:
         //hier Funktion für Questiontyp 5 - Multiple Choice, die aufgerufen werden soll zum validieren
       case 6: 
-        this.sortOrder?.checkAnswer();
+        this.sortOrder?.validateButtonPressed();
         return; 
         //hier Funktion für Questiontyp 6 - Sort & Order, die aufgerufen werden soll zum validieren
       case 7:
