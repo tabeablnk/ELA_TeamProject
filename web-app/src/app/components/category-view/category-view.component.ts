@@ -139,7 +139,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         return;
         //hier Funktion für Questiontyp 1 - Single Choice, die aufgerufen werden soll zum validieren
       case 2: 
-        // this.mapSelection?.validateAnswer();
+        this.mapSelection?.validateAnswer();
         return;
       case 3:
         //hier Funktion für Questiontyp 3 - Drag & Drop, die aufgerufen werden soll zum validieren

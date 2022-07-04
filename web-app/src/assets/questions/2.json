@@ -4,15 +4,15 @@
     "questionType": 1,
     "questionTypeName": "SingleChoice",
     "category": 1,
-    "questionText": "Hier ist dann die Frage",
+    "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
     "imageUrl": "",
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
-      "options": ["Option 1", "Option 2"],
-      "correctAnswer": "Option 1"
+      "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+      "correctAnswer": "Würzburg"
     }
   },
   {
@@ -59,8 +59,8 @@
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
-      "gapText": "Hier ist der Lückentext",
-      "correctAnswer": "???? noch offen"
+      "gapText": "% Bamberg % wurde wie Rom auf sieben Hügeln ( % Stephansberg % , Kaulberg, Domberg, Michaelsberg, Jakobsberg, Altenburg, Abtsberg) erbaut und deshalb auch manchmal als Fränkisches Rom bezeichnet. 1993 wurde die Altstadt in die Liste des Weltkultur- und Naturerbes der Menschheit der UNESCO aufgenommen. In der Begründung heißt es, die Stadt repräsentiere in einzigartiger Weise die auf einer Grundstruktur des Frühmittelalters entwickelte mitteleuropäische Stadt. Das in die UNESCO-Welterbeliste aufgenommene Areal umfasst die drei historischen Stadtzentren Berg-, Insel- und % Gärtnerstadt % mit einer Gesamtfläche von etwa 140 Hektar.",
+      "correctAnswers": ["Bamberg", "Stephansberg", "Gärtnerstadt"]
     }
   },
   {
@@ -68,15 +68,15 @@
     "questionType": 5,
     "questionTypeName": "MultipleChoice",
     "category": 1,
-    "questionText": "Wähle hier die richtigen Antworten!",
+    "questionText": "In welchen bayrischen Städte befindet sich eine Domkirche?",
     "imageUrl": "",
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
-      "correctAnswer": ["", ""],
-      "options": ["", ""]
+      "correctAnswer": ["Bamberg", "Würzburg", "Passau", "Eichstätt", "Regensburg"],
+      "options": ["Bamberg", "Würzburg", "Nürnberg", "Passau", "Ingolstadt", "Bayreuth", "Eichstätt", "Regensburg", "Freising", "Hof"]
     }
   },
   {
@@ -84,7 +84,7 @@
     "questionType": 6,
     "questionTypeName": "SortOrder",
     "category": 1,
-    "questionText": "Bringe das und das in die richtige Reihenfolge",
+    "questionText": "Sortiere die folgenden Regierungsbezirke nach der Anzahl ihrer Braustätten",
     "imageUrl": "",
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
@@ -94,12 +94,28 @@
       "options": ["", ""],
       "correctAnswer": [
         {
-          "name": "",
-          "value": ""
+          "name": "Oberbayern",
+          "value": "142"
         },
         {
-          "name": "",
-          "value": ""
+          "name": "Schwaben",
+          "value": "85"
+        },
+        {
+          "name": "Oberfranken",
+          "value": "165"
+        },
+        {
+          "name": "Niederbayern",
+          "value": "70"
+        },
+        {
+          "name": "Unterfranken",
+          "value": "59"
+        },
+        {
+          "name": "Oberpfalz",
+          "value": "68"
         }
       ]
     }
