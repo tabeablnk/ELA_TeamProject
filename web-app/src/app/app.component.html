@@ -1,3 +1,14 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="openHome()">
+        <mat-icon>home</mat-icon>
+      </button>
+    <span style="margin-top: 5px;">Lernplattform bayrische Städte</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="openDashboard()">
+        <mat-icon>query_stats</mat-icon>
+      </button>
+  </mat-toolbar>
+
 <div class="view-container">
     <!-- <h1 *ngIf="loggedIn">Wilkommen zum City Quiz!</h1> -->
     <router-outlet>
