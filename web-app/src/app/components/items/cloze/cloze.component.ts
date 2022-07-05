@@ -45,10 +45,10 @@ export class ClozeComponent implements OnInit {
     this.setCloze(); 
     document.getElementById("finish_cloze_button")?.setAttribute("hidden", "true")
     
-    this.interval = setInterval(()=>{
-      this.timeOnPage++;
-      console.log(this.timeOnPage)
-    },1000)
+    // this.interval = setInterval(()=>{
+    //   this.timeOnPage++;
+    //   console.log(this.timeOnPage)
+    // },1000)
   }
 
   ngAfterViewInit(): void{
@@ -57,12 +57,12 @@ export class ClozeComponent implements OnInit {
     //   document.getElementById("finish_cloze_button")!.style.display = 'none'
     // }, 1000
   }
-  ngOnDestroy(){
-    clearInterval(this.interval)
-    this.currentQuestion.timeOnPage = this.timeOnPage;
-    this.quizService.saveGivenAnswer(this.currentQuestion)
+  // ngOnDestroy(){
+  //   clearInterval(this.interval)
+  //   this.currentQuestion.timeOnPage = this.timeOnPage;
+  //   this.quizService.saveGivenAnswer(this.currentQuestion)
 
-  }
+  // }
 
   setCloze(): void {
     let that = this; 
