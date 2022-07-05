@@ -32,6 +32,9 @@ export class ClozeComponent implements OnInit {
   //     "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
   //   }
   // }
+
+  private timeOnPage = 0; 
+  private interval :any;
   
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
@@ -41,14 +44,24 @@ export class ClozeComponent implements OnInit {
   ngOnInit(): void {
     this.setCloze(); 
     document.getElementById("finish_cloze_button")?.setAttribute("hidden", "true")
+    
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+      console.log(this.timeOnPage)
+    },1000)
   }
 
   ngAfterViewInit(): void{
     // setTimeout( function(){
     //   console.log(document.getElementById("finish_cloze_button"))
     //   document.getElementById("finish_cloze_button")!.style.display = 'none'
-    // }, 100)
-    
+    // }, 1000
+  }
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeOnPage = this.timeOnPage;
+    this.quizService.saveGivenAnswer(this.currentQuestion)
+
   }
 
   setCloze(): void {
@@ -86,6 +99,8 @@ export class ClozeComponent implements OnInit {
     }
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
       console.log(this.currentQuestion)
+      document.getElementById("tipps")!.innerHTML = "Richtig! Sehr gut gemacht :)"
+      this.currentQuestion.answeredCorrect = true; 
       this.cloze.on_finish(); 
     } else{
       this.cloze.mistake_fn(); 

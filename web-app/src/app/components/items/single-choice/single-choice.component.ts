@@ -40,19 +40,16 @@ export class SingleChoiceComponent implements OnInit {
     let selected = document.getElementById(this.selectedSolution) as any;
     let tipp = document.getElementById("tipps") as any;
     let wrongOptions = this.currentQuestion.additionalInfos.options.filter((e:any) => e !== this.currentQuestion.additionalInfos.correctAnswer);
-    if(this.currentTry < 3){
-      this.currentQuestion.givenAnswers[this.currentTry] = this.selectedSolution
-      console.log(this.currentQuestion)
-      this.quizService.saveGivenAnswer(this.currentQuestion)
-    }
 
     if (
       this.selectedSolution === this.currentQuestion.additionalInfos.correctAnswer) {
       selected.style = 'color : green';
       tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
+      this.currentQuestion.answeredCorrect = true; 
       wrongOptions.forEach((wrongOption:any) => {
         let wo = document.getElementById(wrongOption) as any; 
         wo.style = 'color : red; text-decoration: line-through';
+
       })
     } else {
       selected.style = 'color : red; text-decoration: line-through';
@@ -66,7 +63,7 @@ export class SingleChoiceComponent implements OnInit {
           let halfOptions = Math.floor(this.currentQuestion.additionalInfos.options.length / 2);
           console.log(halfOptions);
 
-          console.log(wrongOptions)
+          console.log(wrongOptions) 
           let cuttedOptions = this.getRandom(wrongOptions, halfOptions);
           
           cuttedOptions.forEach((wrongOption:any) => {
@@ -93,7 +90,14 @@ export class SingleChoiceComponent implements OnInit {
           tipp.innerHTML = "Leider nicht richtig. Die richtige Antwort ist mit grün hinterlegt. Du hast leider keinen Versuch mehr"
         }
       }
+    }    
+    
+    if(this.currentTry < 3){
+      this.currentQuestion.givenAnswers[this.currentTry] = this.selectedSolution
+      console.log(this.currentQuestion)
+      this.quizService.saveGivenAnswer(this.currentQuestion)
     }
+    
     this.currentTry += 1;
   }
 

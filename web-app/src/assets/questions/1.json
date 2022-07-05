@@ -54,6 +54,7 @@
     "category": 1,
     "questionText": "Fülle die Lücken du Loser!",
     "imageUrl": "",
+    "timeOnPage": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
     "givenAnswers": ["answer1", "answer2"],

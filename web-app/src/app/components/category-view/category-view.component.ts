@@ -44,6 +44,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   */
   arrivedLastQuestion = false; 
 
+  public showResultScreen = false; 
+
   constructor(public state: StateService, public templates: QuestiontemplatesService, public currQuiz : CurrentQuizService, private router: Router) { 
     this.category = state.getCategory();
     this.questionTemplates = templates.getAllTemplates(); 
@@ -90,7 +92,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   }
 
   onFinishQuizPressed(): void{
-    this.router.navigate(["/results"])
+    // this.router.navigate(["/results"])
     
     let history = [];
     let currentHistory = localStorage.getItem("quizHistory")
@@ -104,6 +106,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
       history.push(this.currentQuizSet)
       localStorage.setItem("quizHistory", JSON.stringify(history))
     }
+
+    this.showResultScreen = true; 
   }
 
   getCategoryName() {

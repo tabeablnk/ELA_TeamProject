@@ -23,6 +23,7 @@
     "@asymmetrik/ngx-leaflet": "^13.0.2",
     "@jspsych/plugin-cloze": "^1.1.1",
     "@types/leaflet-draw": "^1.0.5",
+    "chart.js": "^3.8.0",
     "geolib": "^3.3.3",
     "jspsych": "^7.2.3",
     "leaflet": "^1.7.1",
