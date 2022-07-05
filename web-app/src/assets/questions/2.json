@@ -31,23 +31,6 @@
     }
   },
   {
-    "questionId": 2,
-    "questionType": 3,
-    "questionTypeName": "DragDrop",
-    "category": 1,
-    "questionText": "Sortiere das und das richtig ein",
-    "imageUrl": "",
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "gapText": ["", ""],
-      "options": ["", ""],
-      "correctAnswer": "???? noch offen"
-    }
-  },
-  {
     "questionId": 3,
     "questionType": 4,
     "questionTypeName": "Cloze",
@@ -61,22 +44,6 @@
     "additionalInfos": {
       "gapText": "% Bamberg % wurde wie Rom auf sieben Hügeln ( % Stephansberg % , Kaulberg, Domberg, Michaelsberg, Jakobsberg, Altenburg, Abtsberg) erbaut und deshalb auch manchmal als Fränkisches Rom bezeichnet. 1993 wurde die Altstadt in die Liste des Weltkultur- und Naturerbes der Menschheit der UNESCO aufgenommen. In der Begründung heißt es, die Stadt repräsentiere in einzigartiger Weise die auf einer Grundstruktur des Frühmittelalters entwickelte mitteleuropäische Stadt. Das in die UNESCO-Welterbeliste aufgenommene Areal umfasst die drei historischen Stadtzentren Berg-, Insel- und % Gärtnerstadt % mit einer Gesamtfläche von etwa 140 Hektar.",
       "correctAnswers": ["Bamberg", "Stephansberg", "Gärtnerstadt"]
-    }
-  },
-  {
-    "questionId": 4,
-    "questionType": 5,
-    "questionTypeName": "MultipleChoice",
-    "category": 1,
-    "questionText": "In welchen bayrischen Städte befindet sich eine Domkirche?",
-    "imageUrl": "",
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "correctAnswer": ["Bamberg", "Würzburg", "Passau", "Eichstätt", "Regensburg"],
-      "options": ["Bamberg", "Würzburg", "Nürnberg", "Passau", "Ingolstadt", "Bayreuth", "Eichstätt", "Regensburg", "Freising", "Hof"]
     }
   },
   {
@@ -118,21 +85,6 @@
           "value": "68"
         }
       ]
-    }
-  },
-  {
-    "questionId": 6,
-    "questionType": 7,
-    "questionTypeName": "ShortAnswer",
-    "category": 1,
-    "questionText": "Wie alt ist das und das?",
-    "imageUrl": "",
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "correctAnswer": "sehr cool"
     }
   }
 ]
