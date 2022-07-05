@@ -1,1 +1,49 @@
-<p>quiz-results works!</p>
+<div>
+  <mat-grid-list cols="3">
+    <mat-grid-tile colspan="2">
+      <div>
+        <div>
+          <label>Du hast </label>
+          <label class="bigFont">{{ percentageRight }}%</label>
+          <label> der Fragen richtig beantwortet!</label>
+        </div>
+        <div style="margin-top: 5%">
+          <label>Du hast im Durchschnitt </label>
+          <label class="bigFont">{{ percentageRight }}</label>
+          <label style="font-weight: bold"> Versuche</label>
+          <label> und </label>
+          <label class="bigFont">{{ percentageRight }}</label>
+          <label style="font-weight: bold"> Sekunden</label>
+          <label> pro Frage im Schnitt benötigt.</label>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <div style="width: 70%; height: 70%">
+        <canvas id="correctAnswerPieChart"></canvas>
+        <!-- <span>Anteil korrekter Antworten</span> -->
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="3" rowHeight="350px">
+    <mat-grid-tile class="mat-grid-tile">
+      <div>
+        <span style="margin-left: 8px;">Anteil korrekter Antworten</span>
+        <canvas id="myChart"></canvas>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="mat-grid-tile">
+      <div>
+        <span style="margin-left: 8px;">Zeit pro Frage</span>
+        <canvas id="myChart2"></canvas>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="mat-grid-tile">
+      <div>
+        <span style="margin-left: 8px;">Versuche pro Frage</span>
+        <canvas id="myChart3"></canvas>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
