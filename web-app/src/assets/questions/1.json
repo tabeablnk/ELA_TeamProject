@@ -74,15 +74,15 @@
     "questionType": 5,
     "questionTypeName": "MultipleChoice",
     "category": 1,
-    "questionText": "Wähle hier die richtigen Antworten!",
+    "questionText": "Welche Städte liegen in Bayern?",
     "imageUrl": "",
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
-      "correctAnswer": ["", ""],
-      "options": ["", ""]
+      "correctAnswer": ["München", "Bamberg", "Nürnberg"],
+      "options": ["München", "Berlin","Nürnberg", "Bamberg","Hannover", "Konstanz"]
     }
   },
   {

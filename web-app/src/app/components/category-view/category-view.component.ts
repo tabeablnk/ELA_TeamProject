@@ -7,6 +7,7 @@ import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
 import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
+import { MultipleChoiceComponent } from '../items/multiple-choice/multiple-choice.component';
 import { SingleChoiceComponent } from '../items/single-choice/single-choice.component';
 import { SortOrderComponent } from '../items/sort-order/sort-order.component';
 
@@ -25,6 +26,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
   @ViewChild(MapSelectionComponent) mapSelection: MapSelectionComponent | undefined;
   @ViewChild(SingleChoiceComponent) singleChoice: SingleChoiceComponent | undefined;
+  @ViewChild(MultipleChoiceComponent) multipleChoice: MultipleChoiceComponent | undefined;
 
 
   public currentQuestion : any; 
@@ -153,6 +155,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         return;
       case 5:
         //hier Funktion für Questiontyp 5 - Multiple Choice, die aufgerufen werden soll zum validieren
+        this.multipleChoice?.submitForm(); 
+        return; 
       case 6: 
         this.sortOrder?.validateButtonPressed();
         return; 
