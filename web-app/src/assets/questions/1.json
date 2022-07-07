@@ -78,7 +78,7 @@
     "imageUrl": "",
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "correctAnswer": ["München", "Bamberg", "Nürnberg"],

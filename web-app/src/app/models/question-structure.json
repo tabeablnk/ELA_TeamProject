@@ -57,7 +57,7 @@
         "imageUrl": "",
         "tip":"",
         "answeredCorrect":false,
-        "givenAnswers":["answer1","answer2"],
+        "givenAnswers":[{}],
         
         "additionalInfos":{
             "gapText": ["",""],
@@ -73,7 +73,7 @@
         "imageUrl": "",
         "tip":"",
         "answeredCorrect":false,
-        "givenAnswers":["answer1","answer2"],
+        "givenAnswers":[{}],
         
         "additionalInfos":{
             "correctAnswer": ["",""],
