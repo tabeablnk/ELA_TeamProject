@@ -18,6 +18,24 @@
     }
   },
   {
+    "questionId": 0,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
+    "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+      "correctAnswer": "Würzburg"
+    }
+  },
+  {
     "questionId": 1,
     "questionType": 2,
     "questionTypeName": "MapQuestion",
