@@ -12,29 +12,26 @@ export class SingleChoiceComponent implements OnInit {
 
   currentQuestion :any; 
 
+  private timeOnPage = 0; 
+  private interval :any;
+
   constructor(public quizService: CurrentQuizService) {
       this.currentQuestion = this.quizService.getCurrentQuestion();
     //   // console.log(this.currentQuestion)
   }
 
-  // currentQuestion = {
-  //   questionId: 0,
-  //   questionType: 1,
-  //   questionTypeName: 'SingleChoice',
-  //   category: 1,
-  //   questionText: 'Wer ist der/die Coolste?',
-  //   imageUrl: '',
-  //   tip: 'Hier ein Tipp',
-  //   answeredCorrect: false,
-  //   givenAnswers: ['answer1', 'answer2'],
+  ngOnInit(): void {
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
+  }
 
-  //   additionalInfos: {
-  //     options: ['Tim', 'Jonas', 'Tabea', 'Narjes', 'Franzi'],
-  //     correctAnswer: 'Tim',
-  //   },
-  // };
-
-  ngOnInit(): void {}
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.quizService.saveGivenAnswer(this.currentQuestion)
+  }
 
   validateButtonPressed(): void {
     let selected = document.getElementById(this.selectedSolution) as any;

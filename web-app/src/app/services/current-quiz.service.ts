@@ -32,7 +32,7 @@ export class CurrentQuizService {
   
   saveGivenAnswer(question : object){
     console.log(question)
-    this.currentQuestion = question
+    console.log(this.currentQuestions)
     localStorage.setItem("currentQuizSet", JSON.stringify(this.currentQuestions))
   }
 

@@ -47,8 +47,15 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     })
   };
 
-  constructor(public currentQuiz: CurrentQuizService) { }
+  //added 
+  public currentQuestion : any;
+  private timeOnPage = 0; 
+  private interval :any;
 
+  constructor(public currentQuiz: CurrentQuizService) {
+    //added
+    this.currentQuestion = this.currentQuiz.getCurrentQuestion(); 
+  }
 
   ngOnInit(): void {
     this.cursor = document.getElementById("cursor") as any;
@@ -59,8 +66,21 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     });
 
     //specify correct coordinates here
-    this.correct_coordinates.lat = this.currentQuiz.getCurrentQuestion().additionalInfos.correctAnswer[0];
-    this.correct_coordinates.lng = this.currentQuiz.getCurrentQuestion().additionalInfos.correctAnswer[1];
+    this.correct_coordinates.lat = this.currentQuestion.additionalInfos.correctAnswer[0];
+    this.correct_coordinates.lng = this.currentQuestion.additionalInfos.correctAnswer[1];
+
+    //added
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
+  }
+
+  //added
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.currentQuiz.saveGivenAnswer(this.currentQuestion)
   }
 
   ngAfterViewInit(): void {
@@ -115,19 +135,28 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
   public validateAnswer(): void {
     this.distance = geolib.getPreciseDistance(this.clicked_coordinates, this.correct_coordinates);
     console.log(this.distance);
+    console.log(this.clicked_coordinates)
+    //added
+    let givenAnswer = []
+    givenAnswer.push(this.clicked_coordinates.lat)
+    givenAnswer.push(this.clicked_coordinates.lng)
     if (this.distance < this.threshold_correct) {
       this.infoMessage = "Correct! You are less than 20 km away!"
+      this.currentQuestion.answeredCorrect = true;
+      this.currentQuestion.givenAnswers[2-this.tries] = givenAnswer;  
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconGreen).addTo(this.map); // add the marker onclick
       this.showSolution();
     } else if (this.tries > 0) {
       this.answerGiven = false;
+      this.currentQuestion.givenAnswers[2-this.tries] = givenAnswer;  
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconRed).addTo(this.map); // add the marker onclick
       console.log(this.answerGiven);
       this.infoMessage = "Not correct! You are " + (this.distance / 1000) + " km away from the target! Try it again!";
       this.tries = this.tries - 1
     } else {
+      this.currentQuestion.givenAnswers[2-this.tries] = givenAnswer;  
       this.showSolution();
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconRed).addTo(this.map); // add the marker onclick
