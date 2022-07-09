@@ -15,8 +15,111 @@
       "correctAnswer": "Option 1"
     }
   },
+
+  
   {
     "questionId": 1,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "In welcher bayrischen Stadt wurde das mp3-Format entwickelt?",
+    "imageUrl": "",
+    "tip": "Die zu suchende Stadt liegt in Franken.",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Nürnberg", "München", "Bamberg", "Erlangen", "Ingolstadt"],
+      "correctAnswer": "Erlangen"
+    }
+  },
+  {
+    "questionId": 2,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "Welche dieser Städte ist die kleinste Großstadt (d.h. mehr als 100.000 Einwohner) in Bayern?",
+    "imageUrl": "",
+    "tip": "Die zu suchende Stadt liegt in Franken.",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Augsburg", "Fürth", "Weißenburg", "Erlangen", "Ingolstadt"],
+      "correctAnswer": "Erlangen"
+    }
+  },  
+
+  {
+    "questionId": 3,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "Welche dieser Städte liegt nicht in Mittelfranken?",
+    "imageUrl": "",
+    "tip": "Die zu suchende Stadt liegt an der Donau",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Schwabach", "Fürth", "Roth", "Erlangen", "Ingolstadt"],
+      "correctAnswer": "Ingolstadt"
+    }
+  },  
+
+  {
+    "questionId": 4,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "Bayern hat ein weltberühmtes (Sport-)Klettergebiet. Dessen Name lautet?",
+    "imageUrl": "",
+    "tip": "Der Süden Bayerns ist für viele Sportkletterer eher ungeeignet. Hier gesucht wird ein Gebiet mit viel Kalkstein. ",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Nördlichen Alpen", "Bayrische Wald", "Fränkische Schweiz", "Donauauen", "Steigerwald"],
+      "correctAnswer": "Fränkische Schweiz"
+    }
+  }, 
+
+  {
+    "questionId": 5,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "In Franken bzw. dem fänkischem Dialekt ist es hart, welche beiden Buchstaben zu unterscheiden?",
+    "imageUrl": "",
+    "tip": "Gesucht sind weiche Laute.",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["D und T", "O und U", "N und M", "S und Z", "V und F"],
+      "correctAnswer": "D und T"
+    }
+  }, 
+
+  {
+    "questionId": 6,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "Wenn der (Ober-)Franke von der Muggngbadschn spricht, meint er ?",
+    "imageUrl": "",
+    "tip": "Muggngbadschn ist ein Objekt.",
+    "answeredCorrect": false,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Eine Tasse mit Henkel", "Eine Fliegenklatsche", "Dass er gerne eine Ohrfeige verteilen möchte", "Jemand jetzt bitte nicht weiter reden soll", "Ein Handrührgerät"],
+      "correctAnswer": "Eine Fliegenklatsche"
+    }
+  }, 
+
+  {
+    "questionId": 7,
     "questionType": 2,
     "questionTypeName": "MapQuestion",
     "category": 1,
@@ -31,7 +134,7 @@
     }
   },
   {
-    "questionId": 2,
+    "questionId": 8,
     "questionType": 3,
     "questionTypeName": "DragDrop",
     "category": 1,
@@ -48,7 +151,7 @@
     }
   },
   {
-    "questionId": 3,
+    "questionId": 9,
     "questionType": 4,
     "questionTypeName": "Cloze",
     "category": 1,
@@ -64,7 +167,7 @@
     }
   },
   {
-    "questionId": 4,
+    "questionId": 10,
     "questionType": 5,
     "questionTypeName": "MultipleChoice",
     "category": 1,
@@ -80,7 +183,7 @@
     }
   },
   {
-    "questionId": 5,
+    "questionId": 11,
     "questionType": 6,
     "questionTypeName": "SortOrder",
     "category": 1,
@@ -105,7 +208,7 @@
     }
   },
   {
-    "questionId": 6,
+    "questionId": 12,
     "questionType": 7,
     "questionTypeName": "ShortAnswer",
     "category": 1,
