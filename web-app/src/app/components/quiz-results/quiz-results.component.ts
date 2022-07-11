@@ -233,7 +233,7 @@ export class QuizResultsComponent implements OnInit {
     /**
      * radar chart for tries
      */
-     let radar_triesPerQuestion = {
+    let radar_triesPerQuestion = {
       labels: allLabels,
       datasets:[{
         label: 'Correct Answers',

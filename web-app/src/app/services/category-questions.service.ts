@@ -20,6 +20,11 @@ export class CategoryQuestionsService {
     this.questionSet_Kultur = questionsCategory_2;
     this.questionSet_Geographie = questionsCategory_3
     this.questionSet_Geschichte = questionsCategory_4;
+
+    localStorage.setItem("questionSet_Demografie", JSON.stringify(this.questionSet_Demografie))
+    localStorage.setItem("questionSet_Kultur", JSON.stringify(this.questionSet_Kultur))
+    localStorage.setItem("questionSet_Geographie", JSON.stringify(this.questionSet_Geographie))
+    localStorage.setItem("questionSet_Geschichte", JSON.stringify(this.questionSet_Geschichte))
   }
 
   getCategoryQuestions(categoryId: Number){

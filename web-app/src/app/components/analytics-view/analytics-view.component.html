@@ -1,0 +1,51 @@
+<div class="mat-typography">
+
+    <nav id="header">
+        <!-- <div>
+            <mat-icon>home</mat-icon>
+        </div> -->
+        <div style="padding-top: 20px; padding-left: 3%;">
+            <!-- <h1 >{{getCategoryName()}}</h1>
+            <h2 style="padding: 0%;">Hier kommt dann die Beschreibung der Hauptaufgabe</h2> -->
+        </div>
+    </nav>
+    <mat-card>
+        <mat-card-title>Dashboard</mat-card-title>
+    <section>
+    <mat-card-content>
+        <div style="padding-top: 2%; padding-left: 3%;">
+            <mat-grid-list cols="3" rowHeight="350px">
+                <mat-grid-tile class="mat-grid-tile">
+                  <div>
+                    <span style="margin-left: 8px;">Anteil korrekter Antworten</span>
+                    <canvas id="myChart"></canvas>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="mat-grid-tile">
+                  <div>
+                    <span style="margin-left: 8px;">Zeit pro Frage</span>
+                    <canvas id="myChart2"></canvas>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="mat-grid-tile">
+                  <div>
+                    <span style="margin-left: 8px;">Versuche pro Frage</span>
+                    <canvas id="myChart3"></canvas>
+                  </div>
+                </mat-grid-tile>
+              </mat-grid-list>
+        </div>
+
+        <div>
+            <span style="margin-left: 8px;">Anteil korrekter Antworten über die Zeit</span>
+            <canvas id="myChart4"></canvas>
+        </div>
+    </mat-card-content>
+    </section>
+    <!-- <footer id="footer"> -->
+    <mat-card-footer>
+
+    </mat-card-footer>
+    </mat-card>
+    
+</div>

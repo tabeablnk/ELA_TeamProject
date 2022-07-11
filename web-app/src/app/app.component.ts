@@ -64,11 +64,11 @@ export class AppComponent implements OnInit{
     
   }
 
-  openDashboard() {
+  // openDashboard() {
 
-  }
+  // }
 
-  openHome() {
-    this.router.navigate(['/home']);
-  }
+  // openHome() {
+  //   this.router.navigate(['/home']);
+  // }
 }
