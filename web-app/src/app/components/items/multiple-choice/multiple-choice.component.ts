@@ -12,6 +12,8 @@ export class MultipleChoiceComponent implements OnInit {
 
   private timeOnPage = 0; 
   private interval :any;
+  
+  private currentTry = 0; 
 
   constructor(public quizService: CurrentQuizService) { 
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
@@ -27,6 +29,8 @@ export class MultipleChoiceComponent implements OnInit {
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
     this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 

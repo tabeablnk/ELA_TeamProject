@@ -44,6 +44,8 @@ export class ClozeComponent implements OnInit {
   ngOnDestroy(){
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }

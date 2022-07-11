@@ -30,6 +30,8 @@ export class SingleChoiceComponent implements OnInit {
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
     this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 

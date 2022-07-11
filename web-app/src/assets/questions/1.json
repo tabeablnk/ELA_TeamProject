@@ -10,6 +10,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -28,6 +30,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": [""],
 
     "additionalInfos": {
@@ -45,6 +49,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -64,6 +70,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": [{}],
 
     "additionalInfos": {
@@ -87,6 +95,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": [{}],
 
     "additionalInfos": {
@@ -105,6 +115,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -144,6 +156,8 @@
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {

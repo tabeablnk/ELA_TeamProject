@@ -13,6 +13,7 @@ export class DragDropComponent implements OnInit {
 
   public currentQuestion: any; 
 
+  private currentTry = 0; 
   private timeOnPage = 0; 
   private interval :any;
   
@@ -29,6 +30,8 @@ export class DragDropComponent implements OnInit {
   ngOnDestroy(){
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }

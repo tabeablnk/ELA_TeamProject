@@ -14,7 +14,7 @@ export class CurrentQuizService {
   setCurrentQuiz(categoryId : any){
     let allCategoryQuestions = this.catQuestions.getCategoryQuestions(categoryId)
     //eventuell hier noch fragen, die noch nicht beantwortet wurden priorisieren
-    this.currentQuestions = this.getRandom(allCategoryQuestions, 5);
+    this.currentQuestions = this.getRandom(allCategoryQuestions, 4);
     localStorage.setItem("currentQuizSet", JSON.stringify(this.currentQuestions))
   }
 

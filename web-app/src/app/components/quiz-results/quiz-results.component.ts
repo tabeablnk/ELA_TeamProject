@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart, ChartType, registerables} from 'chart.js';
+import { CategoryQuestionsService } from 'src/app/services/category-questions.service';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
+import { StateService } from 'src/app/services/state.service';
 Chart.register(...registerables)
 
 @Component({
@@ -84,11 +86,18 @@ export class QuizResultsComponent implements OnInit {
   dataTimePerQuestion: any = [];
   dataTriesPerQuestion: any = [];
 
-  constructor(private quizService: CurrentQuizService) {
+  categoryQuestionSet: any;
+
+  constructor(private quizService: CurrentQuizService, private questionService: CategoryQuestionsService, private stateService: StateService ) {
     this.currentQuiz = this.quizService.getCurrentQuiz();
     console.log(this.currentQuiz)
     this.quizLength = this.currentQuiz.length; 
-   }
+
+    this.categoryQuestionSet = questionService.getCategoryQuestions(this.stateService.getCategory());
+    console.log(this.categoryQuestionSet)
+
+    this.updateQuestionSet(); 
+  }
 
   ngOnInit(): void {
     
@@ -100,6 +109,20 @@ export class QuizResultsComponent implements OnInit {
     this.calculateTries(); 
     // this.setRadarCharts()
     // this.setPieChart(); 
+  }
+
+  updateQuestionSet():void{
+    this.categoryQuestionSet.forEach((questionBefore:any, index:any) => {
+      this.currentQuiz.forEach((questionAfter:any) => {
+        if(questionBefore.id === questionAfter.id){
+          questionBefore = questionAfter
+        }
+      })
+    })
+    console.log(this.categoryQuestionSet)
+    this.questionService.updateQuestionSet(this.stateService.getCategory(), this.categoryQuestionSet)
+    // let newQuestionSet = this.categoryQuestionSet.filter((question_before:any) => this.currentQuiz.some((question_after:any) => question_before.id === question_after.id))
+    // console.log(newQuestionSet)
   }
 
   calculateAnswerPercentage() {

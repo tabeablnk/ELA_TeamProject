@@ -79,6 +79,8 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
   ngOnDestroy(){
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.tries; 
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuiz.saveGivenAnswer(this.currentQuestion)
   }
