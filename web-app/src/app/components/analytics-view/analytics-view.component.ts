@@ -13,6 +13,10 @@ export class AnalyticsViewComponent implements OnInit {
   public radarChartType: ChartType = "radar";
   public lineChartType: ChartType = "line";
 
+
+  /**
+   * the following variables are used in the radar chart
+   */
   questionsDemografie = JSON.parse(localStorage.getItem("questionSet_Demografie")!);
   questionsGeographie = JSON.parse(localStorage.getItem("questionSet_Geographie")!);
   questionsKultur = JSON.parse(localStorage.getItem("questionSet_Kultur")!);
@@ -84,10 +88,16 @@ export class AnalyticsViewComponent implements OnInit {
   resultsGeschichte = JSON.parse(JSON.stringify(this.questionTypes));
 
 
+  quizHistory_Demografie = JSON.parse(localStorage.getItem("quizHistory_Demografie")!);
+  quizHistory_Kultur = JSON.parse(localStorage.getItem("quizHistory_Kultur")!);
+  quizHistory_Geografie = JSON.parse(localStorage.getItem("quizHistory_Geografie")!);
+  quizHistory_Geschichte = JSON.parse(localStorage.getItem("quizHistory_Geschichte")!);
+
   constructor() { }
 
   ngOnInit(): void {
     this.initRadarData(); 
+    this.initLineChart();
   }
 
 
@@ -102,8 +112,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsKultur.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeNeeded;
-      currentType!.triesCounter += currentQuestion.givenAnswers.length;
+      currentType!.timeCounter += currentQuestion.timeSummedUp;
+      currentType!.triesCounter += currentQuestion.triesSummedUp;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -121,8 +131,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsGeopgrahie.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeNeeded;
-      currentType!.triesCounter += currentQuestion.givenAnswers.length;
+      currentType!.timeCounter += currentQuestion.timeSummedUp;
+      currentType!.triesCounter += currentQuestion.triesSummedUp;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -136,8 +146,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsDemografie.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeNeeded;
-      currentType!.triesCounter += currentQuestion.givenAnswers.length;
+      currentType!.timeCounter += currentQuestion.timeSummedUp;
+      currentType!.triesCounter += currentQuestion.triesSummedUp;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -151,8 +161,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsGeschichte.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeNeeded;
-      currentType!.triesCounter += currentQuestion.givenAnswers.length;
+      currentType!.timeCounter += currentQuestion.timeSummedUp;
+      currentType!.triesCounter += currentQuestion.triesSummedUp;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -164,6 +174,18 @@ export class AnalyticsViewComponent implements OnInit {
     
   }
 
+  /**
+   *********************
+   *********************
+   *********************
+   *********************
+   *********************
+   * FOR THE RADAR CHARTS - START 
+   *********************
+   *********************
+   *********************
+   *********************
+   */
   setRadarChart(): void{
     console.log(this.resultsKultur)
     console.log(this.resultsDemografie)
@@ -402,5 +424,40 @@ export class AnalyticsViewComponent implements OnInit {
     let finalChart_triesPerQuestion = document.getElementById('myChart3') as any; 
     new Chart(finalChart_triesPerQuestion, config_triesPerQuestion);
   }
+
+  /**
+   *********************
+   *********************
+   *********************
+   *********************
+   *********************
+   * FOR THE RADAR CHARTS - END  
+   *********************
+   *********************
+   *********************
+   *********************
+   */
+
+
+  /**
+   *********************
+   *********************
+   *********************
+   *********************
+   *********************
+   * FOR THE LINE CHART - START 
+   *********************
+   *********************
+   *********************
+   *********************
+   */
+  initLineChart():void{
+    console.log(this.quizHistory_Demografie)
+  }
+
+  setLineChart():void{
+
+  }
+
 
 }

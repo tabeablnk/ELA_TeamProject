@@ -29,13 +29,26 @@ export class CategoryQuestionsService {
       localStorage.setItem("questionSet_Geographie", JSON.stringify(this.questionSet_Geographie))
       localStorage.setItem("questionSet_Geschichte", JSON.stringify(this.questionSet_Geschichte))
 
-      localStorage.setItem("initialQuestionSetsStored", "true")
+      // localStorage.setItem("initialQuestionSetsStored", "true")
     } else{
-      console.log("Jetzt nicht mehr hi")
-      this.questionSet_Demografie = JSON.parse(localStorage.getItem("questionSetDemografie")!)
+      this.questionSet_Demografie = JSON.parse(localStorage.getItem("questionSet_Demografie")!)
       this.questionSet_Kultur = JSON.parse(localStorage.getItem("questionSet_Kultur")!)
       this.questionSet_Geographie = JSON.parse(localStorage.getItem("questionSet_Geographie")!)
       this.questionSet_Geschichte = JSON.parse(localStorage.getItem("questionSet_Geschichte")!)
+    }
+
+    //for the quizHistories => set empty variables in localStorage if there isnt already one
+    if(!localStorage.getItem("quizHistory_Demografie")){
+      localStorage.setItem("quizHistory_Demografie", JSON.stringify([]))
+    }
+    if(!localStorage.getItem("quizHistory_Kultur")){
+      localStorage.setItem("quizHistory_Kultur", JSON.stringify([]))
+    }
+    if(!localStorage.getItem("quizHistory_Geografie")){
+      localStorage.setItem("quizHistory_Geografie", JSON.stringify([]))
+    }
+    if(!localStorage.getItem("quizHistory_Geschichte")){
+      localStorage.setItem("quizHistory_Geschichte", JSON.stringify([]))
     }
   }
 
