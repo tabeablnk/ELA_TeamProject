@@ -453,11 +453,43 @@ export class AnalyticsViewComponent implements OnInit {
    */
   initLineChart():void{
     console.log(this.quizHistory_Demografie)
+    this.setLineChart() 
+
+    //get rightPercentage 
   }
 
   setLineChart():void{
+    let labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    
+    let quizHistoryGeschichte_right: any = [];
+    this.quizHistory_Geschichte.forEach((oneQuiz : any) => {
+      quizHistoryGeschichte_right.push(this.getPercentageRight(oneQuiz))
+    });
+    
+    let quizHistoryKultur_right: any = [];
+    this.quizHistory_Kultur.forEach((oneQuiz : any) => {
+      quizHistoryKultur_right.push(this.getPercentageRight(oneQuiz))
+    });
+
+    let quizHistoryDemografie_right: any = [];
+    this.quizHistory_Demografie.forEach((oneQuiz : any) => {
+      quizHistoryDemografie_right.push(this.getPercentageRight(oneQuiz))
+    });   
+    
+    let quizHistoryGeografie_right: any = [];
+    this.quizHistory_Geografie.forEach((oneQuiz : any) => {
+      quizHistoryGeografie_right.push(this.getPercentageRight(oneQuiz))
+    });
 
   }
 
+  getPercentageRight(dataset:any){
+    let datasetLength = dataset.length; 
+
+    let rightCounter = dataset.filter((element:any) => element.answeredCorrect === true).length;
+    let percentageRight = Math.round(rightCounter / datasetLength * 100); 
+
+    return percentageRight; 
+  }
 
 }
