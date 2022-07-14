@@ -6,8 +6,32 @@
     "category": 1,
     "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": ["answer1", "answer2"],
+
+    "additionalInfos": {
+      "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+      "correctAnswer": "Würzburg"
+    }
+  },
+  {
+    "questionId": 6,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
+    "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -22,8 +46,12 @@
     "category": 1,
     "questionText": "Wo liegt der Marienplatz?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["", ""],
 
     "additionalInfos": {
@@ -37,9 +65,13 @@
     "category": 1,
     "questionText": "Fülle die Lücken!",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "gapText": "% Bamberg % wurde wie Rom auf sieben Hügeln ( % Stephansberg % , Kaulberg, Domberg, Michaelsberg, Jakobsberg, Altenburg, Abtsberg) erbaut und deshalb auch manchmal als Fränkisches Rom bezeichnet. 1993 wurde die Altstadt in die Liste des Weltkultur- und Naturerbes der Menschheit der UNESCO aufgenommen. In der Begründung heißt es, die Stadt repräsentiere in einzigartiger Weise die auf einer Grundstruktur des Frühmittelalters entwickelte mitteleuropäische Stadt. Das in die UNESCO-Welterbeliste aufgenommene Areal umfasst die drei historischen Stadtzentren Berg-, Insel- und % Gärtnerstadt % mit einer Gesamtfläche von etwa 140 Hektar.",
@@ -53,8 +85,12 @@
     "category": 1,
     "questionText": "Sortiere die folgenden Regierungsbezirke nach der Anzahl ihrer Braustätten",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {

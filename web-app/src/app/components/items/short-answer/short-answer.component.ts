@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
   selector: 'app-short-answer',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./short-answer.component.scss']
 })
 export class ShortAnswerComponent implements OnInit {
+  
+  public currentQuestion: any; 
 
-  constructor() { }
+  private timeOnPage = 0; 
+  private interval :any;
 
-  ngOnInit(): void {
+  private currentTry = 0; 
+
+  constructor(public quizService: CurrentQuizService) { 
+    this.currentQuestion = this.quizService.getCurrentQuestion(); 
   }
 
+  ngOnInit(): void {
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.quizService.saveGivenAnswer(this.currentQuestion)
+  }
 }

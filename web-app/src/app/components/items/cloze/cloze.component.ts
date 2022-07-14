@@ -16,22 +16,6 @@ export class ClozeComponent implements OnInit {
   });     
 
   public currentQuestion: any; 
-  // public currentQuestion = {
-  //   "questionId": 3,
-  //   "questionType": 4,
-  //   "questionTypeName": "Cloze",
-  //   "category": 1,
-  //   "questionText": "Fülle die Lücken du Loser!",
-  //   "imageUrl": "",
-  //   "tip": "Hier ein Tipp",
-  //   "tries": 3,
-  //   "answeredCorrect": false,
-  //   "givenAnswers": [{}],
-  //   "additionalInfos": {
-  //     "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
-  //     "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
-  //   }
-  // }
 
   private timeOnPage = 0; 
   private interval :any;
@@ -45,10 +29,9 @@ export class ClozeComponent implements OnInit {
     this.setCloze(); 
     document.getElementById("finish_cloze_button")?.setAttribute("hidden", "true")
     
-    // this.interval = setInterval(()=>{
-    //   this.timeOnPage++;
-    //   console.log(this.timeOnPage)
-    // },1000)
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
   }
 
   ngAfterViewInit(): void{
@@ -57,15 +40,17 @@ export class ClozeComponent implements OnInit {
     //   document.getElementById("finish_cloze_button")!.style.display = 'none'
     // }, 1000
   }
-  // ngOnDestroy(){
-  //   clearInterval(this.interval)
-  //   this.currentQuestion.timeOnPage = this.timeOnPage;
-  //   this.quizService.saveGivenAnswer(this.currentQuestion)
 
-  // }
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.quizService.saveGivenAnswer(this.currentQuestion)
+  }
 
   setCloze(): void {
-    let that = this; 
     this.cloze = {
       type: jsPsychCloze,
       text: this.currentQuestion.additionalInfos.gapText,
@@ -91,11 +76,9 @@ export class ClozeComponent implements OnInit {
       this.onValidateAnswer(input, i)
     }
 
-
-
     if(this.currentTry < 3){
       this.currentQuestion.givenAnswers[this.currentTry] = allInputs
-      this.quizService.saveGivenAnswer(this.currentQuestion)
+      // this.quizService.saveGivenAnswer(this.currentQuestion)
     }
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
       console.log(this.currentQuestion)

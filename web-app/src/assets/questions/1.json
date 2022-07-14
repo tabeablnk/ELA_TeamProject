@@ -6,8 +6,12 @@
     "category": 1,
     "questionText": "Wer ist der/die Coolste?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -22,8 +26,12 @@
     "category": 1,
     "questionText": "Wo liegt die größte Stadt Bayerns?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": [""],
 
     "additionalInfos": {
@@ -37,8 +45,12 @@
     "category": 1,
     "questionText": "Sortiere das und das richtig ein",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -54,10 +66,13 @@
     "category": 1,
     "questionText": "Fülle die Lücken du Loser!",
     "imageUrl": "",
-    "timeOnPage": 0,
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
@@ -76,9 +91,13 @@
     "category": 1,
     "questionText": "Wähle hier die richtigen Antworten!",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "correctAnswer": ["", ""],
@@ -92,8 +111,12 @@
     "category": 1,
     "questionText": "Bringe das und das in die richtige Reihenfolge",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -129,8 +152,12 @@
     "category": 1,
     "questionText": "Wie alt ist das und das?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {

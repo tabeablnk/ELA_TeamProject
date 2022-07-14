@@ -6,8 +6,12 @@
     "category": 1,
     "questionText": "Hier ist dann die Frage",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -22,8 +26,12 @@
     "category": 1,
     "questionText": "Wo liegt das und das",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -37,8 +45,12 @@
     "category": 1,
     "questionText": "Sortiere das und das richtig ein",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -54,9 +66,13 @@
     "category": 1,
     "questionText": "Fülle die Lücken!",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "gapText": "Hier ist der Lückentext",
@@ -70,8 +86,12 @@
     "category": 1,
     "questionText": "Wähle hier die richtigen Antworten!",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -86,8 +106,12 @@
     "category": 1,
     "questionText": "Bringe das und das in die richtige Reihenfolge",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
@@ -111,8 +135,12 @@
     "category": 1,
     "questionText": "Wie alt ist das und das?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {

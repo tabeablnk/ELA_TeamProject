@@ -43,6 +43,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   * Hier Variablen für Styling
   */
   arrivedLastQuestion = false; 
+  quizFinished = false; 
 
   public showResultScreen = false; 
 
@@ -93,20 +94,71 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
 
   onFinishQuizPressed(): void{
     // this.router.navigate(["/results"])
-    
+    this.quizFinished = true; 
     let history = [];
     let currentHistory = localStorage.getItem("quizHistory")
 
-    if(currentHistory){
-      history = JSON.parse(currentHistory)
-      history.push(this.currentQuizSet)
-      console.log(history)
-      localStorage.setItem("quizHistory", JSON.stringify(history))
-    } else{
-      history.push(this.currentQuizSet)
-      localStorage.setItem("quizHistory", JSON.stringify(history))
+        //store currentQuiz in the quiz history of the right category
+    switch(this.category){
+      case 1: 
+        if(localStorage.getItem("quizHistory_Demografie")){
+          history = JSON.parse(localStorage.getItem("quizHistory_Demografie")!)
+          history.push(this.currentQuizSet)
+          console.log(history)
+          localStorage.setItem("quizHistory_Demografie", JSON.stringify(history))
+        }else{
+          history.push(this.currentQuizSet)
+          localStorage.setItem("quizHistory_Demografie", JSON.stringify(history))
+        }
+        break;
+      case 2: 
+        if(localStorage.getItem("quizHistory_Kultur")){
+          history = JSON.parse(localStorage.getItem("quizHistory_Kultur")!)
+          history.push(this.currentQuizSet)
+          console.log(history)
+          localStorage.setItem("quizHistory_Kultur", JSON.stringify(history))
+        }else{
+          history.push(this.currentQuizSet)
+          localStorage.setItem("quizHistory_Kultur", JSON.stringify(history))
+        }
+        break;
+      case 3: 
+        if(localStorage.getItem("quizHistory_Geographie")){
+          history = JSON.parse(localStorage.getItem("quizHistory_Geographie")!)
+          history.push(this.currentQuizSet)
+          console.log(history)
+          localStorage.setItem("quizHistory_Geographie", JSON.stringify(history))
+        }else{
+          history.push(this.currentQuizSet)
+          localStorage.setItem("quizHistory_Geographie", JSON.stringify(history))
+        }
+        break;
+      case 4: 
+        if(localStorage.getItem("quizHistory_Geschichte")){
+          history = JSON.parse(localStorage.getItem("quizHistory_Geschichte")!)
+          history.push(this.currentQuizSet)
+          console.log(history)
+          localStorage.setItem("quizHistory_Geschichte", JSON.stringify(history))
+        }else{
+          history.push(this.currentQuizSet)
+          localStorage.setItem("quizHistory_Geschichte", JSON.stringify(history))
+        }
+        break;
+
+    
     }
 
+    // if(currentHistory){
+    //   history = JSON.parse(currentHistory)
+    //   history.push(this.currentQuizSet)
+    //   console.log(history)
+    //   localStorage.setItem("quizHistory", JSON.stringify(history))
+    // } else{
+    //   history.push(this.currentQuizSet)
+    //   localStorage.setItem("quizHistory", JSON.stringify(history))
+    // }
+
+    document.getElementById("finishButton")?.setAttribute("disabled", "true")
     this.showResultScreen = true; 
   }
 

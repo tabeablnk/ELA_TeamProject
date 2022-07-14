@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Chart, ChartType, registerables} from 'chart.js'
+import {Chart, ChartType, registerables} from 'chart.js';
+import { CategoryQuestionsService } from 'src/app/services/category-questions.service';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
+import { StateService } from 'src/app/services/state.service';
 Chart.register(...registerables)
 
 @Component({
@@ -15,11 +17,16 @@ export class QuizResultsComponent implements OnInit {
   currentQuiz : any;
 
   percentageRight: any = 0;
+  averageAnswerTime: any = 0;
+  averageTries: any = 0; 
+
+  quizLength : any; 
 
   questionTypes = [
     {
       name: "SingleChoice",
       type: 1,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -27,6 +34,7 @@ export class QuizResultsComponent implements OnInit {
     {
       name: "MapQuestion",
       type: 2,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -34,6 +42,7 @@ export class QuizResultsComponent implements OnInit {
     {
       name: "DragDrop",
       type: 3,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -41,6 +50,7 @@ export class QuizResultsComponent implements OnInit {
     {
       name: "Cloze",
       type: 4,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -48,6 +58,7 @@ export class QuizResultsComponent implements OnInit {
     {
       name: "MultipleChoice",
       type: 5,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -55,6 +66,7 @@ export class QuizResultsComponent implements OnInit {
     {
       name: "SortOrder",
       type: 6,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -62,6 +74,7 @@ export class QuizResultsComponent implements OnInit {
     {
       name: "ShortAnswer",
       type: 7,
+      amount: 0,
       correctCounter: 0, 
       timeCounter: 0,
       triesCounter: 0
@@ -73,43 +86,207 @@ export class QuizResultsComponent implements OnInit {
   dataTimePerQuestion: any = [];
   dataTriesPerQuestion: any = [];
 
-  constructor(private quizService: CurrentQuizService) {
-    this.currentQuiz = this.quizService.getCurrentQuiz(); 
-   }
+  categoryQuestionSet: any;
+
+  constructor(private quizService: CurrentQuizService, private questionService: CategoryQuestionsService, private stateService: StateService ) {
+    this.currentQuiz = this.quizService.getCurrentQuiz();
+    console.log(this.currentQuiz)
+    this.quizLength = this.currentQuiz.length; 
+
+    this.categoryQuestionSet = questionService.getCategoryQuestions(this.stateService.getCategory());
+    console.log(this.categoryQuestionSet)
+
+    this.updateQuestionSet(); 
+  }
 
   ngOnInit(): void {
     
-    // this.setRadarData(); 
+    
+    this.initRadarData(); 
 
     this.calculateAnswerPercentage(); 
-    this.setRadarCharts()
+    this.calculateTime(); 
+    this.calculateTries(); 
+    // this.setRadarCharts()
     // this.setPieChart(); 
   }
 
+  updateQuestionSet():void{
+    this.categoryQuestionSet.forEach((questionBefore:any, index:any) => {
+      this.currentQuiz.forEach((questionAfter:any) => {
+        if(questionBefore.id === questionAfter.id){
+          questionBefore = questionAfter
+        }
+      })
+    })
+    console.log(this.categoryQuestionSet)
+    this.questionService.updateQuestionSet(this.stateService.getCategory(), this.categoryQuestionSet)
+    // let newQuestionSet = this.categoryQuestionSet.filter((question_before:any) => this.currentQuiz.some((question_after:any) => question_before.id === question_after.id))
+    // console.log(newQuestionSet)
+  }
+
   calculateAnswerPercentage() {
-    let quizLength = this.currentQuiz.length
     let rightCounter = this.currentQuiz.filter((element:any) => element.answeredCorrect === true).length;
-    console.log(rightCounter)
-    this.percentageRight = Math.round(rightCounter / quizLength * 100); 
+    this.percentageRight = Math.round(rightCounter / this.quizLength * 100); 
 
     this.setPieChart();
   }
 
-  // setRadarData():void{
+  calculateTime(){
+    let generalTime = this.currentQuiz.reduce((sum:any, object:any) => {
+      return sum + object.timeNeeded; 
+    }, 0)
+    this.averageAnswerTime = (generalTime / this.quizLength).toFixed(2);
 
-  //   this.questionTypes.forEach((question:any, index) => {
+  }
+  
+  calculateTries(){
+    let sumTries = this.currentQuiz.reduce((sum:any, object:any) => {
+      return sum + object.givenAnswers.length; 
+    }, 0)
+    this.averageTries = (sumTries / this.quizLength).toFixed(2)
 
-  //     let questionTypeCounter = this.currentQuiz.filter((element:any) => element.questionType === question.type);
-  //     let rightCounter = questionTypeCounter.filter((element:any) => element.answeredCorrect === true).length; 
-  //     let percentage = Math.round(rightCounter/questionTypeCounter.length * 100);
-  //     if(isNaN(percentage)){
-  //       this.questionTypes.splice(index, 1)
-  //     }else{
-  //       question.correctCounter = percentage;
-  //     }
-  //   })
-  //   console.log(this.questionTypes)
-  // }
+
+  }
+
+
+  initRadarData():void{
+    this.currentQuiz.forEach((currentQuestion:any) => {
+      let currentType = this.questionTypes.find((e:any) => e.type === currentQuestion.questionType)
+
+      currentType!.amount += 1; 
+      currentType!.timeCounter += currentQuestion.timeNeeded;
+      currentType!.triesCounter += currentQuestion.givenAnswers.length;
+      
+      if(currentQuestion.answeredCorrect){
+        currentType!.correctCounter +=1;
+      }
+    })
+
+    //cut out category types which are not represented in the quiz
+    this.questionTypes = this.questionTypes.filter(function(e) { return e.amount != 0})
+
+    this.setRadarChart(); 
+    
+  }
+
+  setRadarChart():void{
+    let allLabels: any = [];
+    //for the radarCharts the labels at the agenda
+    this.questionTypes.forEach((category:any) => {
+      allLabels.push(category.name)
+      this.dataCorrectAnswerRadar.push(category.correctCounter);
+      this.dataTimePerQuestion.push(category.timeCounter);
+      this.dataTriesPerQuestion.push(category.triesCounter);
+    })
+
+    console.log(this.dataTimePerQuestion);
+
+
+    //set the data for the radar charts
+
+    /**
+     * radar chart for the correct answers
+     */
+    let radar_answerCorrect = {
+      labels: allLabels,
+      datasets:[{
+        label: 'Correct Answers',
+        data: this.dataCorrectAnswerRadar,
+        fill: true,
+        backgroundColor: 'rgb(240, 170, 67, 0.4)',
+        borderColor: 'rgb(240, 170, 67)',
+        pointBackgroundColor: 'rgb(240, 170, 67)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(240, 170, 67)'
+      }]
+    }
+
+    const config_correctAnswers = {
+      type: this.radarChartType,
+      data: radar_answerCorrect,
+      options: {
+        elements: {
+          legend: { display: false },
+          line: {
+            borderWidth: 3
+          }
+        }
+      },
+    };
+
+    let finalChart_correctAnswer = document.getElementById('myChart') as any; 
+    new Chart(finalChart_correctAnswer, config_correctAnswers);
+
+
+    /**
+     * radar chart for the time
+     */    
+    let radar_timePerQuestion = {
+      labels: allLabels,
+      datasets:[{
+        label: 'Correct Answers',
+        data: this.dataTimePerQuestion,
+        fill: true,
+        backgroundColor: 'rgb(240, 170, 67, 0.4)',
+        borderColor: 'rgb(240, 170, 67)',
+        pointBackgroundColor: 'rgb(240, 170, 67)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(240, 170, 67)'
+      }]
+    }
+
+    const config_timePerQuestion = {
+      type: this.radarChartType,
+      data: radar_timePerQuestion,
+      options: {
+        elements: {
+          legend: { display: false },
+          line: {
+            borderWidth: 3
+          }
+        }
+      },
+    };
+
+    let finalChart_timePerQuestion = document.getElementById('myChart2') as any; 
+    new Chart(finalChart_timePerQuestion, config_timePerQuestion);
+    /**
+     * radar chart for tries
+     */
+    let radar_triesPerQuestion = {
+      labels: allLabels,
+      datasets:[{
+        label: 'Correct Answers',
+        data: this.dataTriesPerQuestion,
+        fill: true,
+        backgroundColor: 'rgb(240, 170, 67, 0.4)',
+        borderColor: 'rgb(240, 170, 67)',
+        pointBackgroundColor: 'rgb(240, 170, 67)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(240, 170, 67)'
+      }]
+    }
+
+    const config_triesPerQuestion = {
+      type: this.radarChartType,
+      data: radar_triesPerQuestion,
+      options: {
+        elements: {
+          legend: { display: false },
+          line: {
+            borderWidth: 3
+          }
+        }
+      },
+    };
+
+    let finalChart_triesPerQuestion = document.getElementById('myChart3') as any; 
+    new Chart(finalChart_triesPerQuestion, config_triesPerQuestion);
+  } 
 
   setPieChart():void {
     const data = {

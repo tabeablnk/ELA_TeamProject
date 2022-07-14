@@ -15,6 +15,9 @@ export class SortOrderComponent implements OnInit {
 
   currentQuestion :any; 
 
+  private timeOnPage = 0; 
+  private interval :any;
+
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion()
     this.answerList=this.currentQuestion.additionalInfos.correctAnswer
@@ -24,7 +27,18 @@ export class SortOrderComponent implements OnInit {
     this.randomizeList()
     this.calculateRightAnswer()
     
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
+  }
 
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.leftTrys; 
+    this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 
   validateButtonPressed()
@@ -32,7 +46,7 @@ export class SortOrderComponent implements OnInit {
     let domItemTipps = document.getElementById('tipps') as any;
     this.leftTrys--
 
-    if(this.leftTrys > 0){
+    if(this.leftTrys >= 0){
       this.currentQuestion.givenAnswers[2-this.leftTrys] = this.currentAnswer
       console.log(this.currentQuestion)
       this.quizService.saveGivenAnswer(this.currentQuestion)
