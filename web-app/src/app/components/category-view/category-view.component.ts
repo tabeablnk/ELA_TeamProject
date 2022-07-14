@@ -123,14 +123,14 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         }
         break;
       case 3: 
-        if(localStorage.getItem("quizHistory_Geografie")){
-          history = JSON.parse(localStorage.getItem("quizHistory_Geografie")!)
+        if(localStorage.getItem("quizHistory_Geographie")){
+          history = JSON.parse(localStorage.getItem("quizHistory_Geographie")!)
           history.push(this.currentQuizSet)
           console.log(history)
-          localStorage.setItem("quizHistory_Geografie", JSON.stringify(history))
+          localStorage.setItem("quizHistory_Geographie", JSON.stringify(history))
         }else{
           history.push(this.currentQuizSet)
-          localStorage.setItem("quizHistory_Geografie", JSON.stringify(history))
+          localStorage.setItem("quizHistory_Geographie", JSON.stringify(history))
         }
         break;
       case 4: 

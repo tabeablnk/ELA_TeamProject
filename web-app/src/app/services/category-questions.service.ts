@@ -44,8 +44,8 @@ export class CategoryQuestionsService {
     if(!localStorage.getItem("quizHistory_Kultur")){
       localStorage.setItem("quizHistory_Kultur", JSON.stringify([]))
     }
-    if(!localStorage.getItem("quizHistory_Geografie")){
-      localStorage.setItem("quizHistory_Geografie", JSON.stringify([]))
+    if(!localStorage.getItem("quizHistory_Geographie")){
+      localStorage.setItem("quizHistory_Geographie", JSON.stringify([]))
     }
     if(!localStorage.getItem("quizHistory_Geschichte")){
       localStorage.setItem("quizHistory_Geschichte", JSON.stringify([]))

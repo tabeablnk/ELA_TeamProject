@@ -90,7 +90,7 @@ export class AnalyticsViewComponent implements OnInit {
 
   quizHistory_Demografie = JSON.parse(localStorage.getItem("quizHistory_Demografie")!);
   quizHistory_Kultur = JSON.parse(localStorage.getItem("quizHistory_Kultur")!);
-  quizHistory_Geografie = JSON.parse(localStorage.getItem("quizHistory_Geografie")!);
+  quizHistory_Geographie = JSON.parse(localStorage.getItem("quizHistory_Geographie")!);
   quizHistory_Geschichte = JSON.parse(localStorage.getItem("quizHistory_Geschichte")!);
 
   constructor() { }
@@ -454,12 +454,10 @@ export class AnalyticsViewComponent implements OnInit {
   initLineChart():void{
     console.log(this.quizHistory_Demografie)
     this.setLineChart() 
-
-    //get rightPercentage 
   }
 
   setLineChart():void{
-    let labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    let labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     
     let quizHistoryGeschichte_right: any = [];
     this.quizHistory_Geschichte.forEach((oneQuiz : any) => {
@@ -476,11 +474,69 @@ export class AnalyticsViewComponent implements OnInit {
       quizHistoryDemografie_right.push(this.getPercentageRight(oneQuiz))
     });   
     
-    let quizHistoryGeografie_right: any = [];
-    this.quizHistory_Geografie.forEach((oneQuiz : any) => {
-      quizHistoryGeografie_right.push(this.getPercentageRight(oneQuiz))
+    let quizHistoryGeographie_right: any = [];
+    this.quizHistory_Geographie.forEach((oneQuiz : any) => {
+      quizHistoryGeographie_right.push(this.getPercentageRight(oneQuiz))
     });
 
+    /**
+     * set all data for the line chart
+     */
+
+    let lineChartData = {
+      labels: labels,
+      datasets:[
+        {
+          label: "Demografie",
+          data: quizHistoryDemografie_right,
+          fill: false,
+          borderColor: 'rgb(233, 30, 99)',
+          tension: 0.1
+        },
+        {
+          label: "Kultur",
+          data: quizHistoryKultur_right,
+          fill: false,
+          borderColor: 'rgb(240, 170, 67)',
+          tension: 0.1
+        },
+        {
+          label: "Geschichte",
+          data: quizHistoryGeschichte_right,
+          fill: false,
+          borderColor: 'rgb(33, 150, 243)',
+          tension: 0.1
+        },
+        {
+          label: "Geographie",
+          data: quizHistoryGeographie_right,
+          fill: false,
+          borderColor: 'rgb(76, 175, 80)',
+          tension: 0.1
+        }
+      ]
+    }
+
+    let lineChartOptions = {
+      scales: {
+          yAxes: [{
+              display: true,
+              stacked: true,
+              ticks: {
+                  min: 0, // minimum value
+                  max: 100 // maximum value
+              }
+          }]
+      }
+  }
+
+    const config_lineChart = {
+      type: this.lineChartType,
+      data: lineChartData,
+     // options: lineChartOptions
+    }
+    let lineChartFinal = document.getElementById('myChart4') as any; 
+    new Chart(lineChartFinal, config_lineChart);
   }
 
   getPercentageRight(dataset:any){
