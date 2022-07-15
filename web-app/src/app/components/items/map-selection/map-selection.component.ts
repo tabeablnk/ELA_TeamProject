@@ -55,6 +55,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
   constructor(public currentQuiz: CurrentQuizService) {
     //added
     this.currentQuestion = this.currentQuiz.getCurrentQuestion(); 
+    this.currentQuestion.givenAnswers = []; 
   }
 
   ngOnInit(): void {
@@ -150,6 +151,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconGreen).addTo(this.map); // add the marker onclick
       this.showSolution();
     } else if (this.tries > 0) {
+      this.currentQuestion.answeredCorrect = false;
       this.answerGiven = false;
       this.currentQuestion.givenAnswers[2-this.tries] = givenAnswer;  
       this.marker.remove();
@@ -158,6 +160,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       this.infoMessage = "Not correct! You are " + (this.distance / 1000) + " km away from the target! Try it again!";
       this.tries = this.tries - 1
     } else {
+      this.currentQuestion.answeredCorrect = false;
       this.currentQuestion.givenAnswers[2-this.tries] = givenAnswer;  
       this.showSolution();
       this.marker.remove();

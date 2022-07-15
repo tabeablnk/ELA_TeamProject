@@ -20,6 +20,7 @@ export class SortOrderComponent implements OnInit {
 
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion()
+    this.currentQuestion.givenAnswers = []; 
     this.answerList=this.currentQuestion.additionalInfos.correctAnswer
   }
 

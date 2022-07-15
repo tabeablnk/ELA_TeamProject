@@ -22,6 +22,7 @@ export class ClozeComponent implements OnInit {
   
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion.givenAnswers = [];
     // console.log(this.currentQuestion)
   }
 

@@ -16,7 +16,8 @@ export class SingleChoiceComponent implements OnInit {
   private interval :any;
 
   constructor(public quizService: CurrentQuizService) {
-      this.currentQuestion = this.quizService.getCurrentQuestion();
+    this.currentQuestion = this.quizService.getCurrentQuestion();
+    this.currentQuestion.givenAnswers = []; 
     //   // console.log(this.currentQuestion)
   }
 
@@ -53,6 +54,7 @@ export class SingleChoiceComponent implements OnInit {
     } else {
       selected.style = 'color : red; text-decoration: line-through';
       selected.disabled = true;
+      this.currentQuestion.answeredCorrect = false; 
       if (this.currentTry < 3) {
         if (this.currentTry === 0) {
           tipp.innerHTML = "Leider nicht richtig. Probier es nochmal! Du hast noch 2 Versuche."
@@ -73,7 +75,8 @@ export class SingleChoiceComponent implements OnInit {
         }
         if(this.currentTry === 2){
           let rightAnswer = document.getElementById(this.currentQuestion.additionalInfos.correctAnswer) as any; 
-          this.selectedSolution = rightAnswer;
+          // this.selectedSolution = rightAnswer;
+
           rightAnswer.checked = true; 
           rightAnswer.style = 'color : green'
 

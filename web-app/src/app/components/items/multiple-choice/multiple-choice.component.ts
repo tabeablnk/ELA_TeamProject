@@ -16,7 +16,8 @@ export class MultipleChoiceComponent implements OnInit {
   private currentTry = 0; 
 
   constructor(public quizService: CurrentQuizService) { 
-    this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion = this.quizService.getCurrentQuestion();
+    this.currentQuestion.givenAnswers = [];  
   }
 
   ngOnInit(): void {

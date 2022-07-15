@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Chart, ChartType, registerables} from 'chart.js';
 import { CategoryQuestionsService } from 'src/app/services/category-questions.service';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
@@ -8,7 +8,8 @@ Chart.register(...registerables)
 @Component({
   selector: 'app-quiz-results',
   templateUrl: './quiz-results.component.html',
-  styleUrls: ['./quiz-results.component.scss']
+  styleUrls: ['./quiz-results.component.scss'],
+  encapsulation: ViewEncapsulation.None //Add this line
 })
 export class QuizResultsComponent implements OnInit {
   public radarChartType: ChartType = "radar";
@@ -175,9 +176,9 @@ export class QuizResultsComponent implements OnInit {
     //for the radarCharts the labels at the agenda
     this.questionTypes.forEach((category:any) => {
       allLabels.push(category.name)
-      this.dataCorrectAnswerRadar.push(category.correctCounter);
-      this.dataTimePerQuestion.push(category.timeCounter);
-      this.dataTriesPerQuestion.push(category.triesCounter);
+      this.dataCorrectAnswerRadar.push(Math.round(category.correctCounter/category.amount * 100));
+      this.dataTimePerQuestion.push((category.timeCounter / category.amount).toFixed(2));
+      this.dataTriesPerQuestion.push((category.triesCounter / category.amount).toFixed(2));
     })
 
     console.log(this.dataTimePerQuestion);
