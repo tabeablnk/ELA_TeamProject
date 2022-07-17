@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
@@ -34,9 +34,15 @@ export class SingleChoiceComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.onSetStateNextBtn(false);
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+  
   validateButtonPressed(): void {
     let selected = document.getElementById(this.selectedSolution) as any;
     let tipp = document.getElementById("tipps") as any;
@@ -47,6 +53,7 @@ export class SingleChoiceComponent implements OnInit {
       selected.style = 'color : green';
       tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
       this.currentQuestion.answeredCorrect = true; 
+      this.onSetStateNextBtn(true);
       wrongOptions.forEach((wrongOption:any) => {
         let wo = document.getElementById(wrongOption) as any; 
         wo.style = 'color : red; text-decoration: line-through';
@@ -91,6 +98,7 @@ export class SingleChoiceComponent implements OnInit {
               x[i].disabled = true;
           }
           tipp.innerHTML = "Leider nicht richtig. Die richtige Antwort ist mit grün hinterlegt. Du hast leider keinen Versuch mehr"
+          this.onSetStateNextBtn(true);
         }
       }
     }    

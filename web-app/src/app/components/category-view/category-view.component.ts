@@ -39,6 +39,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   public color:ThemePalette
 
 
+  public stateNextBtn = false;
   /*
   * Hier Variablen für Styling
   */
@@ -81,6 +82,9 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
     document.body.setAttribute("style", "background-color: transparent");
   }
 
+  getItemValue(value: any) {
+    this.stateNextBtn = value;
+  }
 
   onNextButtonPressed(): void{
 

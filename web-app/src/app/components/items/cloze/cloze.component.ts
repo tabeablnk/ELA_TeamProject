@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Output, Component, OnInit, EventEmitter } from '@angular/core';
 import { initJsPsych, JsPsych } from 'jspsych';
 import jsPsychCloze from '@jspsych/plugin-cloze';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
@@ -15,6 +15,7 @@ export class ClozeComponent implements OnInit {
     display_element: 'display_gaze'
   });     
 
+  
   public currentQuestion: any; 
 
   private timeOnPage = 0; 
@@ -49,9 +50,15 @@ export class ClozeComponent implements OnInit {
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
     this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.onSetStateNextBtn(false);
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+  
   setCloze(): void {
     this.cloze = {
       type: jsPsychCloze,
@@ -85,6 +92,7 @@ export class ClozeComponent implements OnInit {
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
       console.log(this.currentQuestion)
       document.getElementById("tipps")!.innerHTML = "Richtig! Sehr gut gemacht :)"
+      this.onSetStateNextBtn(true);
       this.currentQuestion.answeredCorrect = true; 
       this.cloze.on_finish(); 
     } else{
@@ -115,11 +123,13 @@ export class ClozeComponent implements OnInit {
        if(this.currentTry === 2){
         input.disabled = true; 
         input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Schade, leider hast du es nicht ganz richtig. Du hast leider keine Versuche mehr."
        }
       } else{
         input.style = "border-color: green"
         input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
       }
     }else{

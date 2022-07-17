@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
@@ -31,6 +31,13 @@ export class ShortAnswerComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.onSetStateNextBtn(false);
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
+
+
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
 }
