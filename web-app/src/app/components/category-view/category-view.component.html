@@ -57,8 +57,8 @@
     <!-- <footer id="footer"> -->
     <mat-card-footer>
         <div class="buttons" style="text-align: center">
-        <button mat-raised-button #confirmButton id="confirmButton" style="background-color: #56B45B; color: white; margin-left: 174px"  (click)="onValidateButtonPressed()">Eingabe überprüfen</button>
-        <button mat-raised-button #nextButton id="nextButton" class="vertical-center" *ngIf="!arrivedLastQuestion" (click)="onNextButtonPressed()" [disabled]="arrivedLastQuestion">
+        <button mat-raised-button #confirmButton id="confirmButton" style="background-color: #56B45B; color: white; margin-left: 174px"  (click)="onValidateButtonPressed()" >Eingabe überprüfen</button>
+        <button mat-raised-button #nextButton id="nextButton" class="vertical-center" *ngIf="!arrivedLastQuestion" (click)="onNextButtonPressed()" >
             Nächste Frage
             <mat-icon>arrow_forward</mat-icon>
         </button>

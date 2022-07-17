@@ -18,6 +18,7 @@ export class SingleChoiceComponent implements OnInit {
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion();
     this.currentQuestion.givenAnswers = []; 
+    this.currentQuestion.answeredCorrect = false; 
     //   // console.log(this.currentQuestion)
   }
 

@@ -23,6 +23,7 @@ export class ClozeComponent implements OnInit {
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
     this.currentQuestion.givenAnswers = [];
+    this.currentQuestion.answeredCorrect = false; 
     // console.log(this.currentQuestion)
   }
 
@@ -98,7 +99,11 @@ export class ClozeComponent implements OnInit {
     let inputValue = input.value;
     let tipp = document.getElementById("tipps") as any;
     if(this.currentTry < 3){
-      if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      let difference = this.findDiff(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase(), inputValue.toLowerCase())
+      let differenceReverse = this.findDiff(inputValue.toLowerCase(), this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase())
+      
+      // if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      if(difference > 3 || differenceReverse > 3){
        input.style = "border-color: red"
        if(this.currentTry === 0){
         tipp.innerHTML = "Leider nicht richtig. Die falschen Antworten sind mit rot hinterlegt. Du hast noch 2 Versuche."
@@ -114,18 +119,24 @@ export class ClozeComponent implements OnInit {
        }
       } else{
         input.style = "border-color: green"
+        input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
       }
     }else{
+      // input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
       return;
     }
 
   }
 
-  arrayEquals(a: Array<any>, b: Array<any>) {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
+  findDiff(str1: string, str2: string){
+    let diff = ""; 
+
+    str1.split("").forEach(function(val:any, i:any) {
+      if(val != str2.charAt(i)){
+        diff += val
+      }
+    })
+    return diff.length;
   }
 }

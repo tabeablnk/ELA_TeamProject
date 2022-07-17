@@ -56,6 +56,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     //added
     this.currentQuestion = this.currentQuiz.getCurrentQuestion(); 
     this.currentQuestion.givenAnswers = []; 
+    this.currentQuestion.answeredCorrect = false; 
   }
 
   ngOnInit(): void {
