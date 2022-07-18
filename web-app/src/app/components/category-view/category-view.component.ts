@@ -9,6 +9,7 @@ import { ClozeComponent } from '../items/cloze/cloze.component';
 import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
 import { SingleChoiceComponent } from '../items/single-choice/single-choice.component';
 import { SortOrderComponent } from '../items/sort-order/sort-order.component';
+import { ShortAnswerComponent } from '../items/short-answer/short-answer.component';
 
 @Component({
   selector: 'app-category-view',
@@ -25,6 +26,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
   @ViewChild(MapSelectionComponent) mapSelection: MapSelectionComponent | undefined;
   @ViewChild(SingleChoiceComponent) singleChoice: SingleChoiceComponent | undefined;
+  @ViewChild(ShortAnswerComponent) shortAnswer: ShortAnswerComponent | undefined;
 
 
   public currentQuestion : any; 
@@ -215,6 +217,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         //hier Funktion für Questiontyp 6 - Sort & Order, die aufgerufen werden soll zum validieren
       case 7:
         //hier Funktion für Questiontyp 7 - Short Answer, die aufgerufen werden soll zum validieren
+        this.shortAnswer?.onValidateAnswer();
+        return;
       default:
         return;
     }
