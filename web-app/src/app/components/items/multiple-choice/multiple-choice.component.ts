@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
@@ -16,7 +16,9 @@ export class MultipleChoiceComponent implements OnInit {
   private currentTry = 0; 
 
   constructor(public quizService: CurrentQuizService) { 
-    this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion = this.quizService.getCurrentQuestion();
+    this.currentQuestion.givenAnswers = [];  
+    this.currentQuestion.answeredCorrect = false; 
   }
 
   ngOnInit(): void {
@@ -31,7 +33,13 @@ export class MultipleChoiceComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.onSetStateNextBtn(false)
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
+
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
 
 }

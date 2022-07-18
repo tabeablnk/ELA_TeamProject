@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
@@ -20,6 +20,8 @@ export class SortOrderComponent implements OnInit {
 
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion()
+    this.currentQuestion.givenAnswers = []; 
+    this.currentQuestion.answeredCorrect = false; 
     this.answerList=this.currentQuestion.additionalInfos.correctAnswer
   }
 
@@ -38,8 +40,14 @@ export class SortOrderComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.leftTrys; 
+    this.onSetStateNextBtn(false)
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
+
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
 
   validateButtonPressed()
   {
@@ -77,12 +85,13 @@ export class SortOrderComponent implements OnInit {
         console.log("Third Try")
         if(!this.checkAnswer()){
           domItemTipps.innerHTML="Leider falsch, die richtige Antwort wird jetzt angezeigt."
+          this.onSetStateNextBtn(true)
           
           //Show right Answer
           this.currentAnswer = this.rightAnswer
           this.currentAnswer.forEach((element: any, currentIndex: any) => {
             let domItem = document.getElementById(element.name) as any;
-            domItem.style = 'color : black';
+            domItem.style = 'color : green';
           })
         } else{
           domItemTipps.innerHTML="Super, richtige Antwort!"

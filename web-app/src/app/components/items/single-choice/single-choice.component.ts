@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
@@ -16,7 +16,9 @@ export class SingleChoiceComponent implements OnInit {
   private interval :any;
 
   constructor(public quizService: CurrentQuizService) {
-      this.currentQuestion = this.quizService.getCurrentQuestion();
+    this.currentQuestion = this.quizService.getCurrentQuestion();
+    this.currentQuestion.givenAnswers = []; 
+    this.currentQuestion.answeredCorrect = false; 
     //   // console.log(this.currentQuestion)
   }
 
@@ -32,9 +34,15 @@ export class SingleChoiceComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.onSetStateNextBtn(false);
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+  
   validateButtonPressed(): void {
     let selected = document.getElementById(this.selectedSolution) as any;
     let tipp = document.getElementById("tipps") as any;
@@ -45,6 +53,7 @@ export class SingleChoiceComponent implements OnInit {
       selected.style = 'color : green';
       tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
       this.currentQuestion.answeredCorrect = true; 
+      this.onSetStateNextBtn(true);
       wrongOptions.forEach((wrongOption:any) => {
         let wo = document.getElementById(wrongOption) as any; 
         wo.style = 'color : red; text-decoration: line-through';
@@ -53,6 +62,7 @@ export class SingleChoiceComponent implements OnInit {
     } else {
       selected.style = 'color : red; text-decoration: line-through';
       selected.disabled = true;
+      this.currentQuestion.answeredCorrect = false; 
       if (this.currentTry < 3) {
         if (this.currentTry === 0) {
           tipp.innerHTML = "Leider nicht richtig. Probier es nochmal! Du hast noch 2 Versuche."
@@ -73,7 +83,8 @@ export class SingleChoiceComponent implements OnInit {
         }
         if(this.currentTry === 2){
           let rightAnswer = document.getElementById(this.currentQuestion.additionalInfos.correctAnswer) as any; 
-          this.selectedSolution = rightAnswer;
+          // this.selectedSolution = rightAnswer;
+
           rightAnswer.checked = true; 
           rightAnswer.style = 'color : green'
 
@@ -87,6 +98,7 @@ export class SingleChoiceComponent implements OnInit {
               x[i].disabled = true;
           }
           tipp.innerHTML = "Leider nicht richtig. Die richtige Antwort ist mit grün hinterlegt. Du hast leider keinen Versuch mehr"
+          this.onSetStateNextBtn(true);
         }
       }
     }    
