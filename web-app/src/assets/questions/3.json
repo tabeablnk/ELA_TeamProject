@@ -146,5 +146,190 @@
     "additionalInfos": {
       "correctAnswer": "sehr cool"
     }
-  }
+  },
+  {
+      "questionId": 6,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 1,
+      "questionText": "Sortieren sie die folgenden Städte nach der anteiligen Fläche der Grünanlagen(Größte zu Kleinste)",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": ["answer1", "answer2"],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "München",
+            "value": "12.2"
+          },
+          {
+            "name": "Nürnberg",
+            "value": "9.4"
+          },
+          {
+            "name": "Augsburg",
+            "value": "6.3"
+          },
+          {
+            "name": "Regensburg",
+            "value": "9.0"
+          },
+          {
+            "name": "Ingolstadt",
+            "value": "5.9"
+          },
+          {
+            "name": "Fürt",
+            "value": "5.5"
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 7,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt hat die meisten Grünflächen?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": ["answer1", "answer2"],
+  
+      "additionalInfos": {
+        "options": ["Fürth", "München", "Babmberg", "Hof", "Würzburg"],
+        "correctAnswer": "München"
+      }
+    },
+    {
+      "questionId": 8,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
+      "category": 1,
+      "questionText": "Fülle die Lücken!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "gapText": "Bayern liegt in Süddeutschland und umfasst die Bayerischen Alpen im % Süden % , davon nördlich das Alpenvorland bis zur % Donau % mit den drei großen Seen Oberbayerns. Weiterhin ist es eingegrenzt durch das ostbayerische % Mittelgebirge % und die Stufenlandschaft der Schwäbischen und Fränkischen Alb.",
+        "correctAnswers": ["Süden", "Donau", "Mittelgebirge"]
+      }
+    },
+    {
+      "questionId": 9,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
+      "category": 1,
+      "questionText": "Fülle die Lücken!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "gapText": "Der Freistaat hat im % Süden % Anteil am Hochgebirge der Ostalpen und an dem bis zur Donau reichenden flachen Alpenvorland. Nördlich der Donau bestimmen Mittelgebirge wie der Bayerische Wald oder das % Fichtelgebirge % das Landschaftsbild.",
+        "correctAnswers": ["Süden", "Fichtelgebirge"]
+      }
+    },
+    {
+      "questionId": 10,
+      "questionType": 5,
+      "questionTypeName": "MultipleChoice",
+      "category": 1,
+      "questionText": "Welche der folgenden Flüsse liegt in Bayern?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "correctAnswer": ["Main", "Donau", "Lech"],
+        "options": ["Main", "Elbe", "Donau", "Lech", "Rhein"]
+      }
+    },
+    {
+      "questionId": 11,
+      "questionType": 5,
+      "questionTypeName": "MultipleChoice",
+      "category": 1,
+      "questionText": "Welche der folgenden Regierungsbezirke gehören zu Bayern",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "correctAnswer": ["Oberfranken", "Schwaben"],
+        "options": ["Tübingen", "Oberfranken", "Münster", "Schwaben", "Kassel"]
+      }
+    },
+    {
+      "questionId": 12,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 1,
+      "questionText": "In welchem Regierungsbezirk liegt München?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp": 0,
+      "timeSummedUp": 0,
+      "givenAnswers": ["answer1", "answer2"],
+  
+      "additionalInfos": {
+        "correctAnswer": "Oberbayern"
+      }
+    },
+    {
+      "questionId": 13,
+      "questionType": 2,
+      "questionTypeName": "MapQuestion",
+      "category": 1,
+      "questionText": "Wo liegt Nürnberg",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": ["answer1", "answer2"],
+  
+      "additionalInfos": {
+        "correctAnswer": ["49.45791", "11.07598"]
+      }
+    }
+    
+  
 ]
