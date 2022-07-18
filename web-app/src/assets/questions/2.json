@@ -35,7 +35,7 @@
     "givenAnswers": ["answer1", "answer2"],
 
     "additionalInfos": {
-      "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+      "options": ["Nürnberg", "München", "Bamberg", "Hof", "Würzburg"],
       "correctAnswer": "Würzburg"
     }
   },
