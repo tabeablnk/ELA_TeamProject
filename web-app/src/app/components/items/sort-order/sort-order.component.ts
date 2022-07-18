@@ -82,7 +82,7 @@ export class SortOrderComponent implements OnInit {
           this.currentAnswer = this.rightAnswer
           this.currentAnswer.forEach((element: any, currentIndex: any) => {
             let domItem = document.getElementById(element.name) as any;
-            domItem.style = 'color : black';
+            domItem.style = 'color : green';
           })
         } else{
           domItemTipps.innerHTML="Super, richtige Antwort!"
