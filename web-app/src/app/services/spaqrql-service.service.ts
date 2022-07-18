@@ -79,7 +79,6 @@ export class SpaqrqlServiceService {
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
     this.sending_request_all_cities();
 
-
   }
 
   sending_request_all_cities(number_of_requested_citys: Number = -1){
@@ -93,15 +92,17 @@ export class SpaqrqlServiceService {
     }
 
     var parsedQuery = this.parser.parse(this.prefixes_wikidata + this.sparql_query_all_cities);
-    var updatedQuery = parsedQuery;
-    //TODO: diese Code-Zeile zum Laufen bringen
-    //updatedQuery.limit = number_of_requested_citys;
+    var updatedQuery = JSON.parse(JSON.stringify(parsedQuery));
+    //console.log(updatedQuery);
+    //console.log(number_of_requested_citys);
+    updatedQuery.limit = number_of_requested_citys;
+    //console.log(updatedQuery);
     
     var generatedQuery = this.generator.stringify(updatedQuery);
     //console.log(generatedQuery);
 
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
-      this.callback_all_cities(response.results);
+      this.callback_all_cities(response.results.bindings);
       console.log(response);
       //this.responseArrived = true;
     });
@@ -113,10 +114,12 @@ export class SpaqrqlServiceService {
     this.counter_SPARQL_requests++;
     this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
+    console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
+      console.log(i);
       var population_of_current_city = result_sparql_request[i].population.value; 
-
+      console.log(population_of_current_city);
       // Grundgerüst für eine neue Frage
       let new_question = {
         questionId: i+100,
@@ -125,10 +128,13 @@ export class SpaqrqlServiceService {
         category: 1,
         questionText: "AIG: Wie viele Einwohner hat " + result_sparql_request[i].cityLabel.value,
         imageUrl: "",
+        timeNeeded: 0,
+        alreadyAnsweredCount: 0,
+        triesSummedUp:0,
+        timeSummedUp:0,
         tip: "",
         answeredCorrect: false,
-        givenAnswers: ["answer1", "answer2"],
-
+        givenAnswers: [],
         additionalInfos: {
           options: [population_of_current_city, population_of_current_city+this.distractor_variability_city_questions, population_of_current_city-this.distractor_variability_city_questions , population_of_current_city+2*this.distractor_variability_city_questions, population_of_current_city+3*this.distractor_variability_city_questions],
           correctAnswer: population_of_current_city
