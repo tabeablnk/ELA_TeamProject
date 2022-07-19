@@ -1,16 +1,26 @@
-<div>
-            <!-- <label id="example-radio-group-label">{{currentQuestion.questionText}}</label> -->
-            <mat-radio-group id="radioButtonGroup" aria-label="Select an option" 
-                            class="radio-group" [(ngModel)]="selectedSolution">
-                <mat-radio-button value="{{option}}" id="{{option}}" disabled="false" class="radio-button" *ngFor="let option of currentQuestion.additionalInfos.options">{{option}}</mat-radio-button>
-                <!-- <mat-radio-button value="2">Option 2</mat-radio-button> -->
-            </mat-radio-group>
-     
-            <div>
-                <img src="{{currentQuestion.imageUrl}}">
-              </div>
-    <div id="tipps" class="square">
-        Du hast noch 3 Versuche!
-    </div>
-
-</div>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <mat-radio-group
+      id="radioButtonGroup"
+      aria-label="Select an option"
+      class="radio-group"
+      [(ngModel)]="selectedSolution"
+    >
+      <mat-radio-button
+        value="{{ option }}"
+        id="{{ option }}"
+        disabled="false"
+        class="radio-button"
+        *ngFor="let option of currentQuestion.additionalInfos.options"
+        >{{ option }}</mat-radio-button
+      >
+      <!-- <mat-radio-button value="2">Option 2</mat-radio-button> -->
+    </mat-radio-group>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="currentQuestion.imageUrl">
+    <!-- <div class="square"> -->
+    <img class="image" src="{{ currentQuestion.imageUrl }}" />
+    <!-- </div> -->
+  </mat-grid-tile>
+</mat-grid-list>
+<div id="tipps">Du hast noch 3 Versuche!</div>
