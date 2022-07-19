@@ -31,6 +31,7 @@ export class SpaqrqlServiceService {
   distractor_variability_city_questions = 2456;
   percental_distraction_coefficient = 5; // Number indicates percental distraction 
   max_value_random_int = 10 // Number > 4!
+  question_id_aig = 100;
 
 
   // Endpoint von WikiData an den die Anfrage geschickt werden muss
@@ -110,6 +111,7 @@ export class SpaqrqlServiceService {
       this.callback_all_cities_percential_and_random_distractors(response.results.bindings);
       this.callback_all_cities_city_names_as_distrators(response.results.bindings);
       console.log(response);
+      this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
     });
   }
@@ -117,7 +119,6 @@ export class SpaqrqlServiceService {
   callback_all_cities_trivial_distractors(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.counter_SPARQL_requests++;
     this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
     console.log(result_sparql_request);
@@ -134,7 +135,7 @@ export class SpaqrqlServiceService {
       var distractor4:number = +population_of_current_city+3*this.distractor_variability_city_questions;
 
       let new_question = {
-        questionId: i+100,
+        questionId: this.question_id_aig,
         questionType: 1,
         questionTypeName: "SingleChoice",
         category: 1,
@@ -157,13 +158,13 @@ export class SpaqrqlServiceService {
         }
       }
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.question_id_aig++;
     }
   }
 
   callback_all_cities_percential_distractors(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.counter_SPARQL_requests++;
     this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
     console.log(result_sparql_request);
@@ -181,7 +182,7 @@ export class SpaqrqlServiceService {
       var distractor4:number = +population_of_current_city+Math.round(3*this.distractor_variability_city_questions*population_of_current_city/100);
 
       let new_question = {
-        questionId: i+100,
+        questionId: this.question_id_aig,
         questionType: 1,
         questionTypeName: "SingleChoice",
         category: 1,
@@ -204,6 +205,7 @@ export class SpaqrqlServiceService {
         }
       }
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.question_id_aig++;
     }
   }
 
@@ -214,7 +216,6 @@ export class SpaqrqlServiceService {
   callback_all_cities_percential_and_random_distractors(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.counter_SPARQL_requests++;
     this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
     console.log(result_sparql_request);
@@ -244,7 +245,7 @@ export class SpaqrqlServiceService {
       var distractor4:number = +population_of_current_city-Math.round(random_int_distractor4*this.distractor_variability_city_questions*population_of_current_city/100);
 
       let new_question = {
-        questionId: i+100,
+        questionId: this.question_id_aig,
         questionType: 1,
         questionTypeName: "SingleChoice",
         category: 1,
@@ -267,6 +268,7 @@ export class SpaqrqlServiceService {
         }
       }
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.question_id_aig++;
     }
   }
 
@@ -292,7 +294,6 @@ export class SpaqrqlServiceService {
   callback_all_cities_city_names_as_distrators(result_sparql_request:any){
         // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.counter_SPARQL_requests++;
     this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
     console.log(result_sparql_request);
@@ -341,13 +342,14 @@ export class SpaqrqlServiceService {
 
   callback_all_cities_sort_order_task(result_sparql_request:any){
 
+
+
     let new_question ={
-      //TODO: meine ID-Vergabe nochmal überarbeiten!!
-      questionId: 100,
+      questionId: this.question_id_aig,
       questionType: 6,
       questionTypeName: "SortOrder",
       category: 1,
-      questionText: "Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
+      questionText: "AIG: Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
       imageUrl: "",
       timeNeeded: 0,
       alreadyAnsweredCount: 0,
@@ -383,6 +385,8 @@ export class SpaqrqlServiceService {
         ]
       }
     }
+    this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+    this.question_id_aig++;
   }
 
   sending_request_one_attribute_for_one_city(){
