@@ -18,7 +18,6 @@ export class CategoryQuestionsService {
   constructor() {
 
     if(!localStorage.getItem("questionSet_Demografie")){
-      console.log("HI")
       this.questionSet_Demografie = questionsCategory_1;
       this.questionSet_Kultur = questionsCategory_2;
       this.questionSet_Geographie = questionsCategory_3
@@ -109,6 +108,4 @@ export class CategoryQuestionsService {
         break 
     }
   }
-
-
 }
