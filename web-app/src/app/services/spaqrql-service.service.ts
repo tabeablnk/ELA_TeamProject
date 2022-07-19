@@ -26,7 +26,7 @@ class SPARQLQueryDispatcher {
 })
 export class SpaqrqlServiceService {
 
-  //responseArrived: Boolean = false;
+  all_cities_response_arrived: Boolean = false;
   counter_SPARQL_requests = 0;
   distractor_variability_city_questions = 2456;
   percental_distraction_coefficient = 5; // Number indicates percental distraction 
@@ -108,8 +108,9 @@ export class SpaqrqlServiceService {
       this.callback_all_cities_trivial_distractors(response.results.bindings);
       this.callback_all_cities_percential_distractors(response.results.bindings);
       this.callback_all_cities_percential_and_random_distractors(response.results.bindings);
+      this.callback_all_cities_city_names_as_distrators(response.results.bindings);
       console.log(response);
-      //this.responseArrived = true;
+      this.all_cities_response_arrived = true;
     });
   }
 
@@ -269,4 +270,92 @@ export class SpaqrqlServiceService {
     }
   }
 
+    //Pick random distinct arry elements from an bigger array and checks that the correct answer is not picked
+    getRandomArray(arr:any, n:any, distict_to:number) {
+      var result = new Array(n),
+          len = arr.length,
+          taken = new Array(len);
+      if (n > len)
+          throw new RangeError("getRandom: more elements taken than available");
+      while (n--) {
+          var x = Math.floor(Math.random() * len);
+          if(x == distict_to){
+            n++;
+            continue;
+          }
+          result[n] = arr[x in taken ? taken[x] : x];
+          taken[x] = --len in taken ? taken[len] : len;
+      }
+      return result;
+    }
+
+  callback_all_cities_city_names_as_distrators(result_sparql_request:any){
+        // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
+    // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
+    this.counter_SPARQL_requests++;
+    this.results_all_cities = result_sparql_request;
+    var counter_cities = Object.keys(result_sparql_request).length;
+    console.log(result_sparql_request);
+
+    for (var i = 0; i < counter_cities; i++){
+      console.log(i);
+      var population_of_current_city:number = result_sparql_request[i].population.value; 
+      console.log(population_of_current_city);
+      var name_of_current_city = result_sparql_request[i].cityLabel.value;
+
+      // Grundgerüst für eine neue Frage
+
+      var randomly_picked_elements = this.getRandomArray(result_sparql_request,4,i);
+
+      var distractor1 = randomly_picked_elements[0].cityLabel.value;
+      var distractor2 = randomly_picked_elements[1].cityLabel.value;
+      var distractor3 = randomly_picked_elements[2].cityLabel.value;
+      var distractor4 =randomly_picked_elements[3].cityLabel.value;
+
+      let new_question = {
+        questionId: i+100,
+        questionType: 1,
+        questionTypeName: "SingleChoice",
+        category: 1,
+        questionText: "AIG: Welche Stadt hat aktuell " + population_of_current_city  +" Einwohner?",
+        imageUrl: "",
+        timeNeeded: 0,
+        alreadyAnsweredCount: 0,
+        triesSummedUp:0,
+        timeSummedUp:0,
+        tip: "",
+        answeredCorrect: false,
+        givenAnswers: [],
+        additionalInfos: {
+          options: [name_of_current_city, 
+                    distractor1, 
+                    distractor2, 
+                    distractor3, 
+                    distractor4],
+          correctAnswer: name_of_current_city
+        }
+      }
+      this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+    }
+
+
+  }
+
+  callback_all_cities_sort_order_task(result_sparql_request:any){
+
+
+  }
+
+  sending_request_one_attribute_for_one_city(){
+
+
+
+  }
+
+  callback_one_attribute_for_one_city(){
+
+
+
+
+  }
 }
