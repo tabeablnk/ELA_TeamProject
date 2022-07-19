@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as Leaflet from 'leaflet';
 import * as geolib from 'geolib';
 import { StateService } from 'src/app/services/state.service';
@@ -57,7 +57,9 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
 
   constructor(public currentQuiz: CurrentQuizService, public categoryService: CategoryQuestionsService, public service: StateService) {
     //added
-    this.currentQuestion = this.currentQuiz.getCurrentQuestion();
+    this.currentQuestion = this.currentQuiz.getCurrentQuestion(); 
+    this.currentQuestion.givenAnswers = []; 
+    this.currentQuestion.answeredCorrect = false; 
   }
 
   ngOnInit(): void {
@@ -81,14 +83,21 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     }, 1000)
   }
 
-  ngOnDestroy() {
+
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+
+  //added
+  ngOnDestroy(){
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
     this.currentQuestion.timeSummedUp += this.timeOnPage;
-    this.currentQuestion.triesSummedUp += this.triesLeft;
-    this.currentQuestion.alreadyAnsweredCount += 1;
-    this.currentQuiz.saveGivenAnswer(this.currentQuestion);
-    this.map.remove();
+    this.currentQuestion.triesSummedUp += this.triesLeft; 
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.onSetStateNextBtn(false);
+    this.currentQuiz.saveGivenAnswer(this.currentQuestion)
   }
 
   ngAfterViewInit(): void {
@@ -172,12 +181,13 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     if (this.distance < this.threshold_correct) {
       this.infoMessage = "Correct! You are less than 20 km away!"
       this.currentQuestion.answeredCorrect = true;
-      this.currentQuestion.givenAnswers[2 - this.triesLeft] = givenAnswer;
+      this.onSetStateNextBtn(true);
+      this.currentQuestion.givenAnswers[2-this.triesLeft] = givenAnswer;  
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconGreen).addTo(this.map); // add the marker onclick
       this.showSolution();
-      //answer not corrrect and still tries left
     } else if (this.triesLeft > 0) {
+      this.currentQuestion.answeredCorrect = false;
       this.answerGiven = false;
       this.currentQuestion.givenAnswers[2 - this.triesLeft] = givenAnswer;
       this.marker.remove();
@@ -186,12 +196,14 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       this.infoMessage = "Not correct! You are " + (this.distance / 1000) + " km away from the target! Try it again!";
       this.triesLeft = this.triesLeft - 1
     } else {
-      this.currentQuestion.givenAnswers[2 - this.triesLeft] = givenAnswer;
+      this.currentQuestion.answeredCorrect = false;
+      this.currentQuestion.givenAnswers[2-this.triesLeft] = givenAnswer;  
       this.showSolution();
       this.marker.remove();
       this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconRed).addTo(this.map); // add the marker onclick
       this.infoMessage = "Not correct! You are still " + (this.distance / 1000) + " km away from the target! :(";
       this.answerGiven = true;
+      this.onSetStateNextBtn(true);
     }
   }
 

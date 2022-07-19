@@ -102,9 +102,6 @@ export class AnalyticsViewComponent implements OnInit {
 
 
   initRadarData():void{
-    console.log(this.resultsKultur) 
-    
-
     /**
      * set Dataset for the Kultur-Questions
      */
@@ -112,8 +109,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsKultur.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeSummedUp;
-      currentType!.triesCounter += currentQuestion.triesSummedUp;
+      currentType!.timeCounter += currentQuestion.timeNeeded;
+      currentType!.triesCounter += currentQuestion.givenAnswers.length;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -131,8 +128,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsGeopgrahie.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeSummedUp;
-      currentType!.triesCounter += currentQuestion.triesSummedUp;
+      currentType!.timeCounter += currentQuestion.timeNeeded;
+      currentType!.triesCounter += currentQuestion.givenAnswers.length;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -146,8 +143,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsDemografie.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeSummedUp;
-      currentType!.triesCounter += currentQuestion.triesSummedUp;
+      currentType!.timeCounter += currentQuestion.timeNeeded;
+      currentType!.triesCounter += currentQuestion.givenAnswers.length;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -161,8 +158,8 @@ export class AnalyticsViewComponent implements OnInit {
       let currentType = this.resultsGeschichte.find((e:any) => e.type === currentQuestion.questionType)
 
       currentType!.amount += 1; 
-      currentType!.timeCounter += currentQuestion.timeSummedUp;
-      currentType!.triesCounter += currentQuestion.triesSummedUp;
+      currentType!.timeCounter += currentQuestion.timeNeeded;
+      currentType!.triesCounter += currentQuestion.givenAnswers.length;
       
       if(currentQuestion.answeredCorrect){
         currentType!.correctCounter +=1;
@@ -188,18 +185,18 @@ export class AnalyticsViewComponent implements OnInit {
    */
   setRadarChart(): void{
     console.log(this.resultsKultur)
-    console.log(this.resultsDemografie)
-    console.log(this.resultsGeopgrahie)
-    console.log(this.resultsGeschichte)
 
     let allLabels = this.questionTypes.map((x:any) => x.name); 
     console.log(allLabels)
-
-    let correctAnswer_Kultur = this.resultsKultur.map((x:any) => x.correctCounter); 
+    let correctAnswer_Kultur = this.resultsKultur.map((x:any) => Math.round(x.correctCounter / x.amount *100)); 
+    correctAnswer_Kultur = correctAnswer_Kultur.map((x:any) => isNaN(x) ? 0 : x)
     console.log(correctAnswer_Kultur)
-    let correctAnswer_Demografie = this.resultsDemografie.map((x:any) => x.correctCounter); 
-    let correctAnswer_Geographie = this.resultsGeopgrahie.map((x:any) => x.correctCounter); 
-    let correctAnswer_Geschichte = this.resultsGeschichte.map((x:any) => x.correctCounter); 
+    let correctAnswer_Demografie = this.resultsDemografie.map((x:any) => Math.round(x.correctCounter / x.amount *100));  
+    correctAnswer_Demografie = correctAnswer_Demografie.map((x:any) => isNaN(x) ? 0 : x)
+    let correctAnswer_Geographie = this.resultsGeopgrahie.map((x:any) => Math.round(x.correctCounter / x.amount *100));  
+    correctAnswer_Geographie = correctAnswer_Geographie.map((x:any) => isNaN(x) ? 0 : x) 
+    let correctAnswer_Geschichte = this.resultsGeschichte.map((x:any) => Math.round(x.correctCounter / x.amount *100));   
+    correctAnswer_Geschichte = correctAnswer_Geschichte.map((x:any) => isNaN(x) ? 0 : x)
 
     /**
      * radar chart for the correct answers
@@ -266,7 +263,7 @@ export class AnalyticsViewComponent implements OnInit {
       },
     };
 
-    let finalChart_correctAnswer = document.getElementById('myChart') as any; 
+    let finalChart_correctAnswer = document.getElementById('myChart4') as any; 
     new Chart(finalChart_correctAnswer, config_correctAnswers);
 
 
@@ -276,10 +273,15 @@ export class AnalyticsViewComponent implements OnInit {
     /**
      * radar chart for time per question
      */
-    let timePerQuestion_Kultur = this.resultsKultur.map((x:any) => x.timeCounter); 
-    let timePerQuestion_Demografie = this.resultsDemografie.map((x:any) => x.timeCounter); 
-    let timePerQuestion_Geographie = this.resultsGeopgrahie.map((x:any) => x.timeCounter); 
-    let timePerQuestion_Geschichte = this.resultsGeschichte.map((x:any) => x.timeCounter); 
+    let timePerQuestion_Kultur = this.resultsKultur.map((x:any) => ((x.timeCounter/x.amount).toFixed(2))); 
+    timePerQuestion_Kultur = timePerQuestion_Kultur.map((x:any) => isNaN(x) ? "0" : x)
+    console.log(timePerQuestion_Kultur)
+    let timePerQuestion_Demografie = this.resultsDemografie.map((x:any) => ((x.timeCounter/x.amount).toFixed(2))); 
+    timePerQuestion_Demografie = timePerQuestion_Demografie.map((x:any) => isNaN(x) ? "0" : x)
+    let timePerQuestion_Geographie = this.resultsGeopgrahie.map((x:any) => ((x.timeCounter/x.amount).toFixed(2))); 
+    timePerQuestion_Geographie = timePerQuestion_Geographie.map((x:any) => isNaN(x) ? "0" : x)
+    let timePerQuestion_Geschichte = this.resultsGeschichte.map((x:any) => ((x.timeCounter/x.amount).toFixed(2)));
+    timePerQuestion_Geschichte = timePerQuestion_Geschichte.map((x:any) => isNaN(x) ? "0" : x) 
 
     let radar_timePerQuestion = {
       labels: allLabels,
@@ -344,7 +346,7 @@ export class AnalyticsViewComponent implements OnInit {
       },
     };
 
-    let finalChart_timePerQuestion = document.getElementById('myChart2') as any; 
+    let finalChart_timePerQuestion = document.getElementById('myChart5') as any; 
     new Chart(finalChart_timePerQuestion, config_timePerQuestion);
 
 
@@ -353,10 +355,14 @@ export class AnalyticsViewComponent implements OnInit {
     /**
      * radar charts for the tries
      */
-    let triesPerQuestion_Kultur = this.resultsKultur.map((x:any) => x.triesCounter); 
-    let triesPerQuestion_Demografie = this.resultsDemografie.map((x:any) => x.triesCounter); 
-    let triesPerQuestion_Geographie = this.resultsGeopgrahie.map((x:any) => x.triesCounter); 
-    let triesPerQuestion_Geschichte = this.resultsGeschichte.map((x:any) => x.triesCounter); 
+    let triesPerQuestion_Kultur = this.resultsKultur.map((x:any) => ((x.triesCounter/x.amount).toFixed(2))); 
+    triesPerQuestion_Kultur = triesPerQuestion_Kultur.map((x:any) => isNaN(x) ? "0" : x)
+    let triesPerQuestion_Demografie = this.resultsDemografie.map((x:any) => ((x.triesCounter/x.amount).toFixed(2)));
+    triesPerQuestion_Demografie = triesPerQuestion_Demografie.map((x:any) => isNaN(x) ? "0" : x) 
+    let triesPerQuestion_Geographie = this.resultsGeopgrahie.map((x:any) => ((x.triesCounter/x.amount).toFixed(2))); 
+    triesPerQuestion_Geographie = triesPerQuestion_Geographie.map((x:any) => isNaN(x) ? "0" : x)
+    let triesPerQuestion_Geschichte = this.resultsGeschichte.map((x:any) => ((x.triesCounter/x.amount).toFixed(2))); 
+    triesPerQuestion_Geschichte = triesPerQuestion_Geschichte.map((x:any) => isNaN(x) ? "0" : x)
 
     let radar_triesPerQuestion = {
       labels: allLabels,
@@ -421,7 +427,7 @@ export class AnalyticsViewComponent implements OnInit {
       },
     };
 
-    let finalChart_triesPerQuestion = document.getElementById('myChart3') as any; 
+    let finalChart_triesPerQuestion = document.getElementById('myChart6') as any; 
     new Chart(finalChart_triesPerQuestion, config_triesPerQuestion);
   }
 
@@ -452,7 +458,6 @@ export class AnalyticsViewComponent implements OnInit {
    *********************
    */
   initLineChart():void{
-    console.log(this.quizHistory_Demografie)
     this.setLineChart() 
   }
 
@@ -487,13 +492,6 @@ export class AnalyticsViewComponent implements OnInit {
       labels: labels,
       datasets:[
         {
-          label: "Demografie",
-          data: quizHistoryDemografie_right,
-          fill: false,
-          borderColor: 'rgb(233, 30, 99)',
-          tension: 0.1
-        },
-        {
           label: "Kultur",
           data: quizHistoryKultur_right,
           fill: false,
@@ -501,10 +499,10 @@ export class AnalyticsViewComponent implements OnInit {
           tension: 0.1
         },
         {
-          label: "Geschichte",
-          data: quizHistoryGeschichte_right,
+          label: "Demografie",
+          data: quizHistoryDemografie_right,
           fill: false,
-          borderColor: 'rgb(33, 150, 243)',
+          borderColor: 'rgb(233, 30, 99)',
           tension: 0.1
         },
         {
@@ -512,6 +510,13 @@ export class AnalyticsViewComponent implements OnInit {
           data: quizHistoryGeographie_right,
           fill: false,
           borderColor: 'rgb(76, 175, 80)',
+          tension: 0.1
+        },
+        {
+          label: "Geschichte",
+          data: quizHistoryGeschichte_right,
+          fill: false,
+          borderColor: 'rgb(33, 150, 243)',
           tension: 0.1
         }
       ]
@@ -528,14 +533,35 @@ export class AnalyticsViewComponent implements OnInit {
               }
           }]
       }
-  }
+    }
 
     const config_lineChart = {
       type: this.lineChartType,
       data: lineChartData,
-     // options: lineChartOptions
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+            y: {
+                suggestedMin: 0, // minimum value
+                suggestedMax: 100, // maximum value
+                title: {
+                  display: true,
+                  text: 'Anteil der richtigen Antworten'
+                }
+              
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Durchläufe',
+                position: "right",
+              }
+            }
+        }
+      },
     }
-    let lineChartFinal = document.getElementById('myChart4') as any; 
+    let lineChartFinal = document.getElementById('myChart7') as any; 
     new Chart(lineChartFinal, config_lineChart);
   }
 

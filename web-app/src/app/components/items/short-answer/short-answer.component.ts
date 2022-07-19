@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
-  selector: 'app-short-answer',
+  selector: 'app-short-answer', 
   templateUrl: './short-answer.component.html',
   styleUrls: ['./short-answer.component.scss']
 })
 export class ShortAnswerComponent implements OnInit {
+  inputValue = '';
   
   public currentQuestion: any; 
 
@@ -17,6 +18,8 @@ export class ShortAnswerComponent implements OnInit {
 
   constructor(public quizService: CurrentQuizService) { 
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    console.log("hier")
+    console.log(this.currentQuestion)
   }
 
   ngOnInit(): void {
@@ -31,6 +34,66 @@ export class ShortAnswerComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.onSetStateNextBtn(false);
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
+
+
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  }
+
+  onValidateAnswer(){
+    let tipp = document.getElementById("tipps") as any;
+    if(this.currentTry < 3){
+      let difference = this.findDiff(this.currentQuestion.additionalInfos.correctAnswer.toLowerCase(), this.inputValue.toLowerCase())
+      let differenceReverse = this.findDiff(this.inputValue.toLowerCase(), this.currentQuestion.additionalInfos.correctAnswer.toLowerCase())
+      
+      // if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      if(difference > 3 || differenceReverse > 3){
+      
+       if(this.currentTry === 0){
+        tipp.innerHTML = "Leider nicht richtig. Du hast noch 2 Versuche."
+       }
+       if(this.currentTry === 1){
+        this.inputValue = this.currentQuestion.additionalInfos.correctAnswer[0];
+        tipp.innerHTML = "Leider immer noch nicht ganz richtig. Als Tipp steht der Anfangsbuchstabe in den Feldern! \n Du hast noch 1 Versuch. "
+       } 
+       if(this.currentTry === 2){
+        //inputValue.disabled = true; 
+        this.inputValue = this.currentQuestion.additionalInfos.correctAnswer;
+        this.onSetStateNextBtn(true);
+        tipp.innerHTML = "Schade, leider hast du es nicht ganz richtig. Du hast leider keine Versuche mehr."
+       }
+       this.currentTry++
+      } else{
+        //inputValue.style = "border-color: green"
+        this.inputValue = this.currentQuestion.additionalInfos.correctAnswer;
+        this.onSetStateNextBtn(true);
+        tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
+        let inputfield = document.getElementsByClassName("mat-form-field example-form-field ng-tns-c117-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-valid ng-star-inserted mat-form-field-should-float ng-dirty ng-touched")[0] as any
+        inputfield.style = 'color : green';
+      }
+    }else{
+      // input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+      return;
+    }
+
+
+
+  }
+
+  findDiff(str1: string, str2: string){
+    let diff = ""; 
+
+    str1.split("").forEach(function(val:any, i:any) {
+      if(val != str2.charAt(i)){
+        diff += val
+      }
+    })
+    return diff.length;
+  }
+
+
 }

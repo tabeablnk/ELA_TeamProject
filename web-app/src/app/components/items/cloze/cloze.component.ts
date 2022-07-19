@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Output, Component, OnInit, EventEmitter } from '@angular/core';
 import { initJsPsych, JsPsych } from 'jspsych';
 import jsPsychCloze from '@jspsych/plugin-cloze';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
@@ -15,6 +15,7 @@ export class ClozeComponent implements OnInit {
     display_element: 'display_gaze'
   });     
 
+  
   public currentQuestion: any; 
 
   private timeOnPage = 0; 
@@ -22,6 +23,8 @@ export class ClozeComponent implements OnInit {
   
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion.givenAnswers = [];
+    this.currentQuestion.answeredCorrect = false; 
     // console.log(this.currentQuestion)
   }
 
@@ -47,9 +50,15 @@ export class ClozeComponent implements OnInit {
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
     this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.onSetStateNextBtn(false);
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+  
   setCloze(): void {
     this.cloze = {
       type: jsPsychCloze,
@@ -83,6 +92,7 @@ export class ClozeComponent implements OnInit {
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
       console.log(this.currentQuestion)
       document.getElementById("tipps")!.innerHTML = "Richtig! Sehr gut gemacht :)"
+      this.onSetStateNextBtn(true);
       this.currentQuestion.answeredCorrect = true; 
       this.cloze.on_finish(); 
     } else{
@@ -97,7 +107,11 @@ export class ClozeComponent implements OnInit {
     let inputValue = input.value;
     let tipp = document.getElementById("tipps") as any;
     if(this.currentTry < 3){
-      if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      let difference = this.findDiff(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase(), inputValue.toLowerCase())
+      let differenceReverse = this.findDiff(inputValue.toLowerCase(), this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase())
+      
+      // if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      if(difference > 3 || differenceReverse > 3){
        input.style = "border-color: red"
        if(this.currentTry === 0){
         tipp.innerHTML = "Leider nicht richtig. Die falschen Antworten sind mit rot hinterlegt. Du hast noch 2 Versuche."
@@ -109,22 +123,30 @@ export class ClozeComponent implements OnInit {
        if(this.currentTry === 2){
         input.disabled = true; 
         input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Schade, leider hast du es nicht ganz richtig. Du hast leider keine Versuche mehr."
        }
       } else{
         input.style = "border-color: green"
+        input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
       }
     }else{
+      // input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
       return;
     }
 
   }
 
-  arrayEquals(a: Array<any>, b: Array<any>) {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
+  findDiff(str1: string, str2: string){
+    let diff = ""; 
+
+    str1.split("").forEach(function(val:any, i:any) {
+      if(val != str2.charAt(i)){
+        diff += val
+      }
+    })
+    return diff.length;
   }
 }

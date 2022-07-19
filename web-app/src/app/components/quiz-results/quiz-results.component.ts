@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Chart, ChartType, registerables} from 'chart.js';
 import { CategoryQuestionsService } from 'src/app/services/category-questions.service';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
@@ -8,7 +8,8 @@ Chart.register(...registerables)
 @Component({
   selector: 'app-quiz-results',
   templateUrl: './quiz-results.component.html',
-  styleUrls: ['./quiz-results.component.scss']
+  styleUrls: ['./quiz-results.component.scss'],
+  encapsulation: ViewEncapsulation.None //Add this line
 })
 export class QuizResultsComponent implements OnInit {
   public radarChartType: ChartType = "radar";
@@ -106,9 +107,7 @@ export class QuizResultsComponent implements OnInit {
 
     this.calculateAnswerPercentage(); 
     this.calculateTime(); 
-    this.calculateTries(); 
-    // this.setRadarCharts()
-    // this.setPieChart(); 
+    this.calculateTries();
   }
 
   updateQuestionSet():void{
@@ -149,7 +148,6 @@ export class QuizResultsComponent implements OnInit {
 
   }
 
-
   initRadarData():void{
     this.currentQuiz.forEach((currentQuestion:any) => {
       let currentType = this.questionTypes.find((e:any) => e.type === currentQuestion.questionType)
@@ -175,9 +173,9 @@ export class QuizResultsComponent implements OnInit {
     //for the radarCharts the labels at the agenda
     this.questionTypes.forEach((category:any) => {
       allLabels.push(category.name)
-      this.dataCorrectAnswerRadar.push(category.correctCounter);
-      this.dataTimePerQuestion.push(category.timeCounter);
-      this.dataTriesPerQuestion.push(category.triesCounter);
+      this.dataCorrectAnswerRadar.push(Math.round(category.correctCounter/category.amount * 100));
+      this.dataTimePerQuestion.push((category.timeCounter / category.amount).toFixed(2));
+      this.dataTriesPerQuestion.push((category.triesCounter / category.amount).toFixed(2));
     })
 
     console.log(this.dataTimePerQuestion);
@@ -191,7 +189,6 @@ export class QuizResultsComponent implements OnInit {
     let radar_answerCorrect = {
       labels: allLabels,
       datasets:[{
-        label: 'Correct Answers',
         data: this.dataCorrectAnswerRadar,
         fill: true,
         backgroundColor: 'rgb(240, 170, 67, 0.4)',
@@ -207,8 +204,10 @@ export class QuizResultsComponent implements OnInit {
       type: this.radarChartType,
       data: radar_answerCorrect,
       options: {
-        elements: {
+        plugins:{
           legend: { display: false },
+        },
+        elements: {
           line: {
             borderWidth: 3
           }
@@ -242,8 +241,10 @@ export class QuizResultsComponent implements OnInit {
       type: this.radarChartType,
       data: radar_timePerQuestion,
       options: {
-        elements: {
+        plugins:{
           legend: { display: false },
+        },
+        elements: {
           line: {
             borderWidth: 3
           }
@@ -275,8 +276,10 @@ export class QuizResultsComponent implements OnInit {
       type: this.radarChartType,
       data: radar_triesPerQuestion,
       options: {
-        elements: {
+        plugins:{
           legend: { display: false },
+        },
+        elements: {
           line: {
             borderWidth: 3
           }
@@ -298,9 +301,9 @@ export class QuizResultsComponent implements OnInit {
         {
           label: 'Anteil korrekter Antworten',
           data: [this.percentageRight, (100 - this.percentageRight)],
-          backgroudColor: [
-            'rgb(255,99,132)',
-            'rgb(54, 162, 235)'
+          backgroundColor: [
+            'rgb(255, 181, 72)',
+            'rgb(211, 211, 211)',
           ]
         }
       ]
@@ -308,7 +311,11 @@ export class QuizResultsComponent implements OnInit {
 
     const config = {
       type: this.pieChartType,
-      data: data
+      data: data,
+      options: {
+        maintainAspectRatio : false,
+        responsive:true
+      }
     }
 
     let pieChart = document.getElementById('correctAnswerPieChart') as any; 
@@ -338,50 +345,5 @@ export class QuizResultsComponent implements OnInit {
       pointHoverBorderColor: 'rgb(240, 170, 67)'
     }]
   };
-
-  setRadarCharts():void { 
-    const config = {
-      type: this.radarChartType,
-      data: this.data,
-      options: {
-        elements: {
-          legend: { display: false },
-          line: {
-            borderWidth: 3
-          }
-        }
-      },
-    };
-    const config2 = {
-      type: this.radarChartType,
-      data: this.data,
-      options: {
-        elements: {
-          line: {
-            borderWidth: 3
-          }
-        }
-      },
-    };
-    const config3 = {
-      type: this.radarChartType,
-      data: this.data,
-      options: {
-        elements: {
-          line: {
-            borderWidth: 3
-          }
-        }
-      },
-    };
-    let test = document.getElementById('myChart') as any; 
-    new Chart(test, config);
-
-    let test2 = document.getElementById('myChart2') as any; 
-    new Chart(test2, config2);
-
-    let test3 = document.getElementById('myChart3') as any;
-    new Chart(test3, config3); 
-  }
 
 }
