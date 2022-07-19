@@ -31,11 +31,8 @@ export class CurrentQuizService {
   }
   
   saveGivenAnswer(question : object){
-    console.log(question)
-    console.log(this.currentQuestions)
     localStorage.setItem("currentQuizSet", JSON.stringify(this.currentQuestions))
   }
-
 
   //pics random elements from an array
   getRandom(arr:any, n:any) {

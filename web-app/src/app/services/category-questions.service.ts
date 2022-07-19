@@ -53,7 +53,7 @@ export class CategoryQuestionsService {
   }
 
   getCategoryQuestions(categoryId: Number){
-    console.log(this.questionSet_Demografie);
+    // console.log(this.questionSet_Demografie);
     switch(categoryId){
       case 1:
         return this.questionSet_Demografie

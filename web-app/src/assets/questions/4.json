@@ -12,7 +12,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Option 1", "Option 2"],
@@ -32,7 +32,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ""
@@ -51,7 +51,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "gapText": ["", ""],
@@ -92,7 +92,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ["", ""],
@@ -112,7 +112,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": "sehr cool"
@@ -131,7 +131,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -180,7 +180,7 @@
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
-        "givenAnswers": ["answer1", "answer2"],
+        "givenAnswers": [],
     
         "additionalInfos": {
           "options": ["Nürnberg", "München", "Ingolstadt", "Augsburg", "Würzburg"],
@@ -200,7 +200,7 @@
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
-        "givenAnswers": ["answer1", "answer2"],
+        "givenAnswers": [],
     
         "additionalInfos": {
           "options": ["Nürnberg", "München", "Ingolstadt", "Augsburg", "Würzburg"],
@@ -220,7 +220,7 @@
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
-        "givenAnswers": ["answer1", "answer2"],
+        "givenAnswers": [],
     
         "additionalInfos": {
           "options": ["Nürnberg", "München", "Ingolstadt", "Augsburg", "Würzburg"],
@@ -240,7 +240,7 @@
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
-        "givenAnswers": ["answer1", "answer2"],
+        "givenAnswers": [],
     
         "additionalInfos": {
           "correctAnswer": ["49.45791", "11.07598"]
@@ -259,7 +259,7 @@
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
-        "givenAnswers": ["answer1", "answer2"],
+        "givenAnswers": [],
     
         "additionalInfos": {
           "correctAnswer": "Audi"
@@ -278,7 +278,7 @@
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
-        "givenAnswers": ["answer1", "answer2"],
+        "givenAnswers": [],
     
         "additionalInfos": {
           "correctAnswer": ["BMW", "Audi"],

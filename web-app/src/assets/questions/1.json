@@ -12,7 +12,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Tim", "Jonas", "Tabea", "Narjes", "Franzi"],
@@ -51,7 +51,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "gapText": ["", ""],
@@ -117,7 +117,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["", ""],
@@ -158,7 +158,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": "sehr cool"
@@ -218,7 +218,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["München", "Würzburg", "Fürth", "Ausburg", "Nürnberg"],
@@ -286,7 +286,7 @@
       "givenAnswers": [{}],
   
       "additionalInfos": {
-        "gapText": " % Bayern % ist das flächengrößte der % 16 % Länder der Bundesrepublik Deutschland und liegt in deren Südosten. Mit mehr als % 13 % Millionen Einwohnern ist er das % zweitbevölkerungsreichste % Bundesland.", 
+        "gapText": " % Bayern % ist das flächengrößte der % 16 % Länder der Bundesrepublik Deutschland und liegt in deren Südosten. Mit mehr als % 13 % Millionen Einwohnern ist e das % zweitbevölkerungsreichste % Bundesland.", 
         "correctAnswers": [
           "Bayern",
           "16",
@@ -308,7 +308,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -345,7 +345,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -382,7 +382,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -419,7 +419,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["München", "Regensburg", "Nürnberg", "Erlangen", "Würzburg"],
@@ -439,7 +439,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Oberbayern", "Oberfranken", "Mittelfranken", "Unterfranken", "Niederbayern"],
@@ -459,7 +459,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Nürnberg"
@@ -478,7 +478,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Nürberg"
