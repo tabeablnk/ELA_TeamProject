@@ -1,1 +1,15 @@
-<p>multiple-choice works!</p>
+<form [formGroup]="form" (ngSubmit)="validateButtonPressed()" novalidate>
+    <!-- All Form elements or Input fields goes here -->
+    <div *ngFor="let currentQ of currentQuestion.additionalInfos.options; let i=index">
+        <label id="{{currentQ}}" >
+          <input type="checkbox" id="box-{{currentQ}}" [value]="currentQ" (change)="onCheckboxChange($event)" />
+          {{currentQ}}
+        </label>
+      </div>
+
+      <div id="tipps" style="margin-top: 10px">
+          Du hast noch 3 Versuche!
+      </div>
+
+    <!-- <input type="submit" value="Submit"> -->
+</form>

@@ -65,7 +65,7 @@
         "alreadyAnsweredCount": 0,
         "tip":"",
         "answeredCorrect":false,
-        "givenAnswers":["answer1","answer2"],
+        "givenAnswers":[{}],
         
         "additionalInfos":{
             "gapText": ["",""],
@@ -83,7 +83,7 @@
         "alreadyAnsweredCount": 0,
         "tip":"",
         "answeredCorrect":false,
-        "givenAnswers":["answer1","answer2"],
+        "givenAnswers":[{}],
         
         "additionalInfos":{
             "correctAnswer": ["",""],
