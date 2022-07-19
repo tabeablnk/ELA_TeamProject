@@ -3,12 +3,16 @@
     "questionId": 0,
     "questionType": 1,
     "questionTypeName": "SingleChoice",
-    "category": 1,
+    "category": 0,
     "questionText": "Wer ist der/die Coolste?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Tim", "Jonas", "Tabea", "Narjes", "Franzi"],
@@ -22,8 +26,12 @@
     "category": 1,
     "questionText": "Wo liegt die größte Stadt Bayerns?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": [""],
 
     "additionalInfos": {
@@ -34,12 +42,16 @@
     "questionId": 2,
     "questionType": 3,
     "questionTypeName": "DragDrop",
-    "category": 1,
+    "category": 0,
     "questionText": "Sortiere das und das richtig ein",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "gapText": ["", ""],
@@ -51,13 +63,16 @@
     "questionId": 3,
     "questionType": 4,
     "questionTypeName": "Cloze",
-    "category": 1,
+    "category": 0,
     "questionText": "Fülle die Lücken du Loser!",
     "imageUrl": "",
-    "timeOnPage": 0,
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
@@ -76,8 +91,12 @@
     "category": 1,
     "questionText": "Welche Städte liegen in Bayern?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
     "givenAnswers": [{}],
 
     "additionalInfos": {
@@ -89,12 +108,16 @@
     "questionId": 5,
     "questionType": 6,
     "questionTypeName": "SortOrder",
-    "category": 1,
+    "category": 0,
     "questionText": "Bringe das und das in die richtige Reihenfolge",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["", ""],
@@ -126,15 +149,341 @@
     "questionId": 6,
     "questionType": 7,
     "questionTypeName": "ShortAnswer",
-    "category": 1,
+    "category": 0,
     "questionText": "Wie alt ist das und das?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": "sehr cool"
     }
-  }
+  },
+  {
+      "questionId": 7,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 1,
+      "questionText": "Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": ["answer1", "answer2"],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "München",
+            "value": 1488202
+          },
+          {
+            "name": "Nürnberg",
+            "value": 515543
+          },
+          {
+            "name": "Augsburg",
+            "value": 295839
+          },
+          {
+            "name": "Regensburg",
+            "value": 152270
+          },
+          {
+            "name": "Ingolstadt",
+            "value": 136952
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 8,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt hat die meisten Einwohner?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["München", "Würzburg", "Fürth", "Ausburg", "Nürnberg"],
+        "correctAnswer": "München"
+      }
+    },
+    {
+      "questionId": 9,
+      "questionType": 5,
+      "questionTypeName": "MultipleChoice",
+      "category": 1,
+      "questionText": "Welche Städte gelten als Großstädte (Mehr als 100.000 Einwohner)?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "correctAnswer": ["München", "Nürnberg", "Ingolstadt"],
+        "options": ["München", "Nürnberg", "Ingolstadt", "Bamberg", "Bayreuth"]
+      }
+    },
+    {
+      "questionId": 10,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
+      "category": 1,
+      "questionText": "Befüllen Sie die Lücken!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "gapText": "Größte Stadt sowie einzige Millionenstadt % Bayerns % ist die Landeshauptstadt München mit rund 1,45 Millionen Einwohnern. Sie ist deutschlandweit die drittgrößte Stadt und die elftgrößte Stadt der % Europäischen Union % und zählt zu den Weltstädten der Kategorie Beta+. Sie ist die größte Stadt Deutschlands, die kein Stadtstaat ist. Zudem ist München mit rund 4670 Einwohnern je Quadratkilometer (Dezember 2015) die am dichtesten bevölkerte Gemeinde Deutschlands sowie mit 519 m ü. NHN dessen höchstgelegene Großstadt. % Nürnberg % ist mit seinen rund 520.000 Einwohnern landesweit die zweitgrößte Stadt, belegt bundesweit den 14. sowie in der Europäischen Union den 51. Platz und zählt zu den Weltstädten der Kategorie Gamma−. Aufgrund der Bedeutung Nürnbergs stellt München in Bayern keine Primatstadt dar. Augsburg ist mit fast 300.000 Einwohnern landesweit die drittgrößte Stadt und belegt bundesweit den 23. Platz. In Bayern gibt es insgesamt % acht % Großstädte. Jüngste Großstadt (mindestens 100.000 Einwohner) Bayerns ist Fürth (seit 1990), das zuvor bereits von 1951 bis 1956 und von 1972 bis 1976 eine Großstadt war. Nürnberg bildet zusammen mit Erlangen, Fürth und Schwabach ein ausgeprägtes Städteband mit rund 800.000 Einwohnern. Metropolregionen in Bayern stellen die Metropolregion München und die Metropolregion Nürnberg dar. Des Weiteren sind Teile zum Rhein-Main-Gebiet zugehörig.",
+        "correctAnswers": [
+          "Bayern",
+          "Europäischen Union",
+          "Nürnberg",
+          "acht"
+        ]
+      }
+    },
+    {
+      "questionId": 11,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
+      "category": 1,
+      "questionText": "Befüllen Sie die Lücken!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "gapText": " % Bayern % ist das flächengrößte der % 16 % Länder der Bundesrepublik Deutschland und liegt in deren Südosten. Mit mehr als % 13 % Millionen Einwohnern ist e das % zweitbevölkerungsreichste % Bundesland.", 
+        "correctAnswers": [
+          "Bayern",
+          "16",
+          "13",
+          "zweitbevölkerungsreichste"
+        ]
+      }
+    },
+    {
+      "questionId": 12,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 1,
+      "questionText": "Sortieren Sie die Städte nach Durchschnittsalter",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "Nürnberg",
+            "value": 43.3
+          },
+          {
+            "name": "München",
+            "value": 41.6
+          },
+          {
+            "name": "Augsburg",
+            "value": 41.9
+          },
+          {
+            "name": "Regensburg",
+            "value": 41.6
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 13,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 1,
+      "questionText": "Sortieren Sie die Landkreise nach Anzahl der über 65-Jährigen (viele zu wenige)",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "Oberbayern",
+            "value": 19.6
+          },
+          {
+            "name": "Oberfranken",
+            "value": 22.9
+          },
+          {
+            "name": "Mittelfranken",
+            "value": 20.8
+          },
+          {
+            "name": "Unterfranken",
+            "value": 22.3
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 14,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 1,
+      "questionText": "Sortieren der Städte nach dem prozentualen Anteil an Studenten",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "München",
+            "value": 8.8
+          },
+          {
+            "name": "Würzburg",
+            "value": 26.5
+          },
+          {
+            "name": "Erlangen",
+            "value": 24.9
+          },
+          {
+            "name": "Regensburg",
+            "value": 20.8
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 15,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt hat den prozentual den größten Anteil an Studenten?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["München", "Regensburg", "Nürnberg", "Erlangen", "Würzburg"],
+        "correctAnswer": "Würzburg"
+      }
+    },
+    {
+      "questionId": 16,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt Landkreis hat die meisten über 65-Jährigen?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Oberbayern", "Oberfranken", "Mittelfranken", "Unterfranken", "Niederbayern"],
+        "correctAnswer": "Oberfranken"
+      }
+    },
+    {
+      "questionId": 17,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 1,
+      "questionText": "Was ist die größte Stadt Bayerns?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": "Nürnberg"
+      }
+    },
+    {
+      "questionId": 18,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 1,
+      "questionText": "Was ist die zweitgrößte Stadt Bayerns?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Nicht München",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": "Nürberg"
+      }
+    }
+
+
 ]

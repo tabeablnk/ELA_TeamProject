@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Output, Component, OnInit, EventEmitter } from '@angular/core';
 import { initJsPsych, JsPsych } from 'jspsych';
 import jsPsychCloze from '@jspsych/plugin-cloze';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
@@ -15,29 +15,16 @@ export class ClozeComponent implements OnInit {
     display_element: 'display_gaze'
   });     
 
+  
   public currentQuestion: any; 
-  // public currentQuestion = {
-  //   "questionId": 3,
-  //   "questionType": 4,
-  //   "questionTypeName": "Cloze",
-  //   "category": 1,
-  //   "questionText": "Fülle die Lücken du Loser!",
-  //   "imageUrl": "",
-  //   "tip": "Hier ein Tipp",
-  //   "tries": 3,
-  //   "answeredCorrect": false,
-  //   "givenAnswers": [{}],
-  //   "additionalInfos": {
-  //     "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
-  //     "correctAnswers": ["Oberfranken", "Nürnberg", "Richard-Wagner-Festspiele", "Markgräfliche Opernhaus"]
-  //   }
-  // }
 
   private timeOnPage = 0; 
   private interval :any;
   
   constructor(public quizService: CurrentQuizService) {
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion.givenAnswers = [];
+    this.currentQuestion.answeredCorrect = false; 
     // console.log(this.currentQuestion)
   }
 
@@ -45,10 +32,9 @@ export class ClozeComponent implements OnInit {
     this.setCloze(); 
     document.getElementById("finish_cloze_button")?.setAttribute("hidden", "true")
     
-    // this.interval = setInterval(()=>{
-    //   this.timeOnPage++;
-    //   console.log(this.timeOnPage)
-    // },1000)
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
   }
 
   ngAfterViewInit(): void{
@@ -57,15 +43,23 @@ export class ClozeComponent implements OnInit {
     //   document.getElementById("finish_cloze_button")!.style.display = 'none'
     // }, 1000
   }
-  // ngOnDestroy(){
-  //   clearInterval(this.interval)
-  //   this.currentQuestion.timeOnPage = this.timeOnPage;
-  //   this.quizService.saveGivenAnswer(this.currentQuestion)
 
-  // }
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.onSetStateNextBtn(false);
+    this.quizService.saveGivenAnswer(this.currentQuestion)
+  }
 
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+  
   setCloze(): void {
-    let that = this; 
     this.cloze = {
       type: jsPsychCloze,
       text: this.currentQuestion.additionalInfos.gapText,
@@ -91,15 +85,14 @@ export class ClozeComponent implements OnInit {
       this.onValidateAnswer(input, i)
     }
 
-
-
     if(this.currentTry < 3){
       this.currentQuestion.givenAnswers[this.currentTry] = allInputs
-      this.quizService.saveGivenAnswer(this.currentQuestion)
+      // this.quizService.saveGivenAnswer(this.currentQuestion)
     }
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
       console.log(this.currentQuestion)
       document.getElementById("tipps")!.innerHTML = "Richtig! Sehr gut gemacht :)"
+      this.onSetStateNextBtn(true);
       this.currentQuestion.answeredCorrect = true; 
       this.cloze.on_finish(); 
     } else{
@@ -114,7 +107,11 @@ export class ClozeComponent implements OnInit {
     let inputValue = input.value;
     let tipp = document.getElementById("tipps") as any;
     if(this.currentTry < 3){
-      if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      let difference = this.findDiff(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase(), inputValue.toLowerCase())
+      let differenceReverse = this.findDiff(inputValue.toLowerCase(), this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase())
+      
+      // if(this.currentQuestion.additionalInfos.correctAnswers[currentNumber].toLowerCase() !== inputValue.toLowerCase()){
+      if(difference > 3 || differenceReverse > 3){
        input.style = "border-color: red"
        if(this.currentTry === 0){
         tipp.innerHTML = "Leider nicht richtig. Die falschen Antworten sind mit rot hinterlegt. Du hast noch 2 Versuche."
@@ -126,22 +123,30 @@ export class ClozeComponent implements OnInit {
        if(this.currentTry === 2){
         input.disabled = true; 
         input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Schade, leider hast du es nicht ganz richtig. Du hast leider keine Versuche mehr."
        }
       } else{
         input.style = "border-color: green"
+        input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
       }
     }else{
+      // input.value = this.currentQuestion.additionalInfos.correctAnswers[currentNumber];
       return;
     }
 
   }
 
-  arrayEquals(a: Array<any>, b: Array<any>) {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
+  findDiff(str1: string, str2: string){
+    let diff = ""; 
+
+    str1.split("").forEach(function(val:any, i:any) {
+      if(val != str2.charAt(i)){
+        diff += val
+      }
+    })
+    return diff.length;
   }
 }

@@ -21,6 +21,7 @@ import { ClozeComponent } from './components/items/cloze/cloze.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AnalyticsViewComponent } from './components/analytics-view/analytics-view.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ShortAnswerComponent,
     DragDropComponent,
     ClozeComponent,
-    QuizResultsComponent
+    QuizResultsComponent,
+    AnalyticsViewComponent
   ],
   imports: [
     FormsModule,

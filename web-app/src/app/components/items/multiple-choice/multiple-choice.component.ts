@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
@@ -9,20 +10,41 @@ import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 })
 export class MultipleChoiceComponent implements OnInit {
   form: FormGroup;
+  
+  public currentQuestion: any; 
 
-  currentQuestion: any; 
-  private currentTry = 0;
+  private timeOnPage = 0; 
+  private interval :any;
+  
+  private currentTry = 0; 
 
-  constructor(private fb: FormBuilder, private quizService: CurrentQuizService) {
+  constructor(public quizService: CurrentQuizService) { 
     this.currentQuestion = this.quizService.getCurrentQuestion();
-    this.form = this.fb.group({
-      checkArray: this.fb.array([])
-    })
+    this.currentQuestion.givenAnswers = [];  
+    this.currentQuestion.answeredCorrect = false; 
   }
 
   ngOnInit(): void {
-      
+    this.interval = setInterval(()=>{
+      this.timeOnPage++;
+    },1000)
   }
+
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.currentQuestion.timeNeeded = this.timeOnPage;
+    this.currentQuestion.alreadyAnsweredCount += 1; 
+    this.currentQuestion.timeSummedUp += this.timeOnPage;
+    this.currentQuestion.triesSummedUp += this.currentTry; 
+    this.onSetStateNextBtn(false)
+    this.quizService.saveGivenAnswer(this.currentQuestion)
+  }
+
+  @Output() enableNextBtn = new EventEmitter<boolean>();
+  onSetStateNextBtn(value: boolean) {
+    this.enableNextBtn.emit(value);
+  } 
+
 
   onCheckboxChange(e:any) {
     const checkArray: FormArray = this.form.get('checkArray') as FormArray;

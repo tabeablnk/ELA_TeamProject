@@ -3,15 +3,39 @@
     "questionId": 0,
     "questionType": 1,
     "questionTypeName": "SingleChoice",
-    "category": 1,
+    "category": 2,
     "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+      "correctAnswer": "Würzburg"
+    }
+  },
+  {
+    "questionId": 6,
+    "questionType": 1,
+    "questionTypeName": "SingleChoice",
+    "category": 1,
+    "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
+    "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
+
+    "additionalInfos": {
+      "options": ["Nürnberg", "München", "Bamberg", "Hof", "Würzburg"],
       "correctAnswer": "Würzburg"
     }
   },
@@ -22,9 +46,13 @@
     "category": 1,
     "questionText": "Wo liegt der Marienplatz?",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["", ""],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ["48.1372264", "11.5755203"]
@@ -37,9 +65,13 @@
     "category": 1,
     "questionText": "Fülle die Lücken!",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [{}],
 
     "additionalInfos": {
       "gapText": "% Bamberg % wurde wie Rom auf sieben Hügeln ( % Stephansberg % , Kaulberg, Domberg, Michaelsberg, Jakobsberg, Altenburg, Abtsberg) erbaut und deshalb auch manchmal als Fränkisches Rom bezeichnet. 1993 wurde die Altstadt in die Liste des Weltkultur- und Naturerbes der Menschheit der UNESCO aufgenommen. In der Begründung heißt es, die Stadt repräsentiere in einzigartiger Weise die auf einer Grundstruktur des Frühmittelalters entwickelte mitteleuropäische Stadt. Das in die UNESCO-Welterbeliste aufgenommene Areal umfasst die drei historischen Stadtzentren Berg-, Insel- und % Gärtnerstadt % mit einer Gesamtfläche von etwa 140 Hektar.",
@@ -53,9 +85,13 @@
     "category": 1,
     "questionText": "Sortiere die folgenden Regierungsbezirke nach der Anzahl ihrer Braustätten",
     "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["", ""],
@@ -86,5 +122,344 @@
         }
       ]
     }
-  }
+  },
+  {
+      "questionId": 7,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welcher Regierungsbezirk hat die meisten Brauereien?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Oberbayern", "Schwaben", "Oberfranken", "Niederbayern", "Unterfranken", "Oberpfalz"],
+        "correctAnswer": "Oberfranken"
+      }
+    },
+    {
+      "questionId": 8,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_München.jpg/1600px-Stadtbild_München.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+        "correctAnswer": "München"
+      }
+    },
+    {
+      "questionId": 9,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nuremberg_panorama_morning_3.jpg/1600px-Nuremberg_panorama_morning_3.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+        "correctAnswer": "Nürnberg"
+      }
+    },
+    {
+      "questionId": 10,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Augsburg_-_Markt.jpg/1599px-Augsburg_-_Markt.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Nürnberg", "München", "Babmberg", "Augsburg", "Würzburg"],
+        "correctAnswer": "Augsburg"
+      }
+    },
+    {
+      "questionId": 11,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Stadt bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Wuerzburg_mit_Festung_Marienberg_Luftansicht_20160813.jpg/1600px-Wuerzburg_mit_Festung_Marienberg_Luftansicht_20160813.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Nürnberg", "München", "Babmberg", "Augsburg", "Würzburg"],
+        "correctAnswer": "Würzburg"
+      }
+    },
+    {
+      "questionId": 12,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Neuschwanstein_Castle_from_Marienbrücke%2C_2011_May.jpg/1599px-Neuschwanstein_Castle_from_Marienbrücke%2C_2011_May.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "Schloss Neuschwanstein"
+      }
+    },
+    {
+      "questionId": 13,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bamberger_Dom_BW_6h.JPG/1600px-Bamberger_Dom_BW_6h.JPG",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "Bamberger Dom"
+      }
+    },
+    {
+      "questionId": 14,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1600px-Nürnberger_Burg_im_Herbst_2013.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "Nürnberger Kaiserburg"
+      }
+    },
+    {
+      "questionId": 15,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Walhalla%2C_Donaustauf.JPG",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "Walhalla, Donaustauf bei Regensburg"
+      }
+    },
+    {
+      "questionId": 16,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Walhalla%2C_Donaustauf.JPG",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "Walhalla, Donaustauf bei Regensburg"
+      }
+    },
+    {
+      "questionId": 17,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 1,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bartholomae-2005.jpg/1163px-Bartholomae-2005.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "St. Bartholomä am Königssee"
+      }
+    },
+    {
+      "questionId": 22,
+      "questionType": 2,
+      "questionTypeName": "MapQuestion",
+      "category": 1,
+      "questionText": "Wo liegt die Kaiserburg?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [""],
+  
+      "additionalInfos": {
+        "correctAnswer": ["49.45791", "11.07598"]
+      }
+    },
+    {
+      "questionId": 18,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 1,
+      "questionText": "Was ist das Wahrzeichen von Nürnberg?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Eine Burg",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": "Kaiserburg"
+      }
+    },
+    {
+      "questionId": 19,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 1,
+      "questionText": "Welcher Regierungsbezirk hat die meisten Brauereien?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "eines der Franken",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": "Oberfranken"
+      }
+    },
+    {
+      "questionId": 20,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 1,
+      "questionText": "Sortiere die Religionen in Bayern nach nach der Menge der Mitglieder (größte zu kleinste)",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "römisch-katholisch",
+            "value": "57.2"
+          },
+          {
+            "name": "evangelisch",
+            "value": "21.3"
+          },
+          {
+            "name": "mudlimisch",
+            "value": "2.2"
+          },
+          {
+            "name": "christlich-orthodox",
+            "value": "1.6"
+          },
+          {
+            "name": "jüdisch",
+            "value": "0.1"
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 21,
+      "questionType": 5,
+      "questionTypeName": "MultipleChoice",
+      "category": 0,
+      "questionText": "Welche der folgenden Sehenswürdigkeiten liegt in Bayern?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [{}],
+  
+      "additionalInfos": {
+        "correctAnswer": ["Schloss Neuschwanstein", "Kaiserburg"],
+        "options": ["Schloss Neuschwanstein", "Kaiserburg", "Brandenburger Tor", "Elbphilharmonie"]
+      }
+    }
+
 ]

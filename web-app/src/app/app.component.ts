@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from './models/state-enum.model';
+import { CategoryQuestionsService } from './services/category-questions.service';
 import { LoginGuardService } from './services/login-guard.service';
+import { SpaqrqlServiceService } from './services/spaqrql-service.service';
 import { StateService } from './services/state.service';
 
 @Component({
@@ -9,21 +11,23 @@ import { StateService } from './services/state.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'web-app';
 
-  loggedIn:any; 
+  loggedIn: any;
 
-  constructor(private loginGuard: LoginGuardService, private router: Router, private state: StateService){
-    this.loggedIn = loginGuard.canActivate(); 
+  constructor(private loginGuard: LoginGuardService, private router: Router, private state: StateService, private categoryQuestions: CategoryQuestionsService, private sparql: SpaqrqlServiceService) {
+    this.loggedIn = loginGuard.canActivate();
   }
 
   ngOnInit(): void {
+    this.sparql.initGeneratedQuestions();
+
     let url = window.location.href;
-    if(url.includes("category")) {
+    if (url.includes("category")) {
       let currentCategory: Number = +url.charAt(url.length - 1);
       switch (currentCategory) {
-        case 1:  
+        case 1:
           this.state.setCategory(Category.Demografie);
           break;
         case 2:
@@ -35,19 +39,17 @@ export class AppComponent implements OnInit{
         case 4:
           this.state.setCategory(Category.Geschichte);
           break;
-
-          
       }
-     
+
     }
-    
-  }
-
-  openDashboard() {
 
   }
 
-  openHome() {
-    this.router.navigate(['/home']);
-  }
+  // openDashboard() {
+
+  // }
+
+  // openHome() {
+  //   this.router.navigate(['/home']);
+  // }
 }

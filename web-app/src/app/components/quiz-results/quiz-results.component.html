@@ -1,6 +1,6 @@
 <div>
-  <mat-grid-list cols="3">
-    <mat-grid-tile colspan="2">
+  <mat-grid-list cols="3" rowHeight="20vh">
+    <mat-grid-tile colspan="2" >
       <div>
         <div>
           <label>Du hast </label>
@@ -9,24 +9,24 @@
         </div>
         <div style="margin-top: 5%">
           <label>Du hast im Durchschnitt </label>
-          <label class="bigFont">{{ percentageRight }}</label>
+          <label class="bigFont">{{ averageTries }}</label>
           <label style="font-weight: bold"> Versuche</label>
           <label> und </label>
-          <label class="bigFont">{{ percentageRight }}</label>
+          <label class="bigFont">{{ averageAnswerTime }}</label>
           <label style="font-weight: bold"> Sekunden</label>
           <label> pro Frage im Schnitt benötigt.</label>
         </div>
       </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <div style="width: 70%; height: 70%">
+      <div style="position: relative; width:100%; height:100%">
         <canvas id="correctAnswerPieChart"></canvas>
         <!-- <span>Anteil korrekter Antworten</span> -->
       </div>
     </mat-grid-tile>
   </mat-grid-list>
 
-  <mat-grid-list cols="3" rowHeight="350px">
+  <mat-grid-list style="margin-top: 2%" cols="3" rowHeight="350px">
     <mat-grid-tile class="mat-grid-tile">
       <div>
         <span style="margin-left: 8px;">Anteil korrekter Antworten</span>
