@@ -270,8 +270,8 @@ export class SpaqrqlServiceService {
     }
   }
 
-    //Pick random distinct arry elements from an bigger array and checks that the correct answer is not picked
-    getRandomArray(arr:any, n:any, distict_to:number) {
+  //Pick random distinct arry elements from an bigger array and checks that the correct answer is not picked
+  getRandomArray(arr:any, n:any, distict_to:number) {
       var result = new Array(n),
           len = arr.length,
           taken = new Array(len);
@@ -287,7 +287,7 @@ export class SpaqrqlServiceService {
           taken[x] = --len in taken ? taken[len] : len;
       }
       return result;
-    }
+  }
 
   callback_all_cities_city_names_as_distrators(result_sparql_request:any){
         // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
@@ -337,13 +337,52 @@ export class SpaqrqlServiceService {
       }
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
     }
-
-
   }
 
   callback_all_cities_sort_order_task(result_sparql_request:any){
 
-
+    let new_question ={
+      //TODO: meine ID-Vergabe nochmal überarbeiten!!
+      questionId: 100,
+      questionType: 6,
+      questionTypeName: "SortOrder",
+      category: 1,
+      questionText: "Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
+      imageUrl: "",
+      timeNeeded: 0,
+      alreadyAnsweredCount: 0,
+      tip: "-",
+      answeredCorrect: false,
+      triesSummedUp:0,
+      timeSummedUp:0,
+      givenAnswers: [],
+  
+      additionalInfos: {
+        options: ["", ""],
+        correctAnswer: [
+          {
+            name: "München",
+            value: 1488202
+          },
+          {
+            name: "Nürnberg",
+            value: 515543
+          },
+          {
+            name: "Augsburg",
+            value: 295839
+          },
+          {
+            name: "Regensburg",
+            value: 152270
+          },
+          {
+            name: "Ingolstadt",
+            value: 136952
+          }
+        ]
+      }
+    }
   }
 
   sending_request_one_attribute_for_one_city(){
