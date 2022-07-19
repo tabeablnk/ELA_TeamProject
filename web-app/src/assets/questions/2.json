@@ -1,10 +1,10 @@
 [
   {
-    "questionId": 0,
-    "questionType": 1,
-    "questionTypeName": "SingleChoice",
+    "questionId": 1,
+    "questionType": 2,
+    "questionTypeName": "MapQuestion",
     "category": 1,
-    "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
+    "questionText": "Wo liegt der Marienplatz?",
     "imageUrl": "",
     "timeNeeded": 0,
     "alreadyAnsweredCount": 0,
@@ -12,33 +12,31 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": ["", ""],
 
     "additionalInfos": {
-      "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
-      "correctAnswer": "Würzburg"
+      "correctAnswer": ["48.1372264", "11.5755203"]
     }
   },
   {
-    "questionId": 6,
-    "questionType": 1,
-    "questionTypeName": "SingleChoice",
+    "questionId": 1,
+    "questionType": 2,
+    "questionTypeName": "MapQuestion",
     "category": 1,
-    "questionText": "In welcher Stadt befindet sich die Alte Mainbrücke?",
-    "imageUrl": "",
+    "questionText": "Wo liegt der Marienplatz?",
+    "imageUrl": "https://www.holidaywolf.de/wp/wp-content/uploads/2022/01/marienplatz-muenchen-1024x768.jpg",
     "timeNeeded": 0,
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": ["", ""],
 
     "additionalInfos": {
-      "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
-      "correctAnswer": "Würzburg"
+      "correctAnswer": ["48.1372264", "11.5755203"]
     }
-  },
+  },  
   {
     "questionId": 1,
     "questionType": 2,
@@ -59,11 +57,11 @@
     }
   },
   {
-    "questionId": 3,
-    "questionType": 4,
-    "questionTypeName": "Cloze",
+    "questionId": 1,
+    "questionType": 2,
+    "questionTypeName": "MapQuestion",
     "category": 1,
-    "questionText": "Fülle die Lücken!",
+    "questionText": "Wo liegt der Marienplatz?",
     "imageUrl": "",
     "timeNeeded": 0,
     "alreadyAnsweredCount": 0,
@@ -71,56 +69,11 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": [{}],
+    "givenAnswers": ["", ""],
 
     "additionalInfos": {
-      "gapText": "% Bamberg % wurde wie Rom auf sieben Hügeln ( % Stephansberg % , Kaulberg, Domberg, Michaelsberg, Jakobsberg, Altenburg, Abtsberg) erbaut und deshalb auch manchmal als Fränkisches Rom bezeichnet. 1993 wurde die Altstadt in die Liste des Weltkultur- und Naturerbes der Menschheit der UNESCO aufgenommen. In der Begründung heißt es, die Stadt repräsentiere in einzigartiger Weise die auf einer Grundstruktur des Frühmittelalters entwickelte mitteleuropäische Stadt. Das in die UNESCO-Welterbeliste aufgenommene Areal umfasst die drei historischen Stadtzentren Berg-, Insel- und % Gärtnerstadt % mit einer Gesamtfläche von etwa 140 Hektar.",
-      "correctAnswers": ["Bamberg", "Stephansberg", "Gärtnerstadt"]
-    }
-  },
-  {
-    "questionId": 5,
-    "questionType": 6,
-    "questionTypeName": "SortOrder",
-    "category": 1,
-    "questionText": "Sortiere die folgenden Regierungsbezirke nach der Anzahl ihrer Braustätten",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "options": ["", ""],
-      "correctAnswer": [
-        {
-          "name": "Oberbayern",
-          "value": "142"
-        },
-        {
-          "name": "Schwaben",
-          "value": "85"
-        },
-        {
-          "name": "Oberfranken",
-          "value": "165"
-        },
-        {
-          "name": "Niederbayern",
-          "value": "70"
-        },
-        {
-          "name": "Unterfranken",
-          "value": "59"
-        },
-        {
-          "name": "Oberpfalz",
-          "value": "68"
-        }
-      ]
+      "correctAnswer": ["48.1372264", "11.5755203"]
     }
   }
 ]
+  

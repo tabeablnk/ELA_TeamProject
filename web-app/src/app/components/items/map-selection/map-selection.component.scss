@@ -1,28 +1,19 @@
 .map-container {
   position: absolute;
-  top: 12vh;
-  left: 5vh;
+  top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  margin: 30px;
-  width: 90%;
-  height: 55%;
+  margin: 0px;
+  width: 100%;
 }
 
 .map-frame {
   height: 100%;
-  width: 100%
 }
 
 #map {
   height: 100%;
-  width: 100%;
-}
-
-.infoMessage {
-  position: absolute;
-  bottom: 16vh
-
 }
 
 #map.active {
@@ -45,7 +36,7 @@
 }
 
 #cursor.active {
-  display: block;
+display: block;
 }
 
 
@@ -57,11 +48,32 @@
   left: -100px;
   top: 50%;
   mix-blend-mode: difference;
-  background-color:
-    white;
+  background-color: 
+white;
   z-index: 10000;
-  border: 2px solid white;
+  border: 2px solid 
+white;
   height: 15px;
   width: 15px;
   transition: all 300ms ease-out;
+}
+
+.image{
+  position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        //  object fit for modern browsers
+        object-fit: cover;
+        object-position: center;
+
+        //  fallback 
+        //  using js the image source is replaced with a transparant gif
+        //  and the original is added as background image
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
 }
