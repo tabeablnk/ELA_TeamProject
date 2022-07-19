@@ -311,7 +311,7 @@ export class SpaqrqlServiceService {
       var distractor1 = randomly_picked_elements[0].cityLabel.value;
       var distractor2 = randomly_picked_elements[1].cityLabel.value;
       var distractor3 = randomly_picked_elements[2].cityLabel.value;
-      var distractor4 =randomly_picked_elements[3].cityLabel.value;
+      var distractor4 = randomly_picked_elements[3].cityLabel.value;
 
       let new_question = {
         questionId: i+100,
@@ -341,15 +341,17 @@ export class SpaqrqlServiceService {
   }
 
   callback_all_cities_sort_order_task(result_sparql_request:any){
-
-
+    // Gebe mit aus dem aktuellen Request 5 zufällige Städte samt Einwohnerzahlen zurück
+    var randomly_picked_elements = this.getRandomArray(result_sparql_request,5,-1);
+    // Sortiere dieses Array nach der Einwohnerzahl
+    //TODO: Arry sortieren
 
     let new_question ={
       questionId: this.question_id_aig,
       questionType: 6,
       questionTypeName: "SortOrder",
       category: 1,
-      questionText: "AIG: Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
+      questionText: "AIG: Sortieren Sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
       imageUrl: "",
       timeNeeded: 0,
       alreadyAnsweredCount: 0,
@@ -391,14 +393,9 @@ export class SpaqrqlServiceService {
 
   sending_request_one_attribute_for_one_city(){
 
-
-
   }
 
   callback_one_attribute_for_one_city(){
-
-
-
 
   }
 }
