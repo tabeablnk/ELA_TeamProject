@@ -179,7 +179,7 @@ export class SpaqrqlServiceService {
       var distractor1:number = +population_of_current_city+Math.round(this.percental_distraction_coefficient*population_of_current_city/100);
       var distractor2:number = +population_of_current_city-Math.round(this.percental_distraction_coefficient*population_of_current_city/100);
       var distractor3:number = +population_of_current_city+Math.round(2*this.percental_distraction_coefficient*population_of_current_city/100);
-      var distractor4:number = +population_of_current_city+Math.round(3*this.distractor_variability_city_questions*population_of_current_city/100);
+      var distractor4:number = +population_of_current_city+Math.round(3*this.percental_distraction_coefficient*population_of_current_city/100);
 
       let new_question = {
         questionId: this.question_id_aig,
@@ -241,7 +241,7 @@ export class SpaqrqlServiceService {
       var distractor1:number = +population_of_current_city+Math.round(random_int_distractor1*this.percental_distraction_coefficient*population_of_current_city/100);
       var distractor2:number = +population_of_current_city-Math.round(random_int_distractor2*this.percental_distraction_coefficient*population_of_current_city/100);
       var distractor3:number = +population_of_current_city+Math.round(random_int_distractor3*this.percental_distraction_coefficient*population_of_current_city/100);
-      var distractor4:number = +population_of_current_city-Math.round(random_int_distractor4*this.distractor_variability_city_questions*population_of_current_city/100);
+      var distractor4:number = +population_of_current_city-Math.round(random_int_distractor4*this.percental_distraction_coefficient*population_of_current_city/100);
 
       let new_question = {
         questionId: this.question_id_aig,
