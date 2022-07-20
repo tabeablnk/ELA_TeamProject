@@ -81,7 +81,7 @@ export class SpaqrqlServiceService {
 
   initGeneratedQuestions() {
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
-    this.sending_request_all_cities();
+    this.sending_request_all_cities(10);
 
   }
 
@@ -121,14 +121,13 @@ export class SpaqrqlServiceService {
   callback_all_cities_trivial_distractors(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
-    console.log(result_sparql_request);
+    //console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
-      console.log(i);
+      //console.log(i);
       var population_of_current_city:number = result_sparql_request[i].population.value; 
-      console.log(population_of_current_city);
+      //console.log(population_of_current_city);
 
       // Grundgerüst für eine neue Frage
       var distractor1:number = +population_of_current_city+this.distractor_variability_city_questions;
@@ -167,14 +166,13 @@ export class SpaqrqlServiceService {
   callback_all_cities_percential_distractors(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
-    console.log(result_sparql_request);
+    //console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
-      console.log(i);
+      //console.log(i);
       var population_of_current_city:number = result_sparql_request[i].population.value; 
-      console.log(population_of_current_city);
+      //console.log(population_of_current_city);
       //console.log(typeof(population_of_current_city));
 
       // Grundgerüst für eine neue Frage
@@ -218,7 +216,6 @@ export class SpaqrqlServiceService {
   callback_all_cities_percential_and_random_distractors(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
     console.log(result_sparql_request);
 
@@ -274,11 +271,9 @@ export class SpaqrqlServiceService {
     }
   }
 
-
   callback_all_cities_generate_map_questions(result_sparql_request:any){
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
-    this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
 
     for (var i = 0; i < counter_cities; i++){
