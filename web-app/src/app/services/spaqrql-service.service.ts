@@ -112,6 +112,7 @@ export class SpaqrqlServiceService {
       this.callback_all_cities_percential_and_random_distractors(response.results.bindings);
       this.callback_all_cities_city_names_as_distrators(response.results.bindings);
       this.callback_all_cities_generate_map_questions(response.results.bindings);
+      this.callback_all_cities_sort_order_task(response.results.bindings);
       console.log(response);
       this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
@@ -372,11 +373,20 @@ export class SpaqrqlServiceService {
     }
   }
 
+  
+  compare_population_of_two_cities(firstEl: any, secondEl: any){
+    if(firstEl.population.value > secondEl.population.value){
+      return 1;
+    }else{
+      return -1;
+    }
+
+  }
+
   callback_all_cities_sort_order_task(result_sparql_request:any){
-    // Gebe mit aus dem aktuellen Request 5 zufällige Städte samt Einwohnerzahlen zurück
-    var randomly_picked_elements = this.getRandomArray(result_sparql_request,5,-1);
-    // Sortiere dieses Array nach der Einwohnerzahl
-    //TODO: Arry sortieren
+    // Gebe mit aus dem aktuellen Request 5 zufällige Städte samt Einwohnerzahlen zurück und sortiere dieses Array nach der Einwohnerzahl
+    var randomly_picked_elements = this.getRandomArray(result_sparql_request,5,-1).sort(this.compare_population_of_two_cities);
+
 
     let new_question ={
       questionId: this.question_id_aig,
@@ -397,24 +407,24 @@ export class SpaqrqlServiceService {
         options: ["", ""],
         correctAnswer: [
           {
-            name: "München",
-            value: 1488202
+            name: randomly_picked_elements[0].cityLabel.value,
+            value: randomly_picked_elements[0].population.value 
           },
           {
-            name: "Nürnberg",
-            value: 515543
+            name: randomly_picked_elements[1].cityLabel.value,
+            value: randomly_picked_elements[1].population.value 
           },
           {
-            name: "Augsburg",
-            value: 295839
+            name: randomly_picked_elements[2].cityLabel.value,
+            value: randomly_picked_elements[2].population.value 
           },
           {
-            name: "Regensburg",
-            value: 152270
+            name: randomly_picked_elements[3].cityLabel.value,
+            value: randomly_picked_elements[3].population.value 
           },
           {
-            name: "Ingolstadt",
-            value: 136952
+            name: randomly_picked_elements[4].cityLabel.value,
+            value: randomly_picked_elements[4].population.value 
           }
         ]
       }
