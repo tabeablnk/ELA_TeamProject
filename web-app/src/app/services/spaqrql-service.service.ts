@@ -305,8 +305,8 @@ export class SpaqrqlServiceService {
     }
   }
 
-  //Pick random distinct arry elements from an bigger array and checks that the correct answer is not picked
   getRandomArray(arr:any, n:any, distict_to:number) {
+     //Pick random distinct arry elements from an bigger array and checks that the correct answer is not picked
       var result = new Array(n),
           len = arr.length,
           taken = new Array(len);
@@ -373,7 +373,6 @@ export class SpaqrqlServiceService {
     }
   }
 
-  
   compare_population_of_two_cities(firstEl: any, secondEl: any){
     if(firstEl.population.value > secondEl.population.value){
       return 1;
