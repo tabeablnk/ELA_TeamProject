@@ -106,10 +106,12 @@ export class SpaqrqlServiceService {
     //console.log(generatedQuery);
 
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
+      this.results_all_cities = response.results.bindings;
       this.callback_all_cities_trivial_distractors(response.results.bindings);
       this.callback_all_cities_percential_distractors(response.results.bindings);
       this.callback_all_cities_percential_and_random_distractors(response.results.bindings);
       this.callback_all_cities_city_names_as_distrators(response.results.bindings);
+      this.callback_all_cities_generate_map_questions(response.results.bindings);
       console.log(response);
       this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
@@ -267,6 +269,41 @@ export class SpaqrqlServiceService {
           correctAnswer: population_of_current_city
         }
       }
+      this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.question_id_aig++;
+    }
+  }
+
+
+  callback_all_cities_generate_map_questions(result_sparql_request:any){
+    // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
+    // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
+    this.results_all_cities = result_sparql_request;
+    var counter_cities = Object.keys(result_sparql_request).length;
+
+    for (var i = 0; i < counter_cities; i++){
+      var coordinates_of_current_city = result_sparql_request[i].gps.value.match(/[+-]?\d+(\.\d+)?/g).reverse();
+
+      let new_question = 
+      {
+        questionId: this.question_id_aig,
+        questionType: 2,
+        questionTypeName: "MapQuestion",
+        category: 1,
+        questionText: "AIG: Wo liegt " + result_sparql_request[i].cityLabel.value + "?",
+        imageUrl: "",
+        timeNeeded: 0,
+        alreadyAnsweredCount: 0,
+        tip: "-",
+        answeredCorrect: false,
+        triesSummedUp:0,
+        timeSummedUp:0,
+        givenAnswers: ["", ""],
+    
+        additionalInfos: {
+          correctAnswer: coordinates_of_current_city,
+        }
+      };
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
       this.question_id_aig++;
     }
