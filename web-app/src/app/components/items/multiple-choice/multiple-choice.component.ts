@@ -18,7 +18,10 @@ export class MultipleChoiceComponent implements OnInit {
   
   private currentTry = 0; 
 
-  constructor(public quizService: CurrentQuizService) { 
+  constructor(private fb: FormBuilder, public quizService: CurrentQuizService) { 
+    this.form = this.fb.group({
+      checkArray: this.fb.array([])
+    })
     this.currentQuestion = this.quizService.getCurrentQuestion();
     this.currentQuestion.givenAnswers = [];  
     this.currentQuestion.answeredCorrect = false; 

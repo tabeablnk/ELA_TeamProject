@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 import { QuestiontemplatesService } from 'src/app/services/questiontemplates.service';
 import { StateService } from 'src/app/services/state.service';
-import { Category } from '../../models/state-enum.model';
+import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
 import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
 import { MultipleChoiceComponent } from '../items/multiple-choice/multiple-choice.component';

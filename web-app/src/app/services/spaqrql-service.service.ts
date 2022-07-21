@@ -114,12 +114,12 @@ export class SpaqrqlServiceService {
     this.counter_SPARQL_requests++;
     this.results_all_cities = result_sparql_request;
     var counter_cities = Object.keys(result_sparql_request).length;
-    console.log(result_sparql_request);
+    // console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
-      console.log(i);
+      // console.log(i);
       var population_of_current_city = result_sparql_request[i].population.value; 
-      console.log(population_of_current_city);
+      // console.log(population_of_current_city);
       // Grundgerüst für eine neue Frage
       let new_question = {
         questionId: i+100,
