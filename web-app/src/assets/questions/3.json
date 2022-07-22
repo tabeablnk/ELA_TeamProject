@@ -1,26 +1,4 @@
-[
-  {
-    "questionId": 0,
-    "questionType": 1,
-    "questionTypeName": "SingleChoice",
-    "category": 1,
-    "questionText": "Hier ist dann die Frage",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "options": ["Option 1", "Option 2"],
-      "correctAnswer": "Option 1"
-    }
-  },
-
-  
+[ 
   {
     "questionId": 1,
     "questionType": 1,
@@ -30,7 +8,7 @@
     "imageUrl": "",
     "tip": "Die zu suchende Stadt liegt in Franken.",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Nürnberg", "München", "Bamberg", "Erlangen", "Ingolstadt"],
@@ -46,7 +24,7 @@
     "imageUrl": "",
     "tip": "Die zu suchende Stadt liegt in Franken.",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Augsburg", "Fürth", "Weißenburg", "Erlangen", "Ingolstadt"],
@@ -63,7 +41,7 @@
     "imageUrl": "",
     "tip": "Die zu suchende Stadt liegt an der Donau",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Schwabach", "Fürth", "Roth", "Erlangen", "Ingolstadt"],
@@ -80,7 +58,7 @@
     "imageUrl": "",
     "tip": "Der Süden Bayerns ist für viele Sportkletterer eher ungeeignet. Hier gesucht wird ein Gebiet mit viel Kalkstein. ",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Nördlichen Alpen", "Bayrische Wald", "Fränkische Schweiz", "Donauauen", "Steigerwald"],
@@ -97,7 +75,7 @@
     "imageUrl": "",
     "tip": "Gesucht sind weiche Laute.",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["D und T", "O und U", "N und M", "S und Z", "V und F"],
@@ -114,142 +92,13 @@
     "imageUrl": "",
     "tip": "Muggngbadschn ist ein Objekt.",
     "answeredCorrect": false,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Eine Tasse mit Henkel", "Eine Fliegenklatsche", "Dass er gerne eine Ohrfeige verteilen möchte", "Jemand jetzt bitte nicht weiter reden soll", "Ein Handrührgerät"],
       "correctAnswer": "Eine Fliegenklatsche"
     }
   }, 
-
-  {
-    "questionId": 7,
-    "questionType": 2,
-    "questionTypeName": "MapQuestion",
-    "category": 1,
-    "questionText": "Wo liegt das und das",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "correctAnswer": ""
-    }
-  },
-  {
-    "questionId": 8,
-    "questionType": 3,
-    "questionTypeName": "DragDrop",
-    "category": 1,
-    "questionText": "Sortiere das und das richtig ein",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "gapText": ["", ""],
-      "options": ["", ""],
-      "correctAnswer": "???? noch offen"
-    }
-  },
-  {
-    "questionId": 9,
-    "questionType": 4,
-    "questionTypeName": "Cloze",
-    "category": 1,
-    "questionText": "Fülle die Lücken!",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [{}],
-
-    "additionalInfos": {
-      "gapText": "Hier ist der Lückentext",
-      "correctAnswer": "???? noch offen"
-    }
-  },
-  {
-    "questionId": 10,
-    "questionType": 5,
-    "questionTypeName": "MultipleChoice",
-    "category": 1,
-    "questionText": "Wähle hier die richtigen Antworten!",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "correctAnswer": ["", ""],
-      "options": ["", ""]
-    }
-  },
-  {
-    "questionId": 11,
-    "questionType": 6,
-    "questionTypeName": "SortOrder",
-    "category": 1,
-    "questionText": "Bringe das und das in die richtige Reihenfolge",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "options": ["", ""],
-      "correctAnswer": [
-        {
-          "name": "",
-          "value": ""
-        },
-        {
-          "name": "",
-          "value": ""
-        }
-      ]
-    }
-  },
-  {
-    "questionId": 12,
-    "questionType": 7,
-    "questionTypeName": "ShortAnswer",
-    "category": 1,
-    "questionText": "Wie alt ist das und das?",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp": 0,
-    "timeSummedUp": 0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "correctAnswer": "sehr cool"
-    }
-  },
   {
       "questionId": 6,
       "questionType": 6,
@@ -263,7 +112,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -308,7 +157,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Fürth", "München", "Babmberg", "Hof", "Würzburg"],
@@ -328,7 +177,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "gapText": "Bayern liegt in Süddeutschland und umfasst die Bayerischen Alpen im % Süden % , davon nördlich das Alpenvorland bis zur % Donau % mit den drei großen Seen Oberbayerns. Weiterhin ist es eingegrenzt durch das ostbayerische % Mittelgebirge % und die Stufenlandschaft der Schwäbischen und Fränkischen Alb.",
@@ -348,7 +197,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "gapText": "Der Freistaat hat im % Süden % Anteil am Hochgebirge der Ostalpen und an dem bis zur Donau reichenden flachen Alpenvorland. Nördlich der Donau bestimmen Mittelgebirge wie der Bayerische Wald oder das % Fichtelgebirge % das Landschaftsbild.",
@@ -368,7 +217,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["Main", "Donau", "Lech"],
@@ -388,7 +237,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["Oberfranken", "Schwaben"],
@@ -408,7 +257,7 @@
       "answeredCorrect": false,
       "triesSummedUp": 0,
       "timeSummedUp": 0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Oberbayern"
@@ -427,7 +276,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["49.45791", "11.07598"]

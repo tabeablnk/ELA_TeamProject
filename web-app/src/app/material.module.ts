@@ -73,7 +73,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSortModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ]
 })
 export class MaterialModule{ }

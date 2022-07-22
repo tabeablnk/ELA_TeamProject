@@ -20,6 +20,7 @@
             <!-- <app-cloze></app-cloze> -->
             <!-- <app-sort-order></app-sort-order> -->
             <!-- <app-single-choice></app-single-choice> -->
+            <!-- <app-multiple-choice></app-multiple-choice> -->
             <div *ngIf="!showResultScreen">
                 <div *ngFor="let question of currentQuizSet; let currentIndex = 'index+1'">
                     <div *ngIf="currentIndex === currentQuestionNum">
@@ -30,9 +31,9 @@
                         <div *ngIf="question.questionType === 2">
                             <app-map-selection (enableNextBtn)="getItemValue($event)"></app-map-selection>
                         </div>
-                        <div *ngIf="question.questionType === 3">
+                        <!-- <div *ngIf="question.questionType === 3">
                             <app-drag-drop (enableNextBtn)="getItemValue($event)"></app-drag-drop>
-                        </div>
+                        </div> -->
                         <div *ngIf="question.questionType === 4">
                             <app-cloze (enableNextBtn)="getItemValue($event)"></app-cloze>
                         </div>
@@ -68,10 +69,8 @@
         </button>
         <p class="progressQuestion mat-subhead">Frage: {{currentQuestionNum}}/{{currentQuizSet?.length}}</p>  
         <mat-progress-bar class="demografie" [value]="getProgress()" class="barCategory1"></mat-progress-bar>
-        
     </div>
     <!-- </footer>   -->
     </mat-card-footer>
     </mat-card>
-    
 </div>

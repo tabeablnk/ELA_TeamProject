@@ -19,6 +19,9 @@ export class SingleChoiceComponent implements OnInit {
     this.currentQuestion = this.quizService.getCurrentQuestion();
     this.currentQuestion.givenAnswers = []; 
     this.currentQuestion.answeredCorrect = false; 
+    console.log(this.currentQuestion.additionalInfos.options)
+    this.currentQuestion.additionalInfos.options = this.shuffleArray(this.currentQuestion.additionalInfos.options)
+    console.log(this.currentQuestion.additionalInfos.options)
     //   // console.log(this.currentQuestion)
   }
 
@@ -124,5 +127,23 @@ export class SingleChoiceComponent implements OnInit {
       taken[x] = --len in taken ? taken[len] : len;
     }
     return result;
+  }
+
+  shuffleArray(array:any) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
   }
 }

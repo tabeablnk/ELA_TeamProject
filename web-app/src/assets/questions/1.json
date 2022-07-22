@@ -1,25 +1,5 @@
 [
   {
-    "questionId": 0,
-    "questionType": 1,
-    "questionTypeName": "SingleChoice",
-    "category": 0,
-    "questionText": "Wer ist der/die Coolste?",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "options": ["Tim", "Jonas", "Tabea", "Narjes", "Franzi"],
-      "correctAnswer": "Tim"
-    }
-  },
-  {
     "questionId": 1,
     "questionType": 2,
     "questionTypeName": "MapQuestion",
@@ -32,31 +12,10 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": [""],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ["48.1372264", "11.5755203"]
-    }
-  },
-  {
-    "questionId": 2,
-    "questionType": 3,
-    "questionTypeName": "DragDrop",
-    "category": 0,
-    "questionText": "Sortiere das und das richtig ein",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "gapText": ["", ""],
-      "options": ["", ""],
-      "correctAnswer": "???? noch offen"
     }
   },
   {
@@ -64,7 +23,7 @@
     "questionType": 4,
     "questionTypeName": "Cloze",
     "category": 0,
-    "questionText": "Fülle die Lücken du Loser!",
+    "questionText": "Fülle die Lücken!",
     "imageUrl": "",
     "timeNeeded": 0,
     "alreadyAnsweredCount": 0,
@@ -72,7 +31,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": [{}],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "gapText": "Bayreuth ist eine fränkische kreisfreie Stadt im bayerischen Regierungsbezirk % Oberfranken %. Die Mittelstadt zählt zur Metropolregion % Nürnberg % und zur Planungsregion Oberfranken-Ost, sie ist Sitz der Regierung von Oberfranken sowie Verwaltungssitz des Bezirks Oberfranken und des Landkreises Bayreuth. Weltberühmt ist Bayreuth durch die alljährlich im Festspielhaus auf dem Grünen Hügel stattfindenden % Richard-Wagner-Festspiele %. Das % Markgräfliche Opernhaus % gehört seit 2012 zum UNESCO-Weltkulturerbe.",
@@ -88,8 +47,8 @@
     "questionId": 4,
     "questionType": 5,
     "questionTypeName": "MultipleChoice",
-    "category": 0,
-    "questionText": "Wähle hier die richtigen Antworten!",
+    "category": 1,
+    "questionText": "Welche Städte liegen in Bayern?",
     "imageUrl": "",
     "timeNeeded": 0,
     "alreadyAnsweredCount": 0,
@@ -97,11 +56,11 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": [{}],
+    "givenAnswers": [],
 
     "additionalInfos": {
-      "correctAnswer": ["", ""],
-      "options": ["", ""]
+      "correctAnswer": ["München", "Bamberg", "Nürnberg"],
+      "options": ["München", "Berlin","Nürnberg", "Bamberg","Hannover", "Konstanz"]
     }
   },
   {
@@ -117,7 +76,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["", ""],
@@ -146,25 +105,6 @@
     }
   },
   {
-    "questionId": 6,
-    "questionType": 7,
-    "questionTypeName": "ShortAnswer",
-    "category": 0,
-    "questionText": "Wie alt ist das und das?",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
-
-    "additionalInfos": {
-      "correctAnswer": "sehr cool"
-    }
-  },
-  {
       "questionId": 7,
       "questionType": 6,
       "questionTypeName": "SortOrder",
@@ -177,7 +117,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -218,7 +158,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["München", "Würzburg", "Fürth", "Ausburg", "Nürnberg"],
@@ -238,7 +178,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["München", "Nürnberg", "Ingolstadt"],
@@ -258,7 +198,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "gapText": "Größte Stadt sowie einzige Millionenstadt % Bayerns % ist die Landeshauptstadt München mit rund 1,45 Millionen Einwohnern. Sie ist deutschlandweit die drittgrößte Stadt und die elftgrößte Stadt der % Europäischen Union % und zählt zu den Weltstädten der Kategorie Beta+. Sie ist die größte Stadt Deutschlands, die kein Stadtstaat ist. Zudem ist München mit rund 4670 Einwohnern je Quadratkilometer (Dezember 2015) die am dichtesten bevölkerte Gemeinde Deutschlands sowie mit 519 m ü. NHN dessen höchstgelegene Großstadt. % Nürnberg % ist mit seinen rund 520.000 Einwohnern landesweit die zweitgrößte Stadt, belegt bundesweit den 14. sowie in der Europäischen Union den 51. Platz und zählt zu den Weltstädten der Kategorie Gamma−. Aufgrund der Bedeutung Nürnbergs stellt München in Bayern keine Primatstadt dar. Augsburg ist mit fast 300.000 Einwohnern landesweit die drittgrößte Stadt und belegt bundesweit den 23. Platz. In Bayern gibt es insgesamt % acht % Großstädte. Jüngste Großstadt (mindestens 100.000 Einwohner) Bayerns ist Fürth (seit 1990), das zuvor bereits von 1951 bis 1956 und von 1972 bis 1976 eine Großstadt war. Nürnberg bildet zusammen mit Erlangen, Fürth und Schwabach ein ausgeprägtes Städteband mit rund 800.000 Einwohnern. Metropolregionen in Bayern stellen die Metropolregion München und die Metropolregion Nürnberg dar. Des Weiteren sind Teile zum Rhein-Main-Gebiet zugehörig.",
@@ -283,10 +223,10 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
-        "gapText": " % Bayern % ist das flächengrößte der % 16 % Länder der Bundesrepublik Deutschland und liegt in deren Südosten. Mit mehr als % 13 % Millionen Einwohnern ist er das % zweitbevölkerungsreichste % Bundesland.", 
+        "gapText": " % Bayern % ist das flächengrößte der % 16 % Länder der Bundesrepublik Deutschland und liegt in deren Südosten. Mit mehr als % 13 % Millionen Einwohnern ist e das % zweitbevölkerungsreichste % Bundesland.", 
         "correctAnswers": [
           "Bayern",
           "16",
@@ -308,7 +248,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -345,7 +285,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -382,7 +322,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -419,7 +359,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["München", "Regensburg", "Nürnberg", "Erlangen", "Würzburg"],
@@ -439,7 +379,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Oberbayern", "Oberfranken", "Mittelfranken", "Unterfranken", "Niederbayern"],
@@ -459,7 +399,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Nürnberg"
@@ -478,7 +418,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Nürberg"

@@ -12,30 +12,10 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["answer1", "answer2"],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
-      "correctAnswer": "Würzburg"
-    }
-  },
-  {
-    "questionId": 6,
-    "questionType": 1,
-    "questionTypeName": "SingleChoice",
-    "category": 1,
-    "questionText": "Wo liegt der Marienplatz?",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": ["", ""],
-
-    "additionalInfos": {
-      "options": ["Nürnberg", "München", "Bamberg", "Hof", "Würzburg"],
       "correctAnswer": "Würzburg"
     }
   },
@@ -52,7 +32,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["", ""],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ["48.1372264", "11.5755203"]
@@ -71,7 +51,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["", ""],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ["48.1372264", "11.5755203"]
@@ -90,7 +70,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": ["", ""],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "correctAnswer": ["48.1372264", "11.5755203"]
@@ -109,7 +89,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Oberbayern", "Schwaben", "Oberfranken", "Niederbayern", "Unterfranken", "Oberpfalz"],
@@ -129,7 +109,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
@@ -149,7 +129,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
@@ -169,7 +149,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Nürnberg", "München", "Babmberg", "Augsburg", "Würzburg"],
@@ -189,7 +169,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Nürnberg", "München", "Babmberg", "Augsburg", "Würzburg"],
@@ -209,7 +189,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
@@ -229,7 +209,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
@@ -249,7 +229,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
@@ -269,7 +249,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
@@ -289,7 +269,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
@@ -309,7 +289,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
@@ -317,7 +297,7 @@
       }
     },
     {
-      "questionId": 17,
+      "questionId": 22,
       "questionType": 2,
       "questionTypeName": "MapQuestion",
       "category": 1,
@@ -329,7 +309,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [""],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["49.45791", "11.07598"]
@@ -348,7 +328,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Kaiserburg"
@@ -367,7 +347,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": "Oberfranken"
@@ -386,7 +366,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": ["answer1", "answer2"],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "options": ["", ""],
@@ -427,7 +407,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["Schloss Neuschwanstein", "Kaiserburg"],

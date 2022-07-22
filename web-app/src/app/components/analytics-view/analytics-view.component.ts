@@ -40,14 +40,6 @@ export class AnalyticsViewComponent implements OnInit {
       triesCounter: 0
     },
     {
-      name: "DragDrop",
-      type: 3,
-      amount: 0,
-      correctCounter: 0, 
-      timeCounter: 0,
-      triesCounter: 0
-    },
-    {
       name: "Cloze",
       type: 4,
       amount: 0,
@@ -126,7 +118,6 @@ export class AnalyticsViewComponent implements OnInit {
      */
      this.questionsGeographie.forEach((currentQuestion:any) => {
       let currentType = this.resultsGeopgrahie.find((e:any) => e.type === currentQuestion.questionType)
-
       currentType!.amount += 1; 
       currentType!.timeCounter += currentQuestion.timeNeeded;
       currentType!.triesCounter += currentQuestion.givenAnswers.length;
