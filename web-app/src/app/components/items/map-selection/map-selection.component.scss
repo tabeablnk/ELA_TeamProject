@@ -6,7 +6,9 @@
   bottom: 0;
   margin: 0px;
   width: 100%;
+  max-height: 45vh;
 }
+
 
 .map-frame {
   height: 100%;
@@ -36,44 +38,50 @@
 }
 
 #cursor.active {
-display: block;
+  display: block;
 }
 
 
-.cursor {
-  position: fixed;
-  border-radius: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  pointer-events: none;
-  left: -100px;
-  top: 50%;
-  mix-blend-mode: difference;
-  background-color: 
-white;
-  z-index: 10000;
-  border: 2px solid 
-white;
-  height: 15px;
-  width: 15px;
-  transition: all 300ms ease-out;
-}
+// .cursor {
+//   position: fixed;
+//   border-radius: 50%;
+//   transform: translateX(-50%) translateY(-50%);
+//   pointer-events: none;
+//   left: -100px;
+//   top: 50%;
+//   mix-blend-mode: difference;
+//   background-color: 
+// white;
+//   z-index: 10000;
+//   border: 2px solid 
+// white;
+//   height: 15px;
+//   width: 15px;
+//   transition: all 300ms ease-out;
+// }
 
-.image{
+.image {
+  margin-left: 16px;
   position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 45vh;
 
-        //  object fit for modern browsers
-        object-fit: cover;
-        object-position: center;
+  //  object fit for modern browsers
+  object-fit: cover;
+  object-position: center;
 
-        //  fallback 
-        //  using js the image source is replaced with a transparant gif
-        //  and the original is added as background image
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+  //  fallback 
+  //  using js the image source is replaced with a transparant gif
+  //  and the original is added as background image
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.info-text {
+  position: absolute;
+  bottom: 140px;
+  font-size: 16px;
 }

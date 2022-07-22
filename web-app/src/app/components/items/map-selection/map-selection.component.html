@@ -7,10 +7,10 @@
         </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="currentQuestion.imageUrl">
-        <div>
+        <div class="image-container">
            <img class="image" [src]="currentQuestion.imageUrl"/>
         </div>
     </mat-grid-tile>
 </mat-grid-list>
-<p>{{infoMessage}}</p>
+<p class="info-text">{{infoMessage}}</p>
 <!-- <div #cursor [class]="answerGiven? 'disabled' : 'active'" class='cursor' id="cursor"></div> -->
