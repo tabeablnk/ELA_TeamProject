@@ -1,124 +1,5 @@
 [
   {
-    "questionId": 0,
-    "questionType": 1,
-    "questionTypeName": "SingleChoice",
-    "category": 1,
-    "questionText": "Hier ist dann die Frage",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [],
-
-    "additionalInfos": {
-      "options": ["Option 1", "Option 2"],
-      "correctAnswer": "Option 1"
-    }
-  },
-  {
-    "questionId": 1,
-    "questionType": 2,
-    "questionTypeName": "MapQuestion",
-    "category": 1,
-    "questionText": "Wo liegt das und das",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [],
-
-    "additionalInfos": {
-      "correctAnswer": ""
-    }
-  },
-  {
-    "questionId": 2,
-    "questionType": 3,
-    "questionTypeName": "DragDrop",
-    "category": 1,
-    "questionText": "Sortiere das und das richtig ein",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [],
-
-    "additionalInfos": {
-      "gapText": ["", ""],
-      "options": ["", ""],
-      "correctAnswer": "???? noch offen"
-    }
-  },
-  {
-    "questionId": 3,
-    "questionType": 4,
-    "questionTypeName": "Cloze",
-    "category": 1,
-    "questionText": "Fülle die Lücken!",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [{}],
-
-    "additionalInfos": {
-      "gapText": "Hier ist der Lückentext",
-      "correctAnswer": "???? noch offen"
-    }
-  },
-  {
-    "questionId": 4,
-    "questionType": 5,
-    "questionTypeName": "MultipleChoice",
-    "category": 1,
-    "questionText": "Wähle hier die richtigen Antworten!",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [],
-
-    "additionalInfos": {
-      "correctAnswer": ["", ""],
-      "options": ["", ""]
-    }
-  },
-  {
-    "questionId": 6,
-    "questionType": 7,
-    "questionTypeName": "ShortAnswer",
-    "category": 1,
-    "questionText": "Wie alt ist das und das?",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [],
-
-    "additionalInfos": {
-      "correctAnswer": "sehr cool"
-    }
-  },
-  {
       "questionId": 5,
       "questionType": 6,
       "questionTypeName": "SortOrder",
@@ -160,7 +41,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "gapText": "Bereits im Jahre 555 n. Chr. und damit rund 500 Jahre vor der Verwendung des Begriffs deutsch im heutigen Sinn ist das ältere bayerische % Stammesherzogtum % nachgewiesen, das Teil des fränkischen Herrschaftsbereichs wurde. Unter den Karolingern entstand erstmals ein baierisches Königtum. Nach dem Ende der Herrschaft der Karolinger erstarkte die baierische Eigenständigkeit im jüngeren bayerischen Stammesherzogtum. Mit Beginn der Herrschaft der Wittelsbacher 1180 folgte der Übergang zum Territorialstaat. Sie regierten Bayern über % 700 % Jahre bis 1918. Baiern war Kurfürstentum des % Heiligen Römischen Reiches % und ab 1806 Königreich. Durch die Verfassungen von 1808 und 1818 wurde Bayern konstitutionelle % Monarchie %. Bayern konnte auf dem Wiener Kongress 1814 als eine der Siegermächte einen großen Teil der Gebietsgewinne behalten; unter anderem kamen Teile Frankens, Schwabens und die neugeschaffene linksrheinische % Pfalz % zu Bayern. 1918 brach die Wittelsbachermonarchie in der % Novemberrevolution % zusammen. In der Weimarer Republik verlor Bayern seine Reservatrechte weitgehend zugunsten des Reichs. Nach der NS-Machtergreifung erfolgte schrittweise die Aushebelung sämtlicher politischen Möglichkeiten Bayerns, so des Bayerischen Landtags, aber auch der bayerischen Staatsbürgerschaft. Die Amerikanische Besatzungsmacht stellte Bayern 1945 offiziell wieder als unabhängigen Staat her. Die Pfalz wurde 1946 von Bayern abgetrennt und ist heute Teil von Rheinland-Pfalz. 1949 gründete der Freistaat unter Vorbehalten die Bundesrepublik mit.",

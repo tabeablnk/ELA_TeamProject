@@ -40,14 +40,14 @@ export class QuizResultsComponent implements OnInit {
       timeCounter: 0,
       triesCounter: 0
     },
-    {
-      name: "DragDrop",
-      type: 3,
-      amount: 0,
-      correctCounter: 0, 
-      timeCounter: 0,
-      triesCounter: 0
-    },
+    // {
+    //   name: "DragDrop",
+    //   type: 3,
+    //   amount: 0,
+    //   correctCounter: 0, 
+    //   timeCounter: 0,
+    //   triesCounter: 0
+    // },
     {
       name: "Cloze",
       type: 4,
@@ -329,7 +329,7 @@ export class QuizResultsComponent implements OnInit {
       'Multiple-Choice',
       'Single-Choice',
       'Reihenfolge',
-      'Drag & Drop',
+      // 'Drag & Drop',
       'Lückentext',
       'Karten'
     ],

@@ -51,7 +51,7 @@
     "answeredCorrect": false,
     "triesSummedUp":0,
     "timeSummedUp":0,
-    "givenAnswers": [{}],
+    "givenAnswers": [],
 
     "additionalInfos": {
       "gapText": "% Bamberg % wurde wie Rom auf sieben Hügeln ( % Stephansberg % , Kaulberg, Domberg, Michaelsberg, Jakobsberg, Altenburg, Abtsberg) erbaut und deshalb auch manchmal als Fränkisches Rom bezeichnet. 1993 wurde die Altstadt in die Liste des Weltkultur- und Naturerbes der Menschheit der UNESCO aufgenommen. In der Begründung heißt es, die Stadt repräsentiere in einzigartiger Weise die auf einer Grundstruktur des Frühmittelalters entwickelte mitteleuropäische Stadt. Das in die UNESCO-Welterbeliste aufgenommene Areal umfasst die drei historischen Stadtzentren Berg-, Insel- und % Gärtnerstadt % mit einer Gesamtfläche von etwa 140 Hektar.",
@@ -336,7 +336,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [""],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["49.45791", "11.07598"]
@@ -434,7 +434,7 @@
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
-      "givenAnswers": [{}],
+      "givenAnswers": [],
   
       "additionalInfos": {
         "correctAnswer": ["Schloss Neuschwanstein", "Kaiserburg"],

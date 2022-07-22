@@ -37,7 +37,7 @@ export class CurrentQuizService {
     console.log(this.weightedCategoryQuestions)
 
     // this.currentQuestions = this.getRandom(allCategoryQuestions, 4);
-    this.currentQuestions = this.getRandom(this.weightedCategoryQuestions, 8);
+    this.currentQuestions = this.getRandom(this.weightedCategoryQuestions, 4);
     // if(this.findDuplicates(this.currentQuestions) !== []){
     //   this.currentQuestions = this.getRandom(weightedCategoryQuestions, 4);
     // }
@@ -97,7 +97,7 @@ export class CurrentQuizService {
           }
         }
         if(this.weightedCategoryQuestions[x].questionType == 2){
-          if(result.filter((element:any) => element.questionType == 2).length >= 2){
+          if(result.filter((element:any) => element.questionType == 3).length >= 2){
             do{
               x = Math.floor(Math.random() * len); 
             } while(this.weightedCategoryQuestions[x].questionType == 2)
@@ -111,8 +111,6 @@ export class CurrentQuizService {
           }
         }
 
-        console.log(result)
-        console.log(taken)
         result[n] = arr[x in taken ? taken[x] : x];
         taken[x] = --len in taken ? taken[len] : len;
     }

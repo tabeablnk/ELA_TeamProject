@@ -24,6 +24,7 @@ export class MultipleChoiceComponent implements OnInit {
     })
     this.currentQuestion = this.quizService.getCurrentQuestion();
     this.currentQuestion.givenAnswers = [];  
+    this.onSetStateNextBtn(false);
     this.currentQuestion.answeredCorrect = false; 
   }
 
@@ -75,6 +76,7 @@ export class MultipleChoiceComponent implements OnInit {
         //HIER ALLES RICHTIG!
         this.questionFinished();
         this.currentTry = 3; 
+        this.onSetStateNextBtn(true);
         tipp.innerHTML = "Alles richtig! Sehr gut :)"
       }
     }
@@ -105,6 +107,7 @@ export class MultipleChoiceComponent implements OnInit {
           if(this.currentTry === 2){
             this.questionFinished();
             tipp.innerHTML = "Leider nicht richtig. Die richtige Antwort ist mit grün hinterlegt. Du hast leider keinen Versuch mehr";
+            this.onSetStateNextBtn(true);
           }
         }
       })

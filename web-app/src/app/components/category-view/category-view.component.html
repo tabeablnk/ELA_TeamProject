@@ -31,9 +31,9 @@
                         <div *ngIf="question.questionType === 2">
                             <app-map-selection (enableNextBtn)="getItemValue($event)"></app-map-selection>
                         </div>
-                        <div *ngIf="question.questionType === 3">
+                        <!-- <div *ngIf="question.questionType === 3">
                             <app-drag-drop (enableNextBtn)="getItemValue($event)"></app-drag-drop>
-                        </div>
+                        </div> -->
                         <div *ngIf="question.questionType === 4">
                             <app-cloze (enableNextBtn)="getItemValue($event)"></app-cloze>
                         </div>
