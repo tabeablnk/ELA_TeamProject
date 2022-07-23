@@ -87,7 +87,7 @@ export class SpaqrqlServiceService {
 
   initGeneratedQuestions() {
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
-    //this.sending_request_all_cities(10);
+    this.sending_request_all_cities(10);
     this.sending_request_some_attributes_for_one_city();
 
   }
@@ -120,6 +120,8 @@ export class SpaqrqlServiceService {
       this.callback_all_cities_city_names_as_distrators(response.results.bindings);
       this.callback_all_cities_generate_map_questions(response.results.bindings);
       this.callback_all_cities_sort_order_task(response.results.bindings);
+
+      this.sending_request_some_attributes_for_one_city();
       console.log(response);
       this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
@@ -450,12 +452,6 @@ export class SpaqrqlServiceService {
 
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
       this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-
       console.log(response);
       this.counter_SPARQL_requests++;
     });
@@ -519,14 +515,14 @@ export class SpaqrqlServiceService {
       givenAnswers: [{}],
   
       additionalInfos: {
-        correctAnswer: [position_of_correct_answers[0]? postalcode : '', 
-                        position_of_correct_answers[1]?  above_see_level: '',
-                        position_of_correct_answers[2]? area : '',
-                        position_of_correct_answers[3]? firstmentioned :''],
-        options: [position_of_correct_answers[0]? postalcode : distractor_postalcode, 
-                  position_of_correct_answers[1]?  above_see_level: distractor_above_see_level,
-                  position_of_correct_answers[2]? area : distractor_area,
-                  position_of_correct_answers[3]? firstmentioned : distractor_firstmentioned]
+        correctAnswer: [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode : '', 
+                        position_of_correct_answers[1]? "Höhe über Meeresspigel: " + above_see_level + "m": '',
+                        position_of_correct_answers[2]? "Fläche: " + area +"km^2" : '',
+                        position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned :''],
+        options: [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode :  "Postleitzahlen: " + distractor_postalcode, 
+                  position_of_correct_answers[1]?  "Höhe über Meeresspigel: " + above_see_level + "m": "Höhe über Meeresspigel: " + distractor_above_see_level + "m",
+                  position_of_correct_answers[2]? "Fläche: " + area +"km^2" : "Fläche: "+ distractor_area +"km^2" ,
+                  position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned : "Erstmalig genannt: " + distractor_firstmentioned]
       }
     }
     this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
