@@ -351,7 +351,7 @@ export class SpaqrqlServiceService {
       var distractor4 = randomly_picked_elements[3].cityLabel.value;
 
       let new_question = {
-        questionId: i+100,
+        questionId: this.question_id_aig,
         questionType: 1,
         questionTypeName: "SingleChoice",
         category: 1,
@@ -374,6 +374,7 @@ export class SpaqrqlServiceService {
         }
       }
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.question_id_aig++;
     }
   }
 
@@ -446,12 +447,74 @@ export class SpaqrqlServiceService {
 
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
       this.callback_some_attributes_for_one_city(response.results.bindings);
+
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+
       console.log(response);
       this.counter_SPARQL_requests++;
     });
   }
 
+  getRandomFiledBoolArray(size:number, number_of_false:number){   
+    var result = new Array(size).fill(true);
+    var i = 0;
+    while(i < number_of_false){
+      var current_index = this.getRandomInt(0, size-1);
+      if(result[current_index] == false){
+        result[current_index] = true;
+        i++;
+      }
+    }
+    return result;
+  }
+
   callback_some_attributes_for_one_city(result_sparql_request:any){
-    console.log("Reached the callback_some_attributes_for_1_city-function!");
+    var postalcode = result_sparql_request[0].postalcode.value;
+    var above_see_level = result_sparql_request[0].above_see_level.value;
+    var area = result_sparql_request[0].area.value;
+    var firstmentioned = result_sparql_request[0].firstmentioned.value;
+
+    var distractor_postalcode = "90"+this.getRandomInt(0,9)+this.getRandomInt(0,9)+this.getRandomInt(0,9)+" - 92000";
+    var distractor_above_see_level = above_see_level + this.getRandomInt(-10,10)*above_see_level/50;
+    var distractor_area = area + this.getRandomInt(-10,10)*area/50;
+    var distractor_firstmentioned = this.getRandomInt(1,29)+"."+this.getRandomInt(1,12)+"."+this.getRandomInt(10, 1900);
+
+    var number_of_wrong_answers = this.getRandomInt(1,3);
+
+    var position_of_correct_answers = this.getRandomFiledBoolArray(4, number_of_wrong_answers);
+
+    let new_question= {
+      questionId: this.question_id_aig,
+      questionType: 5,
+      questionTypeName: "MultipleChoice",
+      category: 1,
+      questionText: "AIG: Welche dieser Fakten über " + result_sparql_request[0].cityLabel.value+ " sind wahr?",
+      imageUrl: "",
+      timeNeeded: 0,
+      alreadyAnsweredCount: 0,
+      tip: "-",
+      answeredCorrect: false,
+      triesSummedUp:0,
+      timeSummedUp:0,
+      givenAnswers: [{}],
+  
+      additionalInfos: {
+        correctAnswer: [position_of_correct_answers[0]? postalcode : "blub", 
+                        position_of_correct_answers[1]?  above_see_level: "blob",
+                        position_of_correct_answers[2]? area : "bla",
+                        position_of_correct_answers[3]? firstmentioned : "blib"],
+        options: [position_of_correct_answers[0]? postalcode : distractor_postalcode, 
+                  position_of_correct_answers[1]?  above_see_level: distractor_above_see_level,
+                  position_of_correct_answers[2]? area : distractor_area,
+                  position_of_correct_answers[3]? firstmentioned : distractor_firstmentioned]
+      }
+    }
+    this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+    this.question_id_aig++;
   }
 }
