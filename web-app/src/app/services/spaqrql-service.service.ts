@@ -85,6 +85,7 @@ export class SpaqrqlServiceService {
   initGeneratedQuestions() {
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
     this.sending_request_all_cities(10);
+    this.sending_request_some_attributes_for_one_city();
 
   }
 
@@ -108,7 +109,7 @@ export class SpaqrqlServiceService {
     var generatedQuery = this.generator.stringify(updatedQuery);
     //console.log(generatedQuery);
 
-    this.queryDispatcher.query(generatedQuery).then((response: any) => {
+    this.queryDispatcher.query(generatedQuery).then((response:any) => {
       this.results_all_cities = response.results.bindings;
       this.callback_all_cities_trivial_distractors(response.results.bindings);
       this.callback_all_cities_percential_distractors(response.results.bindings);
@@ -119,7 +120,6 @@ export class SpaqrqlServiceService {
       console.log(response);
       this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
-      this.sending_request_some_attributes_for_one_city();
     });
   }
 
@@ -447,14 +447,7 @@ export class SpaqrqlServiceService {
 
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
       this.callback_some_attributes_for_one_city(response.results.bindings);
-
       this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-      this.callback_some_attributes_for_one_city(response.results.bindings);
-
       console.log(response);
       this.counter_SPARQL_requests++;
     });
