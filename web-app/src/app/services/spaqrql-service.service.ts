@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Console } from 'console';
 import { randomInt } from 'jspsych/dist/modules/randomization';
+import { exit } from 'process';
 import { EMPTY, empty } from 'rxjs';
 import * as Sparql from 'sparqljs'
 import internal from 'stream';
@@ -62,10 +63,11 @@ export class SpaqrqlServiceService {
   }
   ORDER BY DESC(?population) LIMIT 10`
 
-  sparql_query_one_city_4_specific_attributes = `SELECT DISTINCT ?area ?postalcode ?firstmentioned ?above_see_level
+  sparql_query_one_city_4_specific_attributes = `SELECT DISTINCT ?cityLabel ?area ?postalcode ?firstmentioned ?above_see_level
   WHERE
   {
-    wd:Q2090 wdt:P2046 ?area;
+    wd:Q2090 wdt:P1448 ?cityLabel;
+             wdt:P2046 ?area;
              wdt:P1249 ?firstmentioned;
              wdt:P281 ?postalcode;
              wdt:P2044 ?above_see_level.
@@ -85,7 +87,7 @@ export class SpaqrqlServiceService {
 
   initGeneratedQuestions() {
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
-    this.sending_request_all_cities(10);
+    //this.sending_request_all_cities(10);
     this.sending_request_some_attributes_for_one_city();
 
   }
@@ -449,18 +451,26 @@ export class SpaqrqlServiceService {
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
       this.callback_some_attributes_for_one_city(response.results.bindings);
       this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+
       console.log(response);
       this.counter_SPARQL_requests++;
     });
   }
 
-  getRandomFiledBoolArray(size:number, number_of_false:number){   
+  getRandomFiledBoolArray(size:number, number_of_false:number){  
+    if(size <= number_of_false){
+      return new Array(size).fill(false);;
+    } 
     var result = new Array(size).fill(true);
     var i = 0;
     while(i < number_of_false){
       var current_index = this.getRandomInt(0, size-1);
-      if(result[current_index] == false){
-        result[current_index] = true;
+      if(result[current_index] == true){
+        result[current_index] = false;
         i++;
       }
     }
@@ -472,16 +482,27 @@ export class SpaqrqlServiceService {
     var above_see_level = result_sparql_request[0].above_see_level.value;
     var area = result_sparql_request[0].area.value;
     var firstmentioned = result_sparql_request[0].firstmentioned.value;
+    //console.log(postalcode);
+    //console.log(above_see_level);
+    //console.log(area);
+    //console.log(firstmentioned);
+    
 
     var distractor_postalcode = "90"+this.getRandomInt(0,9)+this.getRandomInt(0,9)+this.getRandomInt(0,9)+" - 92000";
-    var distractor_above_see_level = above_see_level + this.getRandomInt(-10,10)*above_see_level/50;
-    var distractor_area = area + this.getRandomInt(-10,10)*area/50;
+    //console.log(distractor_postalcode);
+    var distractor_above_see_level = +above_see_level + this.getRandomInt(-10,10)*above_see_level/50;
+    //console.log(distractor_above_see_level);
+    var distractor_area = Math.round(+area + this.getRandomInt(1,10)*area/50);
+    //console.log(distractor_area);
     var distractor_firstmentioned = this.getRandomInt(1,29)+"."+this.getRandomInt(1,12)+"."+this.getRandomInt(10, 1900);
-
+    //console.log(distractor_firstmentioned);
+    
     var number_of_wrong_answers = this.getRandomInt(1,3);
+    //console.log(number_of_wrong_answers);
 
     var position_of_correct_answers = this.getRandomFiledBoolArray(4, number_of_wrong_answers);
-
+    //console.log(position_of_correct_answers);
+    
     let new_question= {
       questionId: this.question_id_aig,
       questionType: 5,
@@ -498,10 +519,10 @@ export class SpaqrqlServiceService {
       givenAnswers: [{}],
   
       additionalInfos: {
-        correctAnswer: [position_of_correct_answers[0]? postalcode : EMPTY, 
-                        position_of_correct_answers[1]?  above_see_level: EMPTY,
-                        position_of_correct_answers[2]? area : EMPTY,
-                        position_of_correct_answers[3]? firstmentioned : EMPTY],
+        correctAnswer: [position_of_correct_answers[0]? postalcode : '', 
+                        position_of_correct_answers[1]?  above_see_level: '',
+                        position_of_correct_answers[2]? area : '',
+                        position_of_correct_answers[3]? firstmentioned :''],
         options: [position_of_correct_answers[0]? postalcode : distractor_postalcode, 
                   position_of_correct_answers[1]?  above_see_level: distractor_above_see_level,
                   position_of_correct_answers[2]? area : distractor_area,
