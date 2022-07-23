@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Console } from 'console';
 import { randomInt } from 'jspsych/dist/modules/randomization';
+import { EMPTY, empty } from 'rxjs';
 import * as Sparql from 'sparqljs'
 import internal from 'stream';
 import { Category } from '../models/state-enum.model';
@@ -497,10 +498,10 @@ export class SpaqrqlServiceService {
       givenAnswers: [{}],
   
       additionalInfos: {
-        correctAnswer: [position_of_correct_answers[0]? postalcode : "blub", 
-                        position_of_correct_answers[1]?  above_see_level: "blob",
-                        position_of_correct_answers[2]? area : "bla",
-                        position_of_correct_answers[3]? firstmentioned : "blib"],
+        correctAnswer: [position_of_correct_answers[0]? postalcode : EMPTY, 
+                        position_of_correct_answers[1]?  above_see_level: EMPTY,
+                        position_of_correct_answers[2]? area : EMPTY,
+                        position_of_correct_answers[3]? firstmentioned : EMPTY],
         options: [position_of_correct_answers[0]? postalcode : distractor_postalcode, 
                   position_of_correct_answers[1]?  above_see_level: distractor_above_see_level,
                   position_of_correct_answers[2]? area : distractor_area,
