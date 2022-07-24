@@ -52,7 +52,7 @@ export class CategoryQuestionsService {
   }
 
   getCategoryQuestions(categoryId: Number){
-    console.log(categoryId);
+    // console.log(categoryId);
     switch(categoryId){
       case 1:
         return this.questionSet_Demografie

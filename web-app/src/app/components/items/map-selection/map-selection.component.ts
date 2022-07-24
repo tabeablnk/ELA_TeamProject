@@ -288,7 +288,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
 
   public getPercentageCorrect(): number {
     let answeredQuestions = this.categoryService.getCategoryQuestions(this.service.getCategory());
-    console.log(answeredQuestions);
+    // console.log(answeredQuestions);
     let datasetLength =  answeredQuestions.filter((element: any) => element.alreadyAnsweredCount > 0 && element.questionType == 2).length;
     let rightCounter = answeredQuestions.filter((element: any) => element.answeredCorrect === true && element.questionType == 2).length;
     if (datasetLength == 0) {

@@ -221,9 +221,9 @@ export class SpaqrqlServiceService {
     console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
-      console.log(i);
+      // console.log(i);
       var population_of_current_city:number = result_sparql_request[i].population.value; 
-      console.log(population_of_current_city);
+      // console.log(population_of_current_city);
 
       // Grundgerüst für eine neue Frage
       var random_int_distractor1 = this.getRandomInt(1,this.max_value_random_int);
@@ -332,9 +332,8 @@ export class SpaqrqlServiceService {
     // console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
-      console.log(i);
       var population_of_current_city:number = result_sparql_request[i].population.value; 
-      console.log(population_of_current_city);
+      // console.log(population_of_current_city);
       var name_of_current_city = result_sparql_request[i].cityLabel.value;
 
       // Grundgerüst für eine neue Frage
