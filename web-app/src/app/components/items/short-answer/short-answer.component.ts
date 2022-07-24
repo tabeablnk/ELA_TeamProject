@@ -72,7 +72,7 @@ export class ShortAnswerComponent implements OnInit {
         this.inputValue = this.currentQuestion.additionalInfos.correctAnswer;
         this.onSetStateNextBtn(true);
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
-        let inputfield = document.getElementsByClassName("mat-form-field example-form-field ng-tns-c117-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-valid ng-star-inserted mat-form-field-should-float ng-dirty ng-touched")[0] as any
+        let inputfield = document.getElementById("inputfield") as any;
         inputfield.style = 'color : green';
       }
     }else{

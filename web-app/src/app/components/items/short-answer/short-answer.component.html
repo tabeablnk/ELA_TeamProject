@@ -2,7 +2,7 @@
     <mat-grid-tile>
       <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Antwort</mat-label>
-        <input matInput type="text" [(ngModel)]="inputValue">
+        <input matInput id="inputfield" type="text" [(ngModel)]="inputValue">
         <button *ngIf="inputValue" matSuffix mat-icon-button aria-label="Clear" (click)="inputValue=''">
           <mat-icon>close</mat-icon>
         </button>
