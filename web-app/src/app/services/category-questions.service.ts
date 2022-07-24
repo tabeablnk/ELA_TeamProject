@@ -52,7 +52,7 @@ export class CategoryQuestionsService {
   }
 
   getCategoryQuestions(categoryId: Number){
-    // console.log(this.questionSet_Demografie);
+    console.log(categoryId);
     switch(categoryId){
       case 1:
         return this.questionSet_Demografie
@@ -73,15 +73,15 @@ export class CategoryQuestionsService {
         this.questionSet_Demografie.push(question);
         localStorage.setItem("questionSet_Demografie", JSON.stringify(this.questionSet_Demografie))
         break;
-      case 2:
+      case Category.Kultur:
         this.questionSet_Kultur.push(question);
         localStorage.setItem("questionSet_Kultur", JSON.stringify(this.questionSet_Kultur))
         break;
-      case 3: 
+      case Category.Geographie: 
         this.questionSet_Geographie.push(question);
         localStorage.setItem("questionSet_Geographie", JSON.stringify(this.questionSet_Geographie))
         break;
-      case 4: 
+      case Category.Geschichte: 
         this.questionSet_Geschichte.push(question);
         localStorage.setItem("questionSet_Geschichte", JSON.stringify(this.questionSet_Geschichte))
         break 

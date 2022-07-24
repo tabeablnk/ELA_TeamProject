@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoryQuestionsService } from 'src/app/services/category-questions.service';
+import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model'
 
@@ -10,13 +12,14 @@ import { Category } from '../../models/state-enum.model'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private state: StateService) {
+  constructor(private router: Router, private state: StateService, private currentQuestion:CurrentQuizService) {
   }
 
   ngOnInit(): void {
   }
 
   onCardClicked(event:any):void{
+    console.log(event.currentTarget.id);
     let selectedCard = event.currentTarget.id;
     switch (selectedCard) {
       case "1":
@@ -33,7 +36,7 @@ export class HomeComponent implements OnInit {
         break;
     }
     this.router.navigate(["/category/" + selectedCard])
-  
+    this.currentQuestion.setCurrentQuiz(this.state.getCategory());
   }
 
 

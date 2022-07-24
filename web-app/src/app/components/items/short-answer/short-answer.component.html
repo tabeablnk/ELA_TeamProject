@@ -1,5 +1,4 @@
-<mat-grid-list cols="2">
-    <mat-grid-tile>
+<div style="display:flex">
       <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Antwort</mat-label>
         <input matInput type="text" [(ngModel)]="inputValue">
@@ -7,12 +6,11 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile *ngIf="currentQuestion.imageUrl">
+    <div style="text-align: right" *ngIf="currentQuestion.imageUrl">
         <!-- <div class="square"> -->
             <img class="image" src="{{currentQuestion.imageUrl}}">
         <!-- </div> -->
-    </mat-grid-tile>
-</mat-grid-list>
+        </div>
+      </div>
 
 <div id="tipps"></div>

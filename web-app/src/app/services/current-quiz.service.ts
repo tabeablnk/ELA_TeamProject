@@ -13,6 +13,7 @@ export class CurrentQuizService {
   constructor(public catQuestions: CategoryQuestionsService) { }
 
   setCurrentQuiz(categoryId : any){
+    this.weightedCategoryQuestions = [];
     let allCategoryQuestions = this.catQuestions.getCategoryQuestions(categoryId)
     //eventuell hier noch fragen, die noch nicht beantwortet wurden priorisieren
     console.log(allCategoryQuestions)
@@ -37,7 +38,7 @@ export class CurrentQuizService {
     console.log(this.weightedCategoryQuestions)
 
     // this.currentQuestions = this.getRandom(allCategoryQuestions, 4);
-    this.currentQuestions = this.getRandom(this.weightedCategoryQuestions, 4);
+    this.currentQuestions = this.getRandom(this.weightedCategoryQuestions, 8);
     // if(this.findDuplicates(this.currentQuestions) !== []){
     //   this.currentQuestions = this.getRandom(weightedCategoryQuestions, 4);
     // }

@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sparql.initGeneratedQuestions();
+ //this.sparql.initGeneratedQuestions();
 
     let url = window.location.href;
     if (url.includes("category")) {

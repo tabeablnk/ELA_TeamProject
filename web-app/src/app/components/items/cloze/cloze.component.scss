@@ -7,3 +7,15 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+
+:host ::ng-deep #jspsych-content { 
+  font-family: 'Roboto' !important;
+  font-size: 18px !important;
+  line-height: 1.8 !important;
+}
+
+:host ::ng-deep #finish_cloze_button {
+  display: none;
+}
+

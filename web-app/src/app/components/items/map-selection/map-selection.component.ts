@@ -184,7 +184,6 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
         subdomains: 'abcd',
         maxZoom: 7
       });
-
       map_wihtoutLabels.addTo(this.map);
     }
     else if (correctAnswered < 0.7) {
@@ -215,6 +214,11 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       let polyline = Leaflet.polyline(pointList, { color: 'black' }).addTo(this.map);
       this.map.fitBounds(polyline.getBounds());
     }
+    var Stadia_OSMBright = Leaflet.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
+      maxZoom: 20,
+      attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    });
+    Stadia_OSMBright.addTo(this.map);
   }
 
   public validateAnswer(): void {
@@ -284,8 +288,12 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
 
   public getPercentageCorrect(): number {
     let answeredQuestions = this.categoryService.getCategoryQuestions(this.service.getCategory());
-    let datasetLength = answeredQuestions.length;
+    console.log(answeredQuestions);
+    let datasetLength =  answeredQuestions.filter((element: any) => element.alreadyAnsweredCount > 0 && element.questionType == 2).length;
     let rightCounter = answeredQuestions.filter((element: any) => element.answeredCorrect === true && element.questionType == 2).length;
+    if (datasetLength == 0) {
+      return 0;
+    }
     let percentageRight = rightCounter / datasetLength;
     return percentageRight;
   }

@@ -9,18 +9,12 @@
   margin: 7px;
 }
 
-.mat-radio-group {
-  position: absolute;
-  left: 5px;
-  top: 32px;
-}
 
 .image{
-  position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+
+        width: 45%;
         height: 100%;
+        margin-right: 64px;
         // z-index: -1;
 
         //  object fit for modern browsers
@@ -49,3 +43,7 @@
 //   height: 100%;
 //   background-position: center center;
 // }
+
+.question-container {
+  display: flex
+}
