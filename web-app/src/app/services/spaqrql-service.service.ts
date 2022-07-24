@@ -294,7 +294,7 @@ export class SpaqrqlServiceService {
         questionId: this.question_id_aig,
         questionType: 2,
         questionTypeName: "MapQuestion",
-        category: 1,
+        category: 3,
         questionText: "AIG: Wo liegt " + result_sparql_request[i].cityLabel.value + "?",
         imageUrl: "",
         timeNeeded: 0,
@@ -309,7 +309,7 @@ export class SpaqrqlServiceService {
           correctAnswer: coordinates_of_current_city,
         }
       };
-      this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.categoryQuestions.addCategoryQuestion(Category.Geographie, new_question);
       this.question_id_aig++;
     }
   }
@@ -503,7 +503,7 @@ export class SpaqrqlServiceService {
       questionId: this.question_id_aig,
       questionType: 5,
       questionTypeName: "MultipleChoice",
-      category: 1,
+      category: 3,
       questionText: "AIG: Welche dieser Fakten über " + result_sparql_request[0].cityLabel.value+ " sind wahr?",
       imageUrl: "",
       timeNeeded: 0,
@@ -525,7 +525,7 @@ export class SpaqrqlServiceService {
                   position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned : "Erstmalig genannt: " + distractor_firstmentioned]
       }
     }
-    this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+    this.categoryQuestions.addCategoryQuestion(Category.Geographie, new_question);
     this.question_id_aig++;
   }
 }
