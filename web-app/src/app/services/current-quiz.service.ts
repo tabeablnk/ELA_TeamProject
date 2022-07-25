@@ -16,6 +16,7 @@ export class CurrentQuizService {
     this.weightedCategoryQuestions = [];
     this.currentQuestions = []; 
     let allCategoryQuestions = this.catQuestions.getCategoryQuestions(categoryId)
+     
     allCategoryQuestions.forEach((question:any) => {
       if(question.alreadyAnsweredCount === 0){
         let counter = 4; 
@@ -36,6 +37,9 @@ export class CurrentQuizService {
 
     // console.log(this.weightedCategoryQuestions)
 
+    let totalQuestionsCount = 0;
+    let singleChoiceQuestion_unweighted = allCategoryQuestions.filter((question:any) => question.questionType === 1);
+    let mapQuestions_unweighted = allCategoryQuestions.filter((question:any)=> question.questionType === 2)
     // this.currentQuestions = this.getRandom(allCategoryQuestions, 4);
     let singleChoiceQuestions = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 1)
     let mapQuestions = this.weightedCategoryQuestions.filter((question:any)=> question.questionType === 2)
@@ -45,12 +49,30 @@ export class CurrentQuizService {
     let sortOrderQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
     let shortAnswerQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
 
+    console.log(otherQuestions)
+    console.log(totalQuestionsCount)
     if(categoryId ==2 ){
       this.currentQuestions = this.catQuestions.getCategoryQuestions(2);
     }else{
-      this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, 2))
-      this.currentQuestions.push(...this.getRandom(mapQuestions, 2))
-      this.currentQuestions.push(...this.getRandom(otherQuestions, 4))
+      if(singleChoiceQuestion_unweighted.length >= 2){
+        totalQuestionsCount += 2; 
+        this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, 2))
+      }else{
+        totalQuestionsCount += singleChoiceQuestion_unweighted.length;
+        this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, singleChoiceQuestion_unweighted.length))
+      }
+
+      if(mapQuestions_unweighted.length >= 2){
+        totalQuestionsCount += 2;
+        this.currentQuestions.push(...this.getRandom(mapQuestions, 2))
+      }else{ 
+        totalQuestionsCount += mapQuestions_unweighted.length;
+        this.currentQuestions.push(...this.getRandom(mapQuestions, mapQuestions_unweighted.length))
+      }
+      this.currentQuestions.push(...this.getRandom(otherQuestions, (8 - totalQuestionsCount)))
+      // this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, 2))
+      // this.currentQuestions.push(...this.getRandom(mapQuestions, 2))
+      // this.currentQuestions.push(...this.getRandom(otherQuestions, 4))
       this.currentQuestions = this.shuffleArray(this.currentQuestions)
     }
 
@@ -107,10 +129,12 @@ export class CurrentQuizService {
         throw new RangeError("getRandom: more elements taken than available");
     while (n--) {
         var x = Math.floor(Math.random() * len);
+        let counter = 0; 
         do{
           // console.log(x)
+          counter++; 
           x = Math.floor(Math.random() * len);
-        } while(result.filter((element:any) => element.questionId == arr[x].questionId).length > 0)
+        } while(result.filter((element:any) => element.questionId == arr[x].questionId).length > 0 && counter < 15)
 
 
 
