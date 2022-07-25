@@ -12,9 +12,11 @@
 
 .image{
 
-        width: 45%;
+        width: 65%;
         height: 100%;
+        max-height: 65vh;
         margin-right: 64px;
+        margin-left: 32px;
         // z-index: -1;
 
         //  object fit for modern browsers
@@ -46,4 +48,8 @@
 
 .question-container {
   display: flex
+}
+
+#tipps {
+  position: absolute;
 }
