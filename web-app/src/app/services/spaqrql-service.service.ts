@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Console } from 'console';
 import { randomInt } from 'jspsych/dist/modules/randomization';
+import { exit } from 'process';
+import { EMPTY, empty } from 'rxjs';
 import * as Sparql from 'sparqljs'
 import internal from 'stream';
 import { Category } from '../models/state-enum.model';
@@ -60,11 +63,14 @@ export class SpaqrqlServiceService {
   }
   ORDER BY DESC(?population) LIMIT 10`
 
-  sparql_query_one_city_specific_attribute = `#Flüsse bei/um Nürnberg
-  SELECT DISTINCT ?river ?riverLabel
+  sparql_query_one_city_4_specific_attributes = `SELECT DISTINCT ?cityLabel ?area ?postalcode ?firstmentioned ?above_see_level
   WHERE
   {
-    wd:Q2090 wdt:P206 ?river.
+    wd:Q2090 wdt:P1448 ?cityLabel;
+             wdt:P2046 ?area;
+             wdt:P1249 ?firstmentioned;
+             wdt:P281 ?postalcode;
+             wdt:P2044 ?above_see_level.
     SERVICE wikibase:label { bd:serviceParam wikibase:language "de". }
   }`
   
@@ -82,6 +88,7 @@ export class SpaqrqlServiceService {
   initGeneratedQuestions() {
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
     this.sending_request_all_cities(10);
+    this.sending_request_some_attributes_for_one_city();
 
   }
 
@@ -105,7 +112,7 @@ export class SpaqrqlServiceService {
     var generatedQuery = this.generator.stringify(updatedQuery);
     //console.log(generatedQuery);
 
-    this.queryDispatcher.query(generatedQuery).then((response: any) => {
+    this.queryDispatcher.query(generatedQuery).then((response:any) => {
       this.results_all_cities = response.results.bindings;
       this.callback_all_cities_trivial_distractors(response.results.bindings);
       this.callback_all_cities_percential_distractors(response.results.bindings);
@@ -113,6 +120,8 @@ export class SpaqrqlServiceService {
       this.callback_all_cities_city_names_as_distrators(response.results.bindings);
       this.callback_all_cities_generate_map_questions(response.results.bindings);
       this.callback_all_cities_sort_order_task(response.results.bindings);
+
+      this.sending_request_some_attributes_for_one_city();
       console.log(response);
       this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
@@ -285,7 +294,7 @@ export class SpaqrqlServiceService {
         questionId: this.question_id_aig,
         questionType: 2,
         questionTypeName: "MapQuestion",
-        category: 1,
+        category: 3,
         questionText: "AIG: Wo liegt " + result_sparql_request[i].cityLabel.value + "?",
         imageUrl: "",
         timeNeeded: 0,
@@ -300,7 +309,7 @@ export class SpaqrqlServiceService {
           correctAnswer: coordinates_of_current_city,
         }
       };
-      this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.categoryQuestions.addCategoryQuestion(Category.Geographie, new_question);
       this.question_id_aig++;
     }
   }
@@ -346,7 +355,7 @@ export class SpaqrqlServiceService {
       var distractor4 = randomly_picked_elements[3].cityLabel.value;
 
       let new_question = {
-        questionId: i+100,
+        questionId: this.question_id_aig,
         questionType: 1,
         questionTypeName: "SingleChoice",
         category: 1,
@@ -369,6 +378,7 @@ export class SpaqrqlServiceService {
         }
       }
       this.categoryQuestions.addCategoryQuestion(Category.Demografie, new_question);
+      this.question_id_aig++;
     }
   }
 
@@ -431,11 +441,90 @@ export class SpaqrqlServiceService {
     this.question_id_aig++;
   }
 
-  sending_request_one_attribute_for_one_city(){
+  sending_request_some_attributes_for_one_city(tag_for_city:string = 'Q2090'){
+    var parsedQuery = this.parser.parse(this.prefixes_wikidata + this.sparql_query_one_city_4_specific_attributes);
+    var updatedQuery = JSON.parse(JSON.stringify(parsedQuery));
+    for(var i = 0; i < 4; i++){
+      updatedQuery.where[0].triples[i].subject.value = 'http://www.wikidata.org/entity/'+ tag_for_city;
+    }
+    var generatedQuery = this.generator.stringify(updatedQuery);
 
+    this.queryDispatcher.query(generatedQuery).then((response: any) => {
+      this.callback_some_attributes_for_one_city(response.results.bindings);
+      console.log(response);
+      this.counter_SPARQL_requests++;
+    });
   }
 
-  callback_one_attribute_for_one_city(){
+  getRandomFiledBoolArray(size:number, number_of_false:number){  
+    if(size <= number_of_false){
+      return new Array(size).fill(false);;
+    } 
+    var result = new Array(size).fill(true);
+    var i = 0;
+    while(i < number_of_false){
+      var current_index = this.getRandomInt(0, size-1);
+      if(result[current_index] == true){
+        result[current_index] = false;
+        i++;
+      }
+    }
+    return result;
+  }
 
+  callback_some_attributes_for_one_city(result_sparql_request:any){
+    var postalcode = result_sparql_request[0].postalcode.value;
+    var above_see_level = result_sparql_request[0].above_see_level.value;
+    var area = result_sparql_request[0].area.value;
+    var firstmentioned = result_sparql_request[0].firstmentioned.value;
+    //console.log(postalcode);
+    //console.log(above_see_level);
+    //console.log(area);
+    //console.log(firstmentioned);
+    
+
+    var distractor_postalcode = "90"+this.getRandomInt(0,9)+this.getRandomInt(0,9)+this.getRandomInt(0,9)+" - 92000";
+    //console.log(distractor_postalcode);
+    var distractor_above_see_level = +above_see_level + this.getRandomInt(-10,10)*above_see_level/50;
+    //console.log(distractor_above_see_level);
+    var distractor_area = Math.round(+area + this.getRandomInt(1,10)*area/50);
+    //console.log(distractor_area);
+    var distractor_firstmentioned = this.getRandomInt(1,29)+"."+this.getRandomInt(1,12)+"."+this.getRandomInt(10, 1900);
+    //console.log(distractor_firstmentioned);
+    
+    var number_of_wrong_answers = this.getRandomInt(1,3);
+    //console.log(number_of_wrong_answers);
+
+    var position_of_correct_answers = this.getRandomFiledBoolArray(4, number_of_wrong_answers);
+    //console.log(position_of_correct_answers);
+    
+    let new_question= {
+      questionId: this.question_id_aig,
+      questionType: 5,
+      questionTypeName: "MultipleChoice",
+      category: 3,
+      questionText: "AIG: Welche dieser Fakten über " + result_sparql_request[0].cityLabel.value+ " sind wahr?",
+      imageUrl: "",
+      timeNeeded: 0,
+      alreadyAnsweredCount: 0,
+      tip: "-",
+      answeredCorrect: false,
+      triesSummedUp:0,
+      timeSummedUp:0,
+      givenAnswers: [{}],
+  
+      additionalInfos: {
+        correctAnswer: [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode : '', 
+                        position_of_correct_answers[1]? "Höhe über Meeresspigel: " + above_see_level + "m": '',
+                        position_of_correct_answers[2]? "Fläche: " + area +"km^2" : '',
+                        position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned :''],
+        options: [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode :  "Postleitzahlen: " + distractor_postalcode, 
+                  position_of_correct_answers[1]?  "Höhe über Meeresspigel: " + above_see_level + "m": "Höhe über Meeresspigel: " + distractor_above_see_level + "m",
+                  position_of_correct_answers[2]? "Fläche: " + area +"km^2" : "Fläche: "+ distractor_area +"km^2" ,
+                  position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned : "Erstmalig genannt: " + distractor_firstmentioned]
+      }
+    }
+    this.categoryQuestions.addCategoryQuestion(Category.Geographie, new_question);
+    this.question_id_aig++;
   }
 }
