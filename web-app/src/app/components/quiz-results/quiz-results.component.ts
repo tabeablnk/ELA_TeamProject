@@ -144,6 +144,9 @@ export class QuizResultsComponent implements OnInit {
       return sum + object.givenAnswers.length; 
     }, 0)
     this.averageTries = (sumTries / this.quizLength).toFixed(2)
+    if(this.averageTries < 1){
+      this.averageTries = 1
+    }
 
 
   }

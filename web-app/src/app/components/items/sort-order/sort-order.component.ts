@@ -40,8 +40,8 @@ export class SortOrderComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.leftTrys; 
-    this.onSetStateNextBtn(false)
     this.quizService.saveGivenAnswer(this.currentQuestion)
+    this.onSetStateNextBtn(false)
   }
 
   @Output() enableNextBtn = new EventEmitter<boolean>();
@@ -69,6 +69,7 @@ export class SortOrderComponent implements OnInit {
         } else{
           domItemTipps.innerHTML="Super, richtige Antwort!"
           this.currentQuestion.answeredCorrect = true;
+          this.onSetStateNextBtn(true)
 
         }
         break;
@@ -79,6 +80,7 @@ export class SortOrderComponent implements OnInit {
         } else{
           domItemTipps.innerHTML="Super, richtige Antwort!"
           this.currentQuestion.answeredCorrect = true;
+          this.onSetStateNextBtn(true)
         }
         break;
       case 0:
@@ -94,8 +96,9 @@ export class SortOrderComponent implements OnInit {
             domItem.style = 'color : green';
           })
         } else{
-          domItemTipps.innerHTML="Super, richtige Antwort!"
           this.currentQuestion.answeredCorrect = true;
+          domItemTipps.innerHTML="Super, richtige Antwort!"
+          this.onSetStateNextBtn(true)
         }
         break;
     }

@@ -21,7 +21,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
- this.sparql.initGeneratedQuestions();
+    if(!localStorage.getItem("sparqlTriggered")){
+      this.sparql.initGeneratedQuestions();
+      localStorage.setItem("sparqlTriggered", "true")
+      console.log("sparql is triggered")
+    }else{
+      console.log("sparql already triggered")
+    }
 
     let url = window.location.href;
     if (url.includes("category")) {

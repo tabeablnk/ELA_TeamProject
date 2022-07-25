@@ -18,6 +18,7 @@ export class ShortAnswerComponent implements OnInit {
 
   constructor(public quizService: CurrentQuizService) { 
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
+    this.currentQuestion.answeredCorrect = false; 
     console.log("hier")
     console.log(this.currentQuestion)
   }
@@ -35,6 +36,7 @@ export class ShortAnswerComponent implements OnInit {
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
     this.onSetStateNextBtn(false);
+    console.log(this.currentQuestion)
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 
@@ -47,6 +49,7 @@ export class ShortAnswerComponent implements OnInit {
   onValidateAnswer(){
     let tipp = document.getElementById("tipps") as any;
     if(this.currentTry < 3){
+      this.currentQuestion.givenAnswers[this.currentTry] = this.inputValue.toLowerCase();
       let difference = this.findDiff(this.currentQuestion.additionalInfos.correctAnswer.toLowerCase(), this.inputValue.toLowerCase())
       let differenceReverse = this.findDiff(this.inputValue.toLowerCase(), this.currentQuestion.additionalInfos.correctAnswer.toLowerCase())
       
@@ -64,12 +67,14 @@ export class ShortAnswerComponent implements OnInit {
         //inputValue.disabled = true; 
         this.inputValue = this.currentQuestion.additionalInfos.correctAnswer;
         this.onSetStateNextBtn(true);
+        this.currentQuestion.answeredCorrect = false; 
         tipp.innerHTML = "Schade, leider hast du es nicht ganz richtig. Du hast leider keine Versuche mehr."
        }
        this.currentTry++
       } else{
         //inputValue.style = "border-color: green"
         this.inputValue = this.currentQuestion.additionalInfos.correctAnswer;
+        this.currentQuestion.answeredCorrect = true; 
         this.onSetStateNextBtn(true);
         tipp.innerHTML = "Richtig! Sehr gut gemacht :)"
         let inputfield = document.getElementById("inputfield") as any;

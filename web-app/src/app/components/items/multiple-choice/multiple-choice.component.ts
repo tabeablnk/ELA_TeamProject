@@ -23,12 +23,12 @@ export class MultipleChoiceComponent implements OnInit {
       checkArray: this.fb.array([])
     })
     this.currentQuestion = this.quizService.getCurrentQuestion();
-    this.currentQuestion.givenAnswers = [];  
-    this.onSetStateNextBtn(false);
+    this.currentQuestion.givenAnswers = [];
     this.currentQuestion.answeredCorrect = false; 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+    this.onSetStateNextBtn(false);
     this.interval = setInterval(()=>{
       this.timeOnPage++;
     },1000)
@@ -40,8 +40,8 @@ export class MultipleChoiceComponent implements OnInit {
     this.currentQuestion.alreadyAnsweredCount += 1; 
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
-    this.onSetStateNextBtn(false)
     this.quizService.saveGivenAnswer(this.currentQuestion)
+    this.onSetStateNextBtn(false)
   }
 
   @Output() enableNextBtn = new EventEmitter<boolean>();
@@ -70,20 +70,25 @@ export class MultipleChoiceComponent implements OnInit {
     console.log(this.form.value.checkArray)
     let tipp = document.getElementById("tipps") as any; 
 
-    if(this.form.value.checkArray.length === this.currentQuestion.additionalInfos.correctAnswer.length){
-      let checker = this.currentQuestion.additionalInfos.correctAnswer.every((v:any) => this.form.value.checkArray.includes(v))
-      if(checker){
-        //HIER ALLES RICHTIG!
-        this.questionFinished();
-        this.currentTry = 3; 
-        this.onSetStateNextBtn(true);
-        tipp.innerHTML = "Alles richtig! Sehr gut :)"
-      }
-    }
 
     if(this.currentTry < 3){
+      console.log(this.form.value.checkArray)
       this.currentQuestion.givenAnswers[this.currentTry] = this.form.value.checkArray; 
       let somethingWrong = false; 
+
+
+      if(this.form.value.checkArray.length === this.currentQuestion.additionalInfos.correctAnswer.length){
+        let checker = this.currentQuestion.additionalInfos.correctAnswer.every((v:any) => this.form.value.checkArray.includes(v))
+        if(checker){
+          //HIER ALLES RICHTIG!
+          this.questionFinished();
+          this.currentTry = 3; 
+          this.onSetStateNextBtn(true);
+          tipp.innerHTML = "Alles richtig! Sehr gut :)"
+          this.currentQuestion.answeredCorrect = true; 
+        }
+      }
+
       this.form.value.checkArray.forEach((givenAnswer:any) => {
         
         if(this.currentQuestion.additionalInfos.correctAnswer.includes(givenAnswer)){
@@ -91,6 +96,9 @@ export class MultipleChoiceComponent implements OnInit {
           console.log(givenAnswer)
           let rightValue = document.getElementById(givenAnswer) as any; 
           rightValue.style = 'color: green';
+          if(this.form.value.checkArray.length < this.currentQuestion.additionalInfos.correctAnswer.length){
+            tipp.innerHTML = "Fast richtig. Hast du alle richtigen Optionen ausgewählt?"
+          }
 
         }else{
           somethingWrong = true;
@@ -102,19 +110,18 @@ export class MultipleChoiceComponent implements OnInit {
 
           if(this.currentTry === 1){
             //hier noch der nächste tipp
-            tipp.innerHTML = "Hier fehlt noch der 2. Tipp"
+            tipp.innerHTML = "Immer noch nicht richtig. Probier es nochmal! Du hast noch 1 Versuch."
           }
           if(this.currentTry === 2){
             this.questionFinished();
             tipp.innerHTML = "Leider nicht richtig. Die richtige Antwort ist mit grün hinterlegt. Du hast leider keinen Versuch mehr";
+            this.currentQuestion.answeredCorrect = false; 
             this.onSetStateNextBtn(true);
           }
         }
+
       })
 
-      if(somethingWrong === false){
-        tipp.innerHTML = "Fast richtig. Hast du alle richtigen Optionen ausgewählt?"
-      }
       console.log(this.currentQuestion)
       this.currentTry +=1; 
     }

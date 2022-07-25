@@ -478,7 +478,10 @@ export class AnalyticsViewComponent implements OnInit {
     /**
      * set all data for the line chart
      */
-
+    quizHistoryDemografie_right.unshift(0);
+    quizHistoryGeschichte_right.unshift(0);
+    quizHistoryKultur_right.unshift(0);
+    quizHistoryGeographie_right.unshift(0);
     let lineChartData = {
       labels: labels,
       datasets:[

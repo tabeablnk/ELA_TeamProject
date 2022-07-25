@@ -86,6 +86,7 @@ export class SpaqrqlServiceService {
   constructor(private categoryQuestions: CategoryQuestionsService) { }
 
   initGeneratedQuestions() {
+    console.log("SPARQL")
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
     this.sending_request_all_cities(10);
     this.sending_request_some_attributes_for_one_city();
@@ -303,7 +304,7 @@ export class SpaqrqlServiceService {
         answeredCorrect: false,
         triesSummedUp:0,
         timeSummedUp:0,
-        givenAnswers: ["", ""],
+        givenAnswers: [],
     
         additionalInfos: {
           correctAnswer: coordinates_of_current_city,
@@ -527,7 +528,7 @@ export class SpaqrqlServiceService {
       answeredCorrect: false,
       triesSummedUp:0,
       timeSummedUp:0,
-      givenAnswers: [{}],
+      givenAnswers: [],
   
       additionalInfos: {
         correctAnswer: correctAnswerArray,

@@ -44,10 +44,15 @@ export class CurrentQuizService {
     let multipleChoiceQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 5)
     let sortOrderQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
     let shortAnswerQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
-    this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, 2))
-    this.currentQuestions.push(...this.getRandom(mapQuestions, 2))
-    this.currentQuestions.push(...this.getRandom(otherQuestions, 4))
-    this.currentQuestions = this.shuffleArray(this.currentQuestions)
+
+    if(categoryId ==2 ){
+      this.currentQuestions = this.catQuestions.getCategoryQuestions(2);
+    }else{
+      this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, 2))
+      this.currentQuestions.push(...this.getRandom(mapQuestions, 2))
+      this.currentQuestions.push(...this.getRandom(otherQuestions, 4))
+      this.currentQuestions = this.shuffleArray(this.currentQuestions)
+    }
 
     // this.currentQuestions.push(this.getRandom(clozeQuestions, 1))
     // this.currentQuestions.push(this.getRandom(multipleChoiceQ, 1))
