@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="validateButtonPressed()" novalidate>
     <!-- All Form elements or Input fields goes here -->
-    <div *ngFor="let currentQ of currentQuestion.additionalInfos.options; let i=index">
-        <label id="{{currentQ}}" >
+    <div style="margin-top: 8px" *ngFor="let currentQ of currentQuestion.additionalInfos.options; let i=index">
+        <label style="font-size: 16px" id="{{currentQ}}" >
           <input type="checkbox" id="box-{{currentQ}}" [value]="currentQ" (change)="onCheckboxChange($event)" />
           {{currentQ}}
         </label>
