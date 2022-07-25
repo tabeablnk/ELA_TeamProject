@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
         break;
     }
     this.router.navigate(["/category/" + selectedCard])
-    this.currentQuestion.setCurrentQuiz(this.state.getCategory());
+    // this.currentQuestion.setCurrentQuiz(this.state.getCategory());
   }
 
 

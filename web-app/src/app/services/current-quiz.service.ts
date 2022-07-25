@@ -102,12 +102,10 @@ export class CurrentQuizService {
         throw new RangeError("getRandom: more elements taken than available");
     while (n--) {
         var x = Math.floor(Math.random() * len);
-        // do{
-        //   // console.log(x)
-        //   x = Math.floor(Math.random() * len);
-        // } while(result.filter((element:any) => element.questionId == arr[x].questionId).length !== 0)
-
-
+        do{
+          // console.log(x)
+          x = Math.floor(Math.random() * len);
+        } while(result.filter((element:any) => element.questionId == arr[x].questionId).length > 0)
 
 
 
