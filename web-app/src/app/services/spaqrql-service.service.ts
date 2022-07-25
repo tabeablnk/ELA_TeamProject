@@ -497,6 +497,22 @@ export class SpaqrqlServiceService {
 
     var position_of_correct_answers = this.getRandomFiledBoolArray(4, number_of_wrong_answers);
     //console.log(position_of_correct_answers);
+
+    var optionArray = [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode :  "Postleitzahlen: " + distractor_postalcode, 
+    position_of_correct_answers[1]?  "Höhe über Meeresspigel: " + above_see_level + "m": "Höhe über Meeresspigel: " + distractor_above_see_level + "m",
+    position_of_correct_answers[2]? "Fläche: " + area +"km^2" : "Fläche: "+ distractor_area +"km^2" ,
+    position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned : "Erstmalig genannt: " + distractor_firstmentioned];
+
+    console.log(optionArray);
+     
+    var correctAnswerArray = [];
+
+    for(var i = 0; i < 4; i++){
+      if(position_of_correct_answers[i] == true){
+        correctAnswerArray.push(optionArray[i]);
+      }
+
+    }
     
     let new_question= {
       questionId: this.question_id_aig,
@@ -514,14 +530,8 @@ export class SpaqrqlServiceService {
       givenAnswers: [{}],
   
       additionalInfos: {
-        correctAnswer: [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode : '', 
-                        position_of_correct_answers[1]? "Höhe über Meeresspigel: " + above_see_level + "m": '',
-                        position_of_correct_answers[2]? "Fläche: " + area +"km^2" : '',
-                        position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned :''],
-        options: [position_of_correct_answers[0]? "Postleitzahlen: " + postalcode :  "Postleitzahlen: " + distractor_postalcode, 
-                  position_of_correct_answers[1]?  "Höhe über Meeresspigel: " + above_see_level + "m": "Höhe über Meeresspigel: " + distractor_above_see_level + "m",
-                  position_of_correct_answers[2]? "Fläche: " + area +"km^2" : "Fläche: "+ distractor_area +"km^2" ,
-                  position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned : "Erstmalig genannt: " + distractor_firstmentioned]
+        correctAnswer: correctAnswerArray,
+        options: optionArray
       }
     }
     this.categoryQuestions.addCategoryQuestion(Category.Geographie, new_question);
