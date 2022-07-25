@@ -63,6 +63,15 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       iconUrl: "../../../assets/images/marker_green.svg",
     })
   };
+  markerIconWhite = {
+    icon: Leaflet.icon({
+      iconSize: [25, 41],
+      iconAnchor: [10, 41],
+      popupAnchor: [2, -40],
+      // specify the path here
+      iconUrl: "../../../assets/images/marker_white.svg",
+    })
+  };
 
   //added 
   public currentQuestion: any;
@@ -165,7 +174,12 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
           this.marker?.remove();
           this.clicked_coordinates.lat = e.latlng.lat;
           this.clicked_coordinates.lng = e.latlng.lng;
-          this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconBlack).addTo(this.map); // add the marker onclick
+          console.log(this.getPercentageCorrect())
+         // if (this.getPercentageCorrect() > 0.7) {
+            this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconWhite).addTo(this.map); // add the marker onclick
+          // } else {
+          //   this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconBlack).addTo(this.map); // add the marker onclick
+          // }
         }
       });
     }

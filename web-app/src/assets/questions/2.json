@@ -144,7 +144,7 @@
       "questionTypeName": "MapQuestion",
       "category": 2,
       "questionText": "Wo liegt die Walhalla?",
-      "imageUrl": "ttps://upload.wikimedia.org/wikipedia/commons/c/c6/Walhalla%2C_Donaustauf.JPG",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Walhalla%2C_Donaustauf.JPG",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Hier ein Tipp",
