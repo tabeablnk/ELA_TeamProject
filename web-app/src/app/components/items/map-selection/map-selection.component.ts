@@ -153,6 +153,10 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
         that.marker = Leaflet.circle([that.clicked_coordinates.lat, that.clicked_coordinates.lng], 40000).addTo(that.map);
         that.answerGiven = true;
       });
+      this.map.on("click", (e: any) => {
+        if (!this.answerGiven) {
+          this.circleDrawer.enable();
+        }});
 
     } else {
       //enable pin on map -> listen to onclick no map and get coordinates

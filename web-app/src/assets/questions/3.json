@@ -100,51 +100,6 @@
     }
   }, 
   {
-      "questionId": 6,
-      "questionType": 6,
-      "questionTypeName": "SortOrder",
-      "category": 3,
-      "questionText": "Sortieren sie die folgenden Städte nach der anteiligen Fläche der Grünanlagen(Größte zu Kleinste)",
-      "imageUrl": "",
-      "timeNeeded": 0,
-      "alreadyAnsweredCount": 0,
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "triesSummedUp":0,
-      "timeSummedUp":0,
-      "givenAnswers": [],
-  
-      "additionalInfos": {
-        "options": ["", ""],
-        "correctAnswer": [
-          {
-            "name": "München",
-            "value": "12.2"
-          },
-          {
-            "name": "Nürnberg",
-            "value": "9.4"
-          },
-          {
-            "name": "Augsburg",
-            "value": "6.3"
-          },
-          {
-            "name": "Regensburg",
-            "value": "9.0"
-          },
-          {
-            "name": "Ingolstadt",
-            "value": "5.9"
-          },
-          {
-            "name": "Fürt",
-            "value": "5.5"
-          }
-        ]
-      }
-    },
-    {
       "questionId": 7,
       "questionType": 1,
       "questionTypeName": "SingleChoice",
@@ -160,7 +115,7 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "options": ["Fürth", "München", "Babmberg", "Hof", "Würzburg"],
+        "options": ["Fürth", "München", "Bamberg", "Hof", "Würzburg"],
         "correctAnswer": "München"
       }
     },
@@ -229,7 +184,7 @@
       "questionType": 5,
       "questionTypeName": "MultipleChoice",
       "category": 3,
-      "questionText": "Welche der folgenden Regierungsbezirke gehören zu Bayern",
+      "questionText": "Welche der folgenden Regierungsbezirke gehören zu Bayern?",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
@@ -250,7 +205,7 @@
       "questionTypeName": "ShortAnswer",
       "category": 3,
       "questionText": "In welchem Regierungsbezirk liegt München?",
-      "imageUrl": "",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/DEU_Oberbayern_COA.svg/800px-DEU_Oberbayern_COA.svg.png",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Hier ein Tipp",
@@ -268,8 +223,8 @@
       "questionType": 2,
       "questionTypeName": "MapQuestion",
       "category": 3,
-      "questionText": "Wo liegt Nürnberg",
-      "imageUrl": "",
+      "questionText": "Wo liegt Nürnberg?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1920px-Nürnberger_Burg_im_Herbst_2013.jpg",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Hier ein Tipp",
@@ -280,6 +235,89 @@
   
       "additionalInfos": {
         "correctAnswer": ["49.45791", "11.07598"]
+      }
+    },
+    {
+      "questionId": 14,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 3,
+      "questionText": "Sortieren sie die folgenden Städte nach der anteiligen Fläche der Grünanlagen(Größte zu Kleinste)!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "München",
+            "value": "12.2"
+          },
+          {
+            "name": "Nürnberg",
+            "value": "9.4"
+          },
+          {
+            "name": "Augsburg",
+            "value": "6.3"
+          },
+          {
+            "name": "Regensburg",
+            "value": "9.0"
+          },
+          {
+            "name": "Ingolstadt",
+            "value": "5.9"
+          },
+          {
+            "name": "Fürth",
+            "value": "5.5"
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 15,
+      "questionType": 2,
+      "questionTypeName": "MapQuestion",
+      "category": 3,
+      "questionText": "Wo liegt Erlangen?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Erlangen_08-2012.jpg/2560px-Erlangen_08-2012.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": ["49.595303", "11.005049"] 
+      }
+    },
+    {
+      "questionId": 16,
+      "questionType": 2,
+      "questionTypeName": "MapQuestion",
+      "category": 3,
+      "questionText": "Wo liegt Augsburg?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Augsburg_-_Markt.jpg/440px-Augsburg_-_Markt.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": ["48.370816", "10.889096"]
       }
     }
     
