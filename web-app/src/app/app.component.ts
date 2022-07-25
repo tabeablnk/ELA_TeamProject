@@ -5,6 +5,8 @@ import { CategoryQuestionsService } from './services/category-questions.service'
 import { LoginGuardService } from './services/login-guard.service';
 import { SpaqrqlServiceService } from './services/spaqrql-service.service';
 import { StateService } from './services/state.service';
+import questionsCategory_1 from '../assets/questions/1.json';
+
 
 @Component({
   selector: 'app-root',
@@ -21,12 +23,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //console.log(JSON.parse(localStorage.getItem("questionSet_Demografie")!).length);
     if(!localStorage.getItem("sparqlTriggered")){
       this.sparql.initGeneratedQuestions();
-      localStorage.setItem("sparqlTriggered", "true")
-      console.log("sparql is triggered")
+      localStorage.setItem("sparqlTriggered", "true");
+      console.log("sparql is triggered");
     }else{
-      console.log("sparql already triggered")
+      if(JSON.parse(localStorage.getItem("questionSet_Demografie")!).length <= questionsCategory_1.length){
+        this.sparql.initGeneratedQuestions();
+        console.log("Triggerd SPARQL again, till we got no AIG questions yet.")
+      }else{
+        console.log("AIG-Questions are alredy available. No need to fetch again.")
+      }
     }
 
     let url = window.location.href;
