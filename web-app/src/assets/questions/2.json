@@ -39,12 +39,12 @@
       }
     },
     {
-      "questionId": 14,
+      "questionId": 12,
       "questionType": 1,
       "questionTypeName": "SingleChoice",
       "category": 2,
       "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1600px-Nürnberger_Burg_im_Herbst_2013.jpg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Neuschwanstein_Castle_from_Marienbrücke%2C_2011_May.jpg/1599px-Neuschwanstein_Castle_from_Marienbrücke%2C_2011_May.jpg",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Hier ein Tipp",
@@ -55,7 +55,7 @@
   
       "additionalInfos": {
         "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
-        "correctAnswer": "Nürnberger Kaiserburg"
+        "correctAnswer": "Schloss Neuschwanstein"
       }
     },
     {
@@ -143,8 +143,8 @@
       "questionType": 2,
       "questionTypeName": "MapQuestion",
       "category": 2,
-      "questionText": "Wo liegt die Kaiserburg?",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1600px-Nürnberger_Burg_im_Herbst_2013.jpg",
+      "questionText": "Wo liegt die Walhalla?",
+      "imageUrl": "ttps://upload.wikimedia.org/wikipedia/commons/c/c6/Walhalla%2C_Donaustauf.JPG",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Hier ein Tipp",
@@ -154,7 +154,7 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "correctAnswer": ["49.45791", "11.07598"]
+        "correctAnswer": ["49.031741", "12.224503"]
       }
     },
     
