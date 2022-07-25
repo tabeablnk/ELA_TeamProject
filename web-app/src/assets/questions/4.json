@@ -1,33 +1,24 @@
 [
   {
-      "questionId": 5,
-      "questionType": 6,
-      "questionTypeName": "SortOrder",
-      "category": 4,
-      "questionText": "Ordne die Landkreise nach der Anzahl der Brauereien",
-      "imageUrl": "",
-      "timeNeeded": 0,
-      "alreadyAnsweredCount": 0,
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "triesSummedUp":0,
-      "timeSummedUp":0,
-      "givenAnswers": [],
+    "questionId": 6,
+    "questionType": 4,
+    "questionTypeName": "Cloze",
+    "category": 4,
+    "questionText": "Fülle die Lücken!",
+    "imageUrl": "",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
   
-      "additionalInfos": {
-        "options": ["", ""],
-        "correctAnswer": [
-          {
-            "name": "",
-            "value": ""
-          },
-          {
-            "name": "",
-            "value": ""
-          }
-        ]
-      }
-    },
+    "additionalInfos": {
+      "gapText": "Baiern war Kurfürstentum des % Heiligen Römischen Reiches % und ab 1806 Königreich. Durch die Verfassungen von 1808 und 1818 wurde Bayern konstitutionelle % Monarchie %. Bayern konnte auf dem Wiener Kongress 1814 als eine der Siegermächte einen großen Teil der Gebietsgewinne behalten; unter anderem kamen Teile Frankens, Schwabens und die neugeschaffene linksrheinische % Pfalz % zu Bayern. 1918 brach die Wittelsbachermonarchie in der % Novemberrevolution % zusammen. In der Weimarer Republik verlor Bayern seine Reservatrechte weitgehend zugunsten des Reichs. Nach der NS-Machtergreifung erfolgte schrittweise die Aushebelung sämtlicher politischen Möglichkeiten Bayerns, so des Bayerischen Landtags, aber auch der bayerischen Staatsbürgerschaft. Die Amerikanische Besatzungsmacht stellte Bayern 1945 offiziell wieder als unabhängigen Staat her. Die Pfalz wurde 1946 von Bayern abgetrennt und ist heute Teil von Rheinland-Pfalz. 1949 gründete der Freistaat unter Vorbehalten die Bundesrepublik mit.",
+      "options": ["Heiligen Römischen Reiches", "Monarchie", "Novemberrevolution", "Pfalz"]
+    }
+  }, 
     {
       "questionId": 7,
       "questionType": 4,
@@ -44,8 +35,8 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "gapText": "Bereits im Jahre 555 n. Chr. und damit rund 500 Jahre vor der Verwendung des Begriffs deutsch im heutigen Sinn ist das ältere bayerische % Stammesherzogtum % nachgewiesen, das Teil des fränkischen Herrschaftsbereichs wurde. Unter den Karolingern entstand erstmals ein baierisches Königtum. Nach dem Ende der Herrschaft der Karolinger erstarkte die baierische Eigenständigkeit im jüngeren bayerischen Stammesherzogtum. Mit Beginn der Herrschaft der Wittelsbacher 1180 folgte der Übergang zum Territorialstaat. Sie regierten Bayern über % 700 % Jahre bis 1918. Baiern war Kurfürstentum des % Heiligen Römischen Reiches % und ab 1806 Königreich. Durch die Verfassungen von 1808 und 1818 wurde Bayern konstitutionelle % Monarchie %. Bayern konnte auf dem Wiener Kongress 1814 als eine der Siegermächte einen großen Teil der Gebietsgewinne behalten; unter anderem kamen Teile Frankens, Schwabens und die neugeschaffene linksrheinische % Pfalz % zu Bayern. 1918 brach die Wittelsbachermonarchie in der % Novemberrevolution % zusammen. In der Weimarer Republik verlor Bayern seine Reservatrechte weitgehend zugunsten des Reichs. Nach der NS-Machtergreifung erfolgte schrittweise die Aushebelung sämtlicher politischen Möglichkeiten Bayerns, so des Bayerischen Landtags, aber auch der bayerischen Staatsbürgerschaft. Die Amerikanische Besatzungsmacht stellte Bayern 1945 offiziell wieder als unabhängigen Staat her. Die Pfalz wurde 1946 von Bayern abgetrennt und ist heute Teil von Rheinland-Pfalz. 1949 gründete der Freistaat unter Vorbehalten die Bundesrepublik mit.",
-        "options": ["Stammesherzogtum", "700", "Heiligen Römischen Reiches", "Monarchie", "Novemberrevolution", "Pfalz"]
+        "gapText": "Bereits im Jahre 555 n. Chr. und damit rund 500 Jahre vor der Verwendung des Begriffs deutsch im heutigen Sinn ist das ältere bayerische % Stammesherzogtum % nachgewiesen, das Teil des fränkischen Herrschaftsbereichs wurde. Unter den Karolingern entstand erstmals ein baierisches Königtum. Nach dem Ende der Herrschaft der Karolinger erstarkte die baierische Eigenständigkeit im jüngeren bayerischen Stammesherzogtum. Mit Beginn der Herrschaft der Wittelsbacher 1180 folgte der Übergang zum Territorialstaat. Sie regierten Bayern über % 700 % Jahre bis 1918. ",
+        "options": ["Stammesherzogtum", "700"]
       }
     },
     {
@@ -69,7 +60,7 @@
         }
       },
       {
-        "questionId": 8,
+        "questionId": 9,
         "questionType": 1,
         "questionTypeName": "SingleChoice",
         "category": 4,
@@ -89,7 +80,7 @@
         }
       },
       {
-        "questionId": 8,
+        "questionId": 10,
         "questionType": 1,
         "questionTypeName": "SingleChoice",
         "category": 4,
@@ -109,12 +100,12 @@
         }
       },
       {
-        "questionId": 9,
+        "questionId": 11,
         "questionType": 2,
         "questionTypeName": "MapQuestion",
         "category": 4,
         "questionText": "Wo liegt der Hauptsitz von MAN?",
-        "imageUrl": "",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/de/thumb/9/9e/Logo_MAN.svg/1920px-Logo_MAN.svg.png",
         "timeNeeded": 0,
         "alreadyAnsweredCount": 0,
         "tip": "Hier ein Tipp",
@@ -124,19 +115,19 @@
         "givenAnswers": [],
     
         "additionalInfos": {
-          "correctAnswer": ["49.45791", "11.07598"]
+          "correctAnswer": ["48.217646", "11.480369"]
         }
       },
       {
-        "questionId": 10,
+        "questionId": 12,
         "questionType": 7,
         "questionTypeName": "ShortAnswer",
         "category": 4,
         "questionText": "Welches Automobilunternehmen kommt aus Ingolstadt?",
-        "imageUrl": "Fängt mit 'A' an",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/2560px-Audi-Logo_2016.svg.png",
         "timeNeeded": 0,
         "alreadyAnsweredCount": 0,
-        "tip": "Hier ein Tipp",
+        "tip": "Fängt mit 'A' an.",
         "answeredCorrect": false,
         "triesSummedUp":0,
         "timeSummedUp":0,
@@ -147,7 +138,7 @@
         }
       },
       {
-        "questionId": 11,
+        "questionId": 13,
         "questionType": 5,
         "questionTypeName": "MultipleChoice",
         "category": 4,

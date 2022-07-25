@@ -54,7 +54,7 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+        "options": ["Nürnberg", "München", "Bamberg", "Hof", "Würzburg"],
         "correctAnswer": "München"
       }
     },
@@ -74,7 +74,7 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "options": ["Nürnberg", "München", "Babmberg", "Hof", "Würzburg"],
+        "options": ["Nürnberg", "München", "Bamberg", "Hof", "Würzburg"],
         "correctAnswer": "Nürnberg"
       }
     },
@@ -94,7 +94,7 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "options": ["Nürnberg", "München", "Babmberg", "Augsburg", "Würzburg"],
+        "options": ["Nürnberg", "München", "Bamberg", "Augsburg", "Würzburg"],
         "correctAnswer": "Augsburg"
       }
     },
@@ -114,7 +114,7 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "options": ["Nürnberg", "München", "Babmberg", "Augsburg", "Würzburg"],
+        "options": ["Nürnberg", "München", "Bamberg", "Augsburg", "Würzburg"],
         "correctAnswer": "Würzburg"
       }
     },
@@ -239,31 +239,12 @@
       }
     },
     {
-      "questionId": 22,
-      "questionType": 2,
-      "questionTypeName": "MapQuestion",
-      "category": 2,
-      "questionText": "Wo liegt die Kaiserburg?",
-      "imageUrl": "",
-      "timeNeeded": 0,
-      "alreadyAnsweredCount": 0,
-      "tip": "Hier ein Tipp",
-      "answeredCorrect": false,
-      "triesSummedUp":0,
-      "timeSummedUp":0,
-      "givenAnswers": [],
-  
-      "additionalInfos": {
-        "correctAnswer": ["49.45791", "11.07598"]
-      }
-    },
-    {
       "questionId": 18,
       "questionType": 7,
       "questionTypeName": "ShortAnswer",
       "category": 2,
-      "questionText": "Was ist das Wahrzeichen von Nürnberg?",
-      "imageUrl": "",
+      "questionText": "Welche Burg ist in Nürnberg zu finden?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1280px-Nürnberger_Burg_im_Herbst_2013.jpg",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Eine Burg",
@@ -282,7 +263,7 @@
       "questionTypeName": "ShortAnswer",
       "category": 2,
       "questionText": "Welcher Regierungsbezirk hat die meisten Brauereien?",
-      "imageUrl": "",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flagge_Oberfranken.svg/1920px-Flagge_Oberfranken.svg.png",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "eines der Franken",
@@ -300,7 +281,7 @@
       "questionType": 6,
       "questionTypeName": "SortOrder",
       "category": 2,
-      "questionText": "Sortiere die Religionen in Bayern nach nach der Menge der Mitglieder (größte zu kleinste)",
+      "questionText": "Sortiere die Religionen in Bayern nach nach der Menge der Mitglieder (größte zu kleinste)!",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
@@ -355,6 +336,50 @@
         "correctAnswer": ["Schloss Neuschwanstein", "Kaiserburg"],
         "options": ["Schloss Neuschwanstein", "Kaiserburg", "Brandenburger Tor", "Elbphilharmonie"]
       }
+    },
+    {
+      "questionId": 22,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
+      "category": 1,
+      "questionText": "Befüllen Sie die Lücken!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "gapText": "Volksfeste und % Kirchweihen % sind in Bayern weit verbreitet. Anfänglich gedachte man damit der Kirchenweihe. Vielerorts gibt es viele Kirchweih-Traditionen, wie etwa das Aufstellen eines % Kirchweihbaumes %. In größeren Städten wird meist anstatt einer Kirchweih ein % Volksfest % begangen.",
+        "correctAnswers": [
+          "Kirchweihen",
+          "Kirchweihbaumes",
+          "Volksfest"
+        ]
+      }
+    },
+    {
+      "questionId": 23,
+      "questionType": 2,
+      "questionTypeName": "MapQuestion",
+      "category": 2,
+      "questionText": "Wo liegt die Kaiserburg?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1600px-Nürnberger_Burg_im_Herbst_2013.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": ["49.45791", "11.07598"]
+      }
     }
+    
 
 ]

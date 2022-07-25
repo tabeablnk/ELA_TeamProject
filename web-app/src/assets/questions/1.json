@@ -5,7 +5,7 @@
     "questionTypeName": "MapQuestion",
     "category": 1,
     "questionText": "Wo liegt die größte Stadt Bayerns?",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/München_und_die_Alpen_bei_Föhn.jpg/1920px-München_und_die_Alpen_bei_Föhn.jpg",
     "timeNeeded": 0,
     "alreadyAnsweredCount": 0,
     "tip": "Hier ein Tipp",
@@ -64,52 +64,11 @@
     }
   },
   {
-    "questionId": 5,
-    "questionType": 6,
-    "questionTypeName": "SortOrder",
-    "category": 1,
-    "questionText": "Bringe das und das in die richtige Reihenfolge",
-    "imageUrl": "",
-    "timeNeeded": 0,
-    "alreadyAnsweredCount": 0,
-    "tip": "Hier ein Tipp",
-    "answeredCorrect": false,
-    "triesSummedUp":0,
-    "timeSummedUp":0,
-    "givenAnswers": [],
-
-    "additionalInfos": {
-      "options": ["", ""],
-      "correctAnswer": [
-        {
-          "name": "Nürnberg",
-          "value": 500000
-        },
-        {
-          "name": "München",
-          "value": 1600000
-        },
-        {
-          "name": "Augsburg",
-          "value": 2000
-        },
-        {
-          "name": "Ingolstadt",
-          "value": 3000
-        },
-        {
-          "name": "Lauf a. d. Pegnitz",
-          "value": 100
-        }
-      ]
-    }
-  },
-  {
       "questionId": 7,
       "questionType": 6,
       "questionTypeName": "SortOrder",
       "category": 1,
-      "questionText": "Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)",
+      "questionText": "Sortieren sie die folgenden Städte nach der Einwohnerzahl (Meiste zu Wenigste)!",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
@@ -201,12 +160,12 @@
       "givenAnswers": [],
   
       "additionalInfos": {
-        "gapText": "Größte Stadt sowie einzige Millionenstadt % Bayerns % ist die Landeshauptstadt München mit rund 1,45 Millionen Einwohnern. Sie ist deutschlandweit die drittgrößte Stadt und die elftgrößte Stadt der % Europäischen Union % und zählt zu den Weltstädten der Kategorie Beta+. Sie ist die größte Stadt Deutschlands, die kein Stadtstaat ist. Zudem ist München mit rund 4670 Einwohnern je Quadratkilometer (Dezember 2015) die am dichtesten bevölkerte Gemeinde Deutschlands sowie mit 519 m ü. NHN dessen höchstgelegene Großstadt. % Nürnberg % ist mit seinen rund 520.000 Einwohnern landesweit die zweitgrößte Stadt, belegt bundesweit den 14. sowie in der Europäischen Union den 51. Platz und zählt zu den Weltstädten der Kategorie Gamma−. Aufgrund der Bedeutung Nürnbergs stellt München in Bayern keine Primatstadt dar. Augsburg ist mit fast 300.000 Einwohnern landesweit die drittgrößte Stadt und belegt bundesweit den 23. Platz. In Bayern gibt es insgesamt % acht % Großstädte. Jüngste Großstadt (mindestens 100.000 Einwohner) Bayerns ist Fürth (seit 1990), das zuvor bereits von 1951 bis 1956 und von 1972 bis 1976 eine Großstadt war. Nürnberg bildet zusammen mit Erlangen, Fürth und Schwabach ein ausgeprägtes Städteband mit rund 800.000 Einwohnern. Metropolregionen in Bayern stellen die Metropolregion München und die Metropolregion Nürnberg dar. Des Weiteren sind Teile zum Rhein-Main-Gebiet zugehörig.",
+        "gapText": "Größte Stadt sowie einzige Millionenstadt % Bayerns % ist die Landeshauptstadt München mit rund 1,45 Millionen Einwohnern. Sie ist deutschlandweit die drittgrößte Stadt und die elftgrößte Stadt der % Europäischen Union % und zählt zu den Weltstädten der Kategorie Beta+. Sie ist die größte Stadt Deutschlands, die kein Stadtstaat ist. Zudem ist % München % mit rund 4670 Einwohnern je Quadratkilometer (Dezember 2015) die am dichtesten bevölkerte Gemeinde Deutschlands sowie mit 519 m ü. NHN dessen höchstgelegene Großstadt. % Nürnberg % ist mit seinen rund 520.000 Einwohnern landesweit die zweitgrößte Stadt, belegt bundesweit den 14. sowie in der Europäischen Union den 51. Platz und zählt zu den Weltstädten der Kategorie Gamma−.",
         "correctAnswers": [
           "Bayern",
           "Europäischen Union",
-          "Nürnberg",
-          "acht"
+          "München",
+          "Nürnberg"
         ]
       }
     },
@@ -240,7 +199,7 @@
       "questionType": 6,
       "questionTypeName": "SortOrder",
       "category": 1,
-      "questionText": "Sortieren Sie die Städte nach Durchschnittsalter",
+      "questionText": "Sortieren Sie die Städte nach nach dem Durchschnittsalter der Bevölkerung (älteste zu jüngste)!",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
@@ -277,7 +236,7 @@
       "questionType": 6,
       "questionTypeName": "SortOrder",
       "category": 1,
-      "questionText": "Sortieren Sie die Landkreise nach Anzahl der über 65-Jährigen (viele zu wenige)",
+      "questionText": "Sortieren Sie die Landkreise nach Anzahl der über 65-Jährigen (viele zu wenige)!",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
@@ -314,7 +273,7 @@
       "questionType": 6,
       "questionTypeName": "SortOrder",
       "category": 1,
-      "questionText": "Sortieren der Städte nach dem prozentualen Anteil an Studenten",
+      "questionText": "Sortieren der Städte nach dem prozentualen Anteil an Studenten!",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
@@ -392,10 +351,29 @@
       "questionTypeName": "ShortAnswer",
       "category": 1,
       "questionText": "Was ist die größte Stadt Bayerns?",
-      "imageUrl": "",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/München_und_die_Alpen_bei_Föhn.jpg/1920px-München_und_die_Alpen_bei_Föhn.jpg",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
       "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": "München"
+      }
+    },
+    {
+      "questionId": 18,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 1,
+      "questionText": "Was ist die zweitgrößte Stadt Bayerns?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1280px-Nürnberger_Burg_im_Herbst_2013.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Nicht München",
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
@@ -406,22 +384,27 @@
       }
     },
     {
-      "questionId": 18,
-      "questionType": 7,
-      "questionTypeName": "ShortAnswer",
+      "questionId": 19,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
       "category": 1,
-      "questionText": "Was ist die zweitgrößte Stadt Bayerns?",
+      "questionText": "Befüllen Sie die Lücken!",
       "imageUrl": "",
       "timeNeeded": 0,
       "alreadyAnsweredCount": 0,
-      "tip": "Nicht München",
+      "tip": "Hier ein Tipp",
       "answeredCorrect": false,
       "triesSummedUp":0,
       "timeSummedUp":0,
       "givenAnswers": [],
   
       "additionalInfos": {
-        "correctAnswer": "Nürberg"
+        "gapText": "Aufgrund der Bedeutung Nürnbergs stellt München in Bayern keine Primatstadt dar. % Augsburg % ist mit fast 300.000 Einwohnern landesweit die drittgrößte Stadt und belegt bundesweit den 23. Platz. In Bayern gibt es insgesamt % acht % Großstädte. Jüngste Großstadt (mindestens 100.000 Einwohner) Bayerns ist Fürth (seit 1990), das zuvor bereits von 1951 bis 1956 und von 1972 bis 1976 eine Großstadt war. Nürnberg bildet zusammen mit Erlangen, % Fürth % und Schwabach ein ausgeprägtes Städteband mit rund 800.000 Einwohnern. Metropolregionen in Bayern stellen die Metropolregion München und die Metropolregion Nürnberg dar. Des Weiteren sind Teile zum Rhein-Main-Gebiet zugehörig.",
+        "correctAnswers": [
+          "Augsburg",
+          "acht",
+          "Fürth"
+        ]
       }
     }
 
