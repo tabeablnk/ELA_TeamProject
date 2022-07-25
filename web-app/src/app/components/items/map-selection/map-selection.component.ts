@@ -200,7 +200,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
     }
     else {
       var terrain = Leaflet.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 20,
+        maxZoom: 7,
         attribution: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>'
       });
       terrain.addTo(this.map);
@@ -219,7 +219,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
       this.map.fitBounds(polyline.getBounds());
     }
     var Stadia_OSMBright = Leaflet.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
-      maxZoom: 20,
+      maxZoom: 7,
       attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
     });
     Stadia_OSMBright.addTo(this.map);
