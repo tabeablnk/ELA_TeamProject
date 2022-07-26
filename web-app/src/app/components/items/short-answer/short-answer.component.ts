@@ -19,8 +19,6 @@ export class ShortAnswerComponent implements OnInit {
   constructor(public quizService: CurrentQuizService) { 
     this.currentQuestion = this.quizService.getCurrentQuestion(); 
     this.currentQuestion.answeredCorrect = false; 
-    console.log("hier")
-    console.log(this.currentQuestion)
   }
 
   ngOnInit(): void {
@@ -36,7 +34,6 @@ export class ShortAnswerComponent implements OnInit {
     this.currentQuestion.timeSummedUp += this.timeOnPage;
     this.currentQuestion.triesSummedUp += this.currentTry; 
     this.onSetStateNextBtn(false);
-    console.log(this.currentQuestion)
     this.quizService.saveGivenAnswer(this.currentQuestion)
   }
 

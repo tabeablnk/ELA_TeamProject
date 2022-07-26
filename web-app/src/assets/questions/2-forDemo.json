@@ -1,0 +1,186 @@
+[
+  {
+    "questionId": 1,
+    "questionType": 2,
+    "questionTypeName": "MapQuestion",
+    "category": 2,
+    "questionText": "Wo liegt der Marienplatz?",
+    "imageUrl": "https://www.holidaywolf.de/wp/wp-content/uploads/2022/01/marienplatz-muenchen-1024x768.jpg",
+    "timeNeeded": 0,
+    "alreadyAnsweredCount": 0,
+    "tip": "Hier ein Tipp",
+    "answeredCorrect": false,
+    "triesSummedUp":0,
+    "timeSummedUp":0,
+    "givenAnswers": [],
+
+    "additionalInfos": {
+      "correctAnswer": ["48.1372264", "11.5755203"]
+    }
+  },  
+  {
+      "questionId": 7,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 2,
+      "questionText": "Welcher Regierungsbezirk hat die meisten Brauereien?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Oberbayern", "Schwaben", "Oberfranken", "Niederbayern", "Unterfranken", "Oberpfalz"],
+        "correctAnswer": "Oberfranken"
+      }
+    },
+    {
+      "questionId": 12,
+      "questionType": 1,
+      "questionTypeName": "SingleChoice",
+      "category": 2,
+      "questionText": "Welche Sehenswürdigkeit bildet das folgende Bild ab?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Neuschwanstein_Castle_from_Marienbrücke%2C_2011_May.jpg/1599px-Neuschwanstein_Castle_from_Marienbrücke%2C_2011_May.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["Bamberger Dom", "Nürnberger Kaiserburg", "Schloss Neuschwanstein", "Walhalla, Donaustauf bei Regensburg", "St. Bartholomä am Königssee"],
+        "correctAnswer": "Schloss Neuschwanstein"
+      }
+    },
+    {
+      "questionId": 18,
+      "questionType": 7,
+      "questionTypeName": "ShortAnswer",
+      "category": 2,
+      "questionText": "Welche Burg ist in Nürnberg zu finden?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nürnberger_Burg_im_Herbst_2013.jpg/1280px-Nürnberger_Burg_im_Herbst_2013.jpg",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Eine Burg",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": "Kaiserburg"
+      }
+    },
+    {
+      "questionId": 20,
+      "questionType": 6,
+      "questionTypeName": "SortOrder",
+      "category": 2,
+      "questionText": "Sortiere die Religionen in Bayern nach nach der Menge der Mitglieder (größte zu kleinste)!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "options": ["", ""],
+        "correctAnswer": [
+          {
+            "name": "römisch-katholisch",
+            "value": "57.2"
+          },
+          {
+            "name": "evangelisch",
+            "value": "21.3"
+          },
+          {
+            "name": "muslimisch",
+            "value": "2.2"
+          },
+          {
+            "name": "christlich-orthodox",
+            "value": "1.6"
+          },
+          {
+            "name": "jüdisch",
+            "value": "0.1"
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 21,
+      "questionType": 5,
+      "questionTypeName": "MultipleChoice",
+      "category": 2,
+      "questionText": "Welche der folgenden Sehenswürdigkeiten liegt in Bayern?",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": ["Schloss Neuschwanstein", "Kaiserburg"],
+        "options": ["Schloss Neuschwanstein", "Brandenburger Tor", "Elbphilharmonie", "Kaiserburg"]
+      }
+    },
+    {
+      "questionId": 23,
+      "questionType": 2,
+      "questionTypeName": "MapQuestion",
+      "category": 2,
+      "questionText": "Wo liegt die Walhalla?",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Walhalla%2C_Donaustauf.JPG",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "correctAnswer": ["49.031741", "12.224503"]
+      }
+    },
+    
+    {
+      "questionId": 22,
+      "questionType": 4,
+      "questionTypeName": "Cloze",
+      "category": 2,
+      "questionText": "Befüllen Sie die Lücken!",
+      "imageUrl": "",
+      "timeNeeded": 0,
+      "alreadyAnsweredCount": 0,
+      "tip": "Hier ein Tipp",
+      "answeredCorrect": false,
+      "triesSummedUp":0,
+      "timeSummedUp":0,
+      "givenAnswers": [],
+  
+      "additionalInfos": {
+        "gapText": "Volksfeste und % Kirchweihen % sind in Bayern weit verbreitet. Anfänglich gedachte man damit der Kirchenweihe. Vielerorts gibt es viele Kirchweih-Traditionen, wie etwa das Aufstellen eines % Kirchweihbaumes %. In größeren Städten wird meist anstatt einer Kirchweih ein % Volksfest % begangen.",
+        "correctAnswers": [
+          "Kirchweihen",
+          "Kirchweihbaumes",
+          "Volksfest"
+        ]
+      }
+    }
+
+]

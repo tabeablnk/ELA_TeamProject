@@ -175,13 +175,10 @@ export class AnalyticsViewComponent implements OnInit {
    *********************
    */
   setRadarChart(): void{
-    console.log(this.resultsKultur)
 
     let allLabels = this.questionTypes.map((x:any) => x.name); 
-    console.log(allLabels)
     let correctAnswer_Kultur = this.resultsKultur.map((x:any) => Math.round(x.correctCounter / x.amount *100)); 
     correctAnswer_Kultur = correctAnswer_Kultur.map((x:any) => isNaN(x) ? 0 : x)
-    console.log(correctAnswer_Kultur)
     let correctAnswer_Demografie = this.resultsDemografie.map((x:any) => Math.round(x.correctCounter / x.amount *100));  
     correctAnswer_Demografie = correctAnswer_Demografie.map((x:any) => isNaN(x) ? 0 : x)
     let correctAnswer_Geographie = this.resultsGeopgrahie.map((x:any) => Math.round(x.correctCounter / x.amount *100));  

@@ -56,14 +56,13 @@ export class SortOrderComponent implements OnInit {
 
     if(this.leftTrys >= 0){
       this.currentQuestion.givenAnswers[2-this.leftTrys] = this.currentAnswer
-      console.log(this.currentQuestion)
       this.quizService.saveGivenAnswer(this.currentQuestion)
     }
 
 
     switch(this.leftTrys){
       case 2:
-        console.log("first Try")
+        // console.log("first Try")
         if(!this.checkAnswer()){
           domItemTipps.innerHTML="Leider nicht richtig. Probier es nochmal! Du hast noch 2 Versuche."
         } else{
@@ -74,7 +73,7 @@ export class SortOrderComponent implements OnInit {
         }
         break;
       case 1:
-        console.log("Second Try")
+        // console.log("Second Try")
         if(!this.checkAnswer()){
           domItemTipps.innerHTML="Leider immer noch nicht richtig. Du hast noch 1 Versuch."
         } else{
@@ -84,7 +83,7 @@ export class SortOrderComponent implements OnInit {
         }
         break;
       case 0:
-        console.log("Third Try")
+        // console.log("Third Try")
         if(!this.checkAnswer()){
           domItemTipps.innerHTML="Leider falsch, die richtige Antwort wird jetzt angezeigt."
           this.onSetStateNextBtn(true)

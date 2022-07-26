@@ -45,6 +45,8 @@ export class ClozeComponent implements OnInit {
   }
 
   ngOnDestroy(){
+    let destroyCloze = document.getElementById("display_gaze");
+    destroyCloze?.remove()
     clearInterval(this.interval)
     this.currentQuestion.timeNeeded = this.timeOnPage;
     this.currentQuestion.timeSummedUp += this.timeOnPage;
@@ -90,14 +92,12 @@ export class ClozeComponent implements OnInit {
       // this.quizService.saveGivenAnswer(this.currentQuestion)
     }
     if(JSON.stringify(this.currentQuestion.additionalInfos.correctAnswers) == JSON.stringify(allInputs)){
-      console.log(this.currentQuestion)
       document.getElementById("tipps")!.innerHTML = "Richtig! Sehr gut gemacht :)"
       this.onSetStateNextBtn(true);
       this.currentQuestion.answeredCorrect = true; 
       this.cloze.on_finish(); 
     } else{
       this.cloze.mistake_fn(); 
-      console.log(this.currentQuestion)
     }
 
     this.currentTry += 1;

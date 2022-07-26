@@ -91,11 +91,9 @@ export class QuizResultsComponent implements OnInit {
 
   constructor(private quizService: CurrentQuizService, private questionService: CategoryQuestionsService, private stateService: StateService ) {
     this.currentQuiz = this.quizService.getCurrentQuiz();
-    console.log(this.currentQuiz)
     this.quizLength = this.currentQuiz.length; 
 
     this.categoryQuestionSet = questionService.getCategoryQuestions(this.stateService.getCategory());
-    console.log(this.categoryQuestionSet)
 
     this.updateQuestionSet(); 
   }
@@ -118,7 +116,7 @@ export class QuizResultsComponent implements OnInit {
         }
       })
     })
-    console.log(this.categoryQuestionSet)
+    // console.log(this.categoryQuestionSet)
     this.questionService.updateQuestionSet(this.stateService.getCategory(), this.categoryQuestionSet)
     // let newQuestionSet = this.categoryQuestionSet.filter((question_before:any) => this.currentQuiz.some((question_after:any) => question_before.id === question_after.id))
     // console.log(newQuestionSet)
@@ -180,8 +178,7 @@ export class QuizResultsComponent implements OnInit {
       this.dataTimePerQuestion.push((category.timeCounter / category.amount).toFixed(2));
       this.dataTriesPerQuestion.push((category.triesCounter / category.amount).toFixed(2));
     })
-
-    console.log(this.dataTimePerQuestion);
+    // console.log(this.dataTimePerQuestion);
 
 
     //set the data for the radar charts

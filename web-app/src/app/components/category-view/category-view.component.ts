@@ -55,13 +55,13 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
     this.category = state.getCategory();
     this.questionTemplates = templates.getAllTemplates(); 
     // localStorage.setItem("allQuestionTemplates", JSON.stringify(this.questionTemplates))
-    console.log(this.category)
+    // console.log(this.category)
     this.currQuiz.setCurrentQuiz(this.category)
     this.currQuiz.setCurrentQuestion(0);
     
     this.currentQuizSet = this.currQuiz.getCurrentQuiz(); 
 
-    console.log(this.currentQuizSet)
+    // console.log(this.currentQuizSet)
   }
 
   ngOnInit(): void {
@@ -111,7 +111,6 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         if(localStorage.getItem("quizHistory_Demografie")){
           history = JSON.parse(localStorage.getItem("quizHistory_Demografie")!)
           history.push(this.currentQuizSet)
-          console.log(history)
           localStorage.setItem("quizHistory_Demografie", JSON.stringify(history))
         }else{
           history.push(this.currentQuizSet)
@@ -122,7 +121,6 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         if(localStorage.getItem("quizHistory_Kultur")){
           history = JSON.parse(localStorage.getItem("quizHistory_Kultur")!)
           history.push(this.currentQuizSet)
-          console.log(history)
           localStorage.setItem("quizHistory_Kultur", JSON.stringify(history))
         }else{
           history.push(this.currentQuizSet)
@@ -133,7 +131,6 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         if(localStorage.getItem("quizHistory_Geographie")){
           history = JSON.parse(localStorage.getItem("quizHistory_Geographie")!)
           history.push(this.currentQuizSet)
-          console.log(history)
           localStorage.setItem("quizHistory_Geographie", JSON.stringify(history))
         }else{
           history.push(this.currentQuizSet)
@@ -144,7 +141,6 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         if(localStorage.getItem("quizHistory_Geschichte")){
           history = JSON.parse(localStorage.getItem("quizHistory_Geschichte")!)
           history.push(this.currentQuizSet)
-          console.log(history)
           localStorage.setItem("quizHistory_Geschichte", JSON.stringify(history))
         }else{
           history.push(this.currentQuizSet)

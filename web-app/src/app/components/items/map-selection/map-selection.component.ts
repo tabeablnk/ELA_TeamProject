@@ -175,7 +175,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
           this.marker?.remove();
           this.clicked_coordinates.lat = e.latlng.lat;
           this.clicked_coordinates.lng = e.latlng.lng;
-          console.log(this.getPercentageCorrect())
+          // console.log(this.getPercentageCorrect())
           if (this.percentageCorrect > 0.7) {
             this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconWhite).addTo(this.map); // add the marker onclick
            } else {

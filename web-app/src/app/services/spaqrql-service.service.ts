@@ -86,7 +86,6 @@ export class SpaqrqlServiceService {
   constructor(private categoryQuestions: CategoryQuestionsService) { }
 
   initGeneratedQuestions() {
-    console.log("SPARQL")
     //diese Methode wird am Anfang über ng_init() aufgerufen -> Initalisierung des Services + erste Anfragen verschicken
     this.sending_request_all_cities(10);
     this.sending_request_some_attributes_for_one_city();
@@ -123,7 +122,7 @@ export class SpaqrqlServiceService {
       this.callback_all_cities_sort_order_task(response.results.bindings);
 
       this.sending_request_some_attributes_for_one_city();
-      console.log(response);
+      // console.log(response);
       this.counter_SPARQL_requests++;
       this.all_cities_response_arrived = true;
     });
@@ -228,7 +227,7 @@ export class SpaqrqlServiceService {
     // Funktion wird asynchron von fetch aufgerufen, sobald die Antwort auf die SPARQL-Anfrage vorhanden ist
     // Hier: Auswertung der Ergebnisse + Erstellung der Fragen aus den Ergebnissen
     var counter_cities = Object.keys(result_sparql_request).length;
-    console.log(result_sparql_request);
+    // console.log(result_sparql_request);
 
     for (var i = 0; i < counter_cities; i++){
       // console.log(i);
@@ -452,7 +451,7 @@ export class SpaqrqlServiceService {
 
     this.queryDispatcher.query(generatedQuery).then((response: any) => {
       this.callback_some_attributes_for_one_city(response.results.bindings);
-      console.log(response);
+      // console.log(response);
       this.counter_SPARQL_requests++;
     });
   }
@@ -504,7 +503,7 @@ export class SpaqrqlServiceService {
     position_of_correct_answers[2]? "Fläche: " + area +"km^2" : "Fläche: "+ distractor_area +"km^2" ,
     position_of_correct_answers[3]? "Erstmalig genannt: " + firstmentioned : "Erstmalig genannt: " + distractor_firstmentioned];
 
-    console.log(optionArray);
+    // console.log(optionArray);
      
     var correctAnswerArray = [];
 

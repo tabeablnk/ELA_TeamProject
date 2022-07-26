@@ -19,9 +19,7 @@ export class SingleChoiceComponent implements OnInit {
     this.currentQuestion = this.quizService.getCurrentQuestion();
     this.currentQuestion.givenAnswers = []; 
     this.currentQuestion.answeredCorrect = false; 
-    console.log(this.currentQuestion.additionalInfos.options)
     this.currentQuestion.additionalInfos.options = this.shuffleArray(this.currentQuestion.additionalInfos.options)
-    console.log(this.currentQuestion.additionalInfos.options)
     //   // console.log(this.currentQuestion)
   }
 
@@ -73,9 +71,6 @@ export class SingleChoiceComponent implements OnInit {
         }
         if (this.currentTry === 1) {
           let halfOptions = Math.floor(this.currentQuestion.additionalInfos.options.length / 2);
-          console.log(halfOptions);
-
-          console.log(wrongOptions) 
           let cuttedOptions = this.getRandom(wrongOptions, halfOptions);
           
           cuttedOptions.forEach((wrongOption:any) => {
@@ -108,7 +103,6 @@ export class SingleChoiceComponent implements OnInit {
     
     if(this.currentTry < 3){
       this.currentQuestion.givenAnswers[this.currentTry] = this.selectedSolution
-      console.log(this.currentQuestion)
       this.quizService.saveGivenAnswer(this.currentQuestion)
     }
     

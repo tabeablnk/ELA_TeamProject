@@ -49,11 +49,11 @@ export class CurrentQuizService {
     let sortOrderQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
     let shortAnswerQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
 
-    console.log(otherQuestions)
-    console.log(totalQuestionsCount)
-    if(categoryId ==2 ){
-      this.currentQuestions = this.catQuestions.getCategoryQuestions(2);
-    }else{
+    // console.log(otherQuestions)
+    // console.log(totalQuestionsCount)
+    // if(categoryId ==2 ){
+    //   this.currentQuestions = this.catQuestions.getCategoryQuestions(2);
+    // }else{
       if(singleChoiceQuestion_unweighted.length >= 2){
         totalQuestionsCount += 2; 
         this.currentQuestions.push(...this.getRandom(singleChoiceQuestions, 2))
@@ -74,7 +74,7 @@ export class CurrentQuizService {
       // this.currentQuestions.push(...this.getRandom(mapQuestions, 2))
       // this.currentQuestions.push(...this.getRandom(otherQuestions, 4))
       this.currentQuestions = this.shuffleArray(this.currentQuestions)
-    }
+    // }
 
     // this.currentQuestions.push(this.getRandom(clozeQuestions, 1))
     // this.currentQuestions.push(this.getRandom(multipleChoiceQ, 1))
@@ -171,14 +171,9 @@ export class CurrentQuizService {
   shuffleArray(array:any) {
     let currentIndex = array.length,  randomIndex;
   
-    // While there remain elements to shuffle.
     while (currentIndex != 0) {
-  
-      // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
-      // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }

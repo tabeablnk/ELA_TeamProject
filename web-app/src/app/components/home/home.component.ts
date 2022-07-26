@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   onCardClicked(event:any):void{
-    console.log(event.currentTarget.id);
     let selectedCard = event.currentTarget.id;
     switch (selectedCard) {
       case "1":

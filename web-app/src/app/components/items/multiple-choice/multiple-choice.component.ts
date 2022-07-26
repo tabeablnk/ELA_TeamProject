@@ -66,13 +66,13 @@ export class MultipleChoiceComponent implements OnInit {
       });
     }
   }
+
   validateButtonPressed() {
     console.log(this.form.value.checkArray)
     let tipp = document.getElementById("tipps") as any; 
 
 
     if(this.currentTry < 3){
-      console.log(this.form.value.checkArray)
       this.currentQuestion.givenAnswers[this.currentTry] = this.form.value.checkArray; 
       let somethingWrong = false; 
 
@@ -92,8 +92,6 @@ export class MultipleChoiceComponent implements OnInit {
       this.form.value.checkArray.forEach((givenAnswer:any) => {
         
         if(this.currentQuestion.additionalInfos.correctAnswer.includes(givenAnswer)){
-          console.log("hi")
-          console.log(givenAnswer)
           let rightValue = document.getElementById(givenAnswer) as any; 
           rightValue.style = 'color: green';
           if(this.form.value.checkArray.length < this.currentQuestion.additionalInfos.correctAnswer.length){
@@ -121,12 +119,9 @@ export class MultipleChoiceComponent implements OnInit {
         }
 
       })
-
-      console.log(this.currentQuestion)
       this.currentTry +=1; 
     }
   }
- 
  
   questionFinished():void{
     this.currentQuestion.additionalInfos.correctAnswer.forEach((rightAnser:any) => {
