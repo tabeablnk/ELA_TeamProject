@@ -135,7 +135,7 @@
   
       "additionalInfos": {
         "correctAnswer": ["Schloss Neuschwanstein", "Kaiserburg"],
-        "options": ["Schloss Neuschwanstein", "Kaiserburg", "Brandenburger Tor", "Elbphilharmonie"]
+        "options": ["Schloss Neuschwanstein", "Brandenburger Tor", "Elbphilharmonie", "Kaiserburg"]
       }
     },
     {
