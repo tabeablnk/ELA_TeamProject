@@ -37,6 +37,7 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
   public drawCircle: Boolean = true;
   public circleDrawer: any;
   public areas = [];
+  public percentageCorrect: number = 0;
   markerIconBlack = {
     icon: Leaflet.icon({
       iconSize: [25, 41],
@@ -175,17 +176,18 @@ export class MapSelectionComponent implements AfterViewInit, OnInit {
           this.clicked_coordinates.lat = e.latlng.lat;
           this.clicked_coordinates.lng = e.latlng.lng;
           console.log(this.getPercentageCorrect())
-         // if (this.getPercentageCorrect() > 0.7) {
+          if (this.percentageCorrect > 0.7) {
             this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconWhite).addTo(this.map); // add the marker onclick
-          // } else {
-          //   this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconBlack).addTo(this.map); // add the marker onclick
-          // }
+           } else {
+             this.marker = Leaflet.marker([this.clicked_coordinates.lat, this.clicked_coordinates.lng], this.markerIconBlack).addTo(this.map); // add the marker onclick
+           }
         }
       });
     }
   }
 
   private initMap(): void {
+    this.percentageCorrect = this.getPercentageCorrect();
     this.map = Leaflet.map('map', {
       // drawControl: true,
       center: [49, 11.5],
