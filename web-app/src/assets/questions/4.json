@@ -159,7 +159,7 @@
       {
         "questionId": 13,
         "questionType": 5,
-        "questionTypeName": "MultipleChoice",
+        "questionTypeName": "MultipleResponse",
         "category": 4,
         "questionText": "Welche Unternehmen kommen aus Bayern?",
         "imageUrl": "",

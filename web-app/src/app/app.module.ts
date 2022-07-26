@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MaterialModule } from './material.module';
-import { MultipleChoiceComponent } from './components/items/multiple-choice/multiple-choice.component';
+import { MultipleResponseComponent } from './components/items/multiple-response/multiple-response.component';
 import { CategoryViewComponent } from './components/category-view/category-view.component';
 import { SingleChoiceComponent } from './components/items/single-choice/single-choice.component';
 import { SortOrderComponent } from './components/items/sort-order/sort-order.component';
@@ -28,7 +28,7 @@ import { AnalyticsViewComponent } from './components/analytics-view/analytics-vi
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MultipleChoiceComponent,
+    MultipleResponseComponent,
     CategoryViewComponent,
     SingleChoiceComponent,
     SortOrderComponent,

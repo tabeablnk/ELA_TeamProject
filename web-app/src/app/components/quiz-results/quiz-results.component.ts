@@ -57,7 +57,7 @@ export class QuizResultsComponent implements OnInit {
       triesCounter: 0
     },
     {
-      name: "MultipleChoice",
+      name: "MultipleResponse",
       type: 5,
       amount: 0,
       correctCounter: 0, 
@@ -326,7 +326,7 @@ export class QuizResultsComponent implements OnInit {
   data = {
     labels: [
       'Short Answer',
-      'Multiple-Choice',
+      'Multiple-Response',
       'Single-Choice',
       'Reihenfolge',
       // 'Drag & Drop',

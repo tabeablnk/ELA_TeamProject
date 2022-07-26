@@ -45,7 +45,7 @@ export class CurrentQuizService {
     let mapQuestions = this.weightedCategoryQuestions.filter((question:any)=> question.questionType === 2)
     let otherQuestions = this.weightedCategoryQuestions.filter((question:any) => question.questionType !== 1 && question.questionType !== 2);
     let clozeQuestions = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 4)
-    let multipleChoiceQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 5)
+    let MultipleResponseQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 5)
     let sortOrderQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
     let shortAnswerQ = this.weightedCategoryQuestions.filter((question:any) => question.questionType === 6)
 
@@ -77,7 +77,7 @@ export class CurrentQuizService {
     // }
 
     // this.currentQuestions.push(this.getRandom(clozeQuestions, 1))
-    // this.currentQuestions.push(this.getRandom(multipleChoiceQ, 1))
+    // this.currentQuestions.push(this.getRandom(MultipleResponseQ, 1))
     // this.currentQuestions.push(this.getRandom(sortOrderQ, 1))
     // this.currentQuestions.push(this.getRandom(shortAnswerQ, 1))
     

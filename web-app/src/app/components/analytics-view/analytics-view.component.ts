@@ -48,7 +48,7 @@ export class AnalyticsViewComponent implements OnInit {
       triesCounter: 0
     },
     {
-      name: "MultipleChoice",
+      name: "MultipleResponse",
       type: 5,
       amount: 0,
       correctCounter: 0, 

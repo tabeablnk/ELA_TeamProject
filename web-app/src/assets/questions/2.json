@@ -320,7 +320,7 @@
     {
       "questionId": 21,
       "questionType": 5,
-      "questionTypeName": "MultipleChoice",
+      "questionTypeName": "MultipleResponse",
       "category": 2,
       "questionText": "Welche der folgenden Sehenswürdigkeiten liegt in Bayern?",
       "imageUrl": "",

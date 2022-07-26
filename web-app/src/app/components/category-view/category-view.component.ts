@@ -7,7 +7,7 @@ import { StateService } from 'src/app/services/state.service';
 import { Category } from '../../models/state-enum.model';
 import { ClozeComponent } from '../items/cloze/cloze.component';
 import { MapSelectionComponent } from '../items/map-selection/map-selection.component';
-import { MultipleChoiceComponent } from '../items/multiple-choice/multiple-choice.component';
+import { MultipleResponseComponent } from '../items/multiple-response/multiple-response.component';
 import { SingleChoiceComponent } from '../items/single-choice/single-choice.component';
 import { SortOrderComponent } from '../items/sort-order/sort-order.component';
 import { ShortAnswerComponent } from '../items/short-answer/short-answer.component';
@@ -27,7 +27,7 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
   @ViewChild(SortOrderComponent) sortOrder: SortOrderComponent | undefined;
   @ViewChild(MapSelectionComponent) mapSelection: MapSelectionComponent | undefined;
   @ViewChild(SingleChoiceComponent) singleChoice: SingleChoiceComponent | undefined;
-  @ViewChild(MultipleChoiceComponent) multipleChoice: MultipleChoiceComponent | undefined;
+  @ViewChild(MultipleResponseComponent) MultipleResponse: MultipleResponseComponent | undefined;
   @ViewChild(ShortAnswerComponent) shortAnswer: ShortAnswerComponent | undefined;
 
   public currentQuestion : any; 
@@ -207,8 +207,8 @@ export class CategoryViewComponent implements OnInit, OnDestroy {
         this.cloze?.validateButtonPressed(); 
         return;
       case 5:
-        //hier Funktion für Questiontyp 5 - Multiple Choice, die aufgerufen werden soll zum validieren
-        this.multipleChoice?.validateButtonPressed(); 
+        //hier Funktion für Questiontyp 5 - Multiple Response, die aufgerufen werden soll zum validieren
+        this.MultipleResponse?.validateButtonPressed(); 
         return; 
       case 6: 
         this.sortOrder?.validateButtonPressed();

@@ -517,7 +517,7 @@ export class SpaqrqlServiceService {
     let new_question= {
       questionId: this.question_id_aig,
       questionType: 5,
-      questionTypeName: "MultipleChoice",
+      questionTypeName: "MultipleResponse",
       category: 3,
       questionText: "AIG: Welche dieser Fakten über " + result_sparql_request[0].cityLabel.value+ " sind wahr?",
       imageUrl: "",

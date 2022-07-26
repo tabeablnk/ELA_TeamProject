@@ -75,7 +75,7 @@
     {
         "questionId": 4,
         "questionType": 5,
-        "questionTypeName": "MultipleChoice",
+        "questionTypeName": "MultipleResponse",
         "category": 0,
         "questionText": "",
         "imageUrl": "",

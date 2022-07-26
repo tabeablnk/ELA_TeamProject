@@ -4,11 +4,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CurrentQuizService } from 'src/app/services/current-quiz.service';
 
 @Component({
-  selector: 'app-multiple-choice',
-  templateUrl: './multiple-choice.component.html',
-  styleUrls: ['./multiple-choice.component.scss']
+  selector: 'app-multiple-response',
+  templateUrl: './multiple-response.component.html',
+  styleUrls: ['./multiple-response.component.scss']
 })
-export class MultipleChoiceComponent implements OnInit {
+export class MultipleResponseComponent implements OnInit {
   form: FormGroup;
   
   public currentQuestion: any; 

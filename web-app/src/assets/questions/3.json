@@ -162,7 +162,7 @@
     {
       "questionId": 10,
       "questionType": 5,
-      "questionTypeName": "MultipleChoice",
+      "questionTypeName": "MultipleResponse",
       "category": 3,
       "questionText": "Welche der folgenden Flüsse liegt in Bayern?",
       "imageUrl": "",
@@ -182,7 +182,7 @@
     {
       "questionId": 11,
       "questionType": 5,
-      "questionTypeName": "MultipleChoice",
+      "questionTypeName": "MultipleResponse",
       "category": 3,
       "questionText": "Welche der folgenden Regierungsbezirke gehören zu Bayern?",
       "imageUrl": "",

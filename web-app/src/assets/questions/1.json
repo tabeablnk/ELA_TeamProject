@@ -46,7 +46,7 @@
   {
     "questionId": 4,
     "questionType": 5,
-    "questionTypeName": "MultipleChoice",
+    "questionTypeName": "MultipleResponse",
     "category": 1,
     "questionText": "Welche Städte liegen in Bayern?",
     "imageUrl": "",
@@ -127,7 +127,7 @@
     {
       "questionId": 9,
       "questionType": 5,
-      "questionTypeName": "MultipleChoice",
+      "questionTypeName": "MultipleResponse",
       "category": 1,
       "questionText": "Welche Städte gelten als Großstädte (Mehr als 100.000 Einwohner)?",
       "imageUrl": "",
